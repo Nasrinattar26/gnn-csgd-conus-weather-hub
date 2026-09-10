@@ -3,84 +3,121 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="Development dashboard for HRRR-based GNN-CSGD precipitation guidance.">
-  <title>HRRR GNN-CSGD CONUS Weather Hub</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; background: #f3f6fb; color: #172334;
-      font: 16px/1.65 system-ui, sans-serif;
-    }
-    header {
-      padding: 48px 24px; color: white;
-      background: linear-gradient(120deg, #091a43, #145a68);
-    }
-    .wrap { max-width: 1100px; margin: auto; }
-    h1 { line-height: 1.15; font-size: clamp(2rem, 5vw, 3rem); }
-    nav { display: flex; flex-wrap: wrap; gap: 24px; }
-    nav a { color: white; }
-    main { padding: 28px 24px; }
-    section {
-      padding: 24px; margin-bottom: 20px; background: white;
-      border: 1px solid #d8e1ee; border-radius: 16px;
-    }
-    h2 { margin-top: 0; }
-    .status {
-      display: inline-block; padding: 5px 12px;
-      border: 1px solid currentColor; border-radius: 20px;
-    }
-    .models { display: flex; flex-wrap: wrap; gap: 24px; }
-    .raw { color: #1d4ed8; }
-    .ann { color: #b91c1c; }
-    .gnn { color: #15803d; }
-    footer { padding: 12px 24px 32px; color: #526175; }
-  </style>
+  <meta name="description" content="HRRR-based GNN-CSGD precipitation research dashboard. Forecast products and matched verification are being connected.">
+  <title>CONUS Weather Hub | HRRR GNN-CSGD</title>
+  <link rel="stylesheet" href="assets/gnn-style.css?v=step02-1">
+  <script src="assets/gnn-app.js?v=step02-1" defer></script>
 </head>
-<body>
-  <header>
-    <div class="wrap">
-      <span class="status">Under development — no forecasts published</span>
-      <h1>HRRR GNN-CSGD CONUS Weather Hub</h1>
-      <p>Planned 6-, 12-, and 24-hour probabilistic precipitation guidance.</p>
-      <nav aria-label="Primary navigation">
-        <a href="#forecasts">Forecasts</a>
-        <a href="#comparison">Model Comparison</a>
-        <a href="#method">Method</a>
-      </nav>
+<body data-page="forecasts" data-site-root="./">
+  <a class="skip" href="#main">Skip to main content</a>
+  <nav class="topbar" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="index.html"><span>GNN-CSGD</span> Weather Hub</a>
+      <div class="nav-links">
+        <a href="index.html#forecast-workspace" aria-current="page">Forecasts</a>
+        <a href="index.html#verification">Verification</a>
+        <a href="model-comparison/" >Model Comparison</a>
+        <a href="index.html#downloads">Downloads</a>
+        <a href="index.html#method">Method</a>
+      </div>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">HRRR-based probabilistic precipitation research</p>
+        <h1>HRRR GNN-CSGD<span>CONUS Weather Hub</span></h1>
+        <p class="hero-description">Separate 6-, 12-, and 24-hour precipitation models combine HRRR predictors,
+        GraphSAGE spatial learning, and censored shifted Gamma distributions.</p>
+        <div class="hero-actions">
+          <span class="badge" id="status-badge" role="status">Checking published forecast catalog…</span>
+          <a class="button" href="model-comparison/">Compare forecast systems</a>
+        </div>
+      </div>
+      <aside class="run-card">
+        <span class="small-label">Latest published GNN initialization</span>
+        <strong id="latest-init">Not available yet</strong>
+        <p id="run-note">Training checkpoints are not forecast products. Only published forecast entries appear here.</p>
+        <div class="stats">
+          <div><span class="small-label">Accumulations</span><strong>6 / 12 / 24 h</strong></div>
+          <div><span class="small-label">Output grid</span><strong>0.25° · CONUS</strong></div>
+        </div>
+      </aside>
     </div>
   </header>
-
-  <main class="wrap">
-    <section id="forecasts">
+  <noscript><p class="noscript">Enable JavaScript to use the catalog and forecast selectors. No forecast is displayed without a matching published entry.</p></noscript>
+  <main id="main" class="layout">
+    <aside class="sidebar panel">
       <h2>Forecast workspace</h2>
-      <p>Initialization dates, accumulation durations, forecast windows,
-         maps, animations, and downloads will appear here when verified
-         GNN products are connected.</p>
-    </section>
-
-    <section id="comparison">
-      <h2>Model Comparison</h2>
-      <div class="models">
-        <strong class="raw">Raw HRRR</strong>
-        <strong class="ann">ANN-CSGD</strong>
-        <strong class="gnn">GNN-CSGD</strong>
-      </div>
-      <p>Matched verification results are not published yet.
-         Duration, forecast-window, threshold, and resolution controls
-         will be added as corresponding products become available.</p>
-    </section>
-
-    <section id="method">
-      <h2>Method</h2>
-      <p>Planned workflow: HRRR predictors → spatial graph →
-         GraphSAGE → censored shifted Gamma distributions →
-         precipitation amounts and exceedance probabilities.</p>
-    </section>
+      <nav class="side-links" aria-label="Dashboard sections">
+        <a class="active" href="#forecast-workspace">01 &nbsp; Forecast maps</a>
+        <a href="#animations">02 &nbsp; Animations</a>
+        <a href="#downloads">03 &nbsp; Downloads</a>
+        <a href="#verification">04 &nbsp; Verification</a>
+        <a href="model-comparison/">05 &nbsp; Model comparison</a>
+        <a href="#method">06 &nbsp; Method</a>
+      </nav>
+      <div class="side-note"><span class="small-label">Publication status</span>
+      <p>The interface is ready to receive products. Available initializations, maps, and files are read from the GNN catalog.</p>
+      <p>No ANN maps or demonstration forecasts are substituted.</p></div>
+    </aside>
+    <div class="content">
+      <section class="panel" id="forecast-workspace">
+        <div class="section-head"><h2>GNN-CSGD forecast maps</h2><span class="badge" id="map-status">Catalog pending</span></div>
+        <p class="section-intro">Choose an initialization, accumulation duration, forecast window, and product. All valid times are UTC.</p>
+        <div class="controls">
+          <label>Initialization (UTC)<select id="map-init" disabled><option>No published initializations</option></select></label>
+          <label>Accumulation duration<select id="map-duration"><option value="6">6-hour</option><option value="12" selected>12-hour</option><option value="24">24-hour</option></select></label>
+          <label>Forecast window<select id="map-window" aria-describedby="schedule-note"></select></label>
+          <label>Forecast product<select id="map-product"></select></label>
+        </div>
+        <div class="map-navigation">
+          <button type="button" id="previous-window">← Previous window</button>
+          <span id="map-summary" class="selection-summary" aria-live="polite">Select a window</span>
+          <button type="button" id="next-window">Next window →</button>
+        </div>
+        <figure class="map-shell">
+          <div id="map-empty" class="empty-state" role="status"><span class="empty-mark" aria-hidden="true">G</span><strong id="map-empty-title">GNN forecast data are not published yet</strong><p id="map-empty-text">The controls show the planned forecast schedule. No map is being simulated.</p></div>
+          <img id="forecast-map" alt="" hidden>
+          <figcaption class="figure-meta"><div><p id="map-caption">Expected precipitation is in millimeters; exceedance probabilities are in percent.</p><p id="map-validity">No valid period available until an initialization is published.</p></div><a id="open-map" target="_blank" rel="noopener" hidden>Open full-resolution image ↗</a></figcaption>
+        </figure>
+        <p class="note" id="schedule-note">Preview of planned windows only; forecasts are not available yet.</p>
+      </section>
+      <section class="panel" id="animations">
+        <h2>Forecast animations</h2>
+        <p class="section-intro">Animations use the selected initialization, duration, and product above.</p>
+        <p id="animation-empty" class="pending-box">No matching animation has been published.</p>
+        <img id="forecast-animation" alt="" hidden>
+      </section>
+      <section class="panel" id="downloads">
+        <h2>Forecast downloads</h2>
+        <p class="section-intro">Files for the selected forecast window will appear when they are published. Training weights and source arrays are not exposed.</p>
+        <p class="pending-box" id="downloads-empty">No NetCDF or GRIB2 download is available for this selection.</p>
+        <div id="download-links" class="download-links"></div>
+      </section>
+      <section class="panel" id="verification">
+        <div class="section-head"><h2>Held-out verification</h2><span class="badge">Results pending</span></div>
+        <p class="section-intro">GNN test results have not been connected to this dashboard. Training and validation losses are not displayed as test skill.</p>
+        <div class="metric-grid">
+          <div class="metric-card"><strong>CRPS / CRPSS</strong><span>Full predictive distribution</span></div>
+          <div class="metric-card"><strong>Brier Score / BSS</strong><span>Threshold probabilities</span></div>
+          <div class="metric-card"><strong>ROC / reliability</strong><span>Discrimination and calibration</span></div>
+        </div>
+        <a class="button" href="model-comparison/">Open Raw HRRR · ANN-CSGD · GNN-CSGD comparison</a>
+      </section>
+      <section class="panel" id="method">
+        <h2>How GNN-CSGD works</h2>
+        <p class="section-intro">A shared spatial graph supports three separately trained duration models.</p>
+        <div class="method-grid">
+          <div><strong>1. HRRR predictors</strong><span>12 duration-specific features per land node.</span></div>
+          <div><strong>2. GraphSAGE</strong><span>Learned aggregation across the 8-neighbor land graph.</span></div>
+          <div><strong>3. CSGD parameters</strong><span>Shape, scale, and nonpositive shift define a marginal distribution at each node.</span></div>
+          <div><strong>4. Forecast products</strong><span>Expected precipitation and exceedance probabilities from each distribution.</span></div>
+        </div>
+        <p class="note">Current graph: 13,318 land nodes. A finer display image is not a higher-resolution model. Spatial message passing does not by itself produce a joint space-time ensemble.</p>
+      </section>
+    </div>
   </main>
-
-  <footer class="wrap">
-    Research dashboard under development. Not official forecast guidance.
-  </footer>
+  <footer class="footer"><div><span>Nasrin Attar · HRRR GNN-CSGD research dashboard</span><span>Not official forecast guidance · Interface step 02</span></div></footer>
 </body>
 </html>

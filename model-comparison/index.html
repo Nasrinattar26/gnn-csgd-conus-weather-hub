@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="HRRR-based GNN-CSGD precipitation research dashboard. Forecast products and matched verification are being connected.">
+  <title>Model Comparison | HRRR GNN-CSGD</title>
+  <link rel="stylesheet" href="../assets/gnn-style.css?v=step02-1">
+  <script src="../assets/gnn-app.js?v=step02-1" defer></script>
+</head>
+<body data-page="comparison" data-site-root="../">
+  <a class="skip" href="#main">Skip to main content</a>
+  <nav class="topbar" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html"><span>GNN-CSGD</span> Weather Hub</a>
+      <div class="nav-links">
+        <a href="../index.html#forecast-workspace" >Forecasts</a>
+        <a href="../index.html#verification">Verification</a>
+        <a href="../model-comparison/" aria-current="page">Model Comparison</a>
+        <a href="../index.html#downloads">Downloads</a>
+        <a href="../index.html#method">Method</a>
+      </div>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">HRRR-based probabilistic precipitation research</p>
+        <h1>HRRR GNN-CSGD<span>Model Comparison</span></h1>
+        <p class="hero-description">Separate 6-, 12-, and 24-hour precipitation models combine HRRR predictors,
+        GraphSAGE spatial learning, and censored shifted Gamma distributions.</p>
+        <div class="hero-actions">
+          <span class="badge" id="status-badge" role="status">Checking published forecast catalog…</span>
+          <a class="button" href="../index.html#forecast-workspace">Open forecast workspace</a>
+        </div>
+      </div>
+      <aside class="run-card">
+        <span class="small-label">Latest published GNN initialization</span>
+        <strong id="latest-init">Not available yet</strong>
+        <p id="run-note">Training checkpoints are not forecast products. Only published forecast entries appear here.</p>
+        <div class="stats">
+          <div><span class="small-label">Accumulations</span><strong>6 / 12 / 24 h</strong></div>
+          <div><span class="small-label">Output grid</span><strong>0.25° · CONUS</strong></div>
+        </div>
+      </aside>
+    </div>
+  </header>
+  <noscript><p class="noscript">Enable JavaScript to use the catalog and forecast selectors. No forecast is displayed without a matching published entry.</p></noscript>
+  <main id="main" class="layout compare-layout">
+    <div class="content">
+      <section class="panel">
+        <div class="section-head"><h2>Raw HRRR · ANN-CSGD · GNN-CSGD</h2><span class="badge" id="comparison-status">Checking catalog</span></div>
+        <p class="section-intro">Results will be shown only for a declared common sample and verification grid. No model rankings are inferred from the interface.</p>
+        <div class="model-grid">
+          <article class="model-card raw"><h3>Raw HRRR</h3><p>Deterministic baseline. Thresholding one HRRR field produces 0/1 event forecasts, not ensemble probabilities.</p></article>
+          <article class="model-card ann"><h3>ANN-CSGD</h3><p>Pointwise neural postprocessing using the corresponding HRRR accumulation and predictors.</p></article>
+          <article class="model-card gnn"><h3>GNN-CSGD</h3><p>Graph-based postprocessing with learned neighboring-node information.</p></article>
+        </div>
+        <div class="controls compare-controls">
+          <label>Accumulation duration<select id="cmp-duration"><option value="6">6-hour</option><option value="12" selected>12-hour</option><option value="24">24-hour</option></select></label>
+          <label>Verification resolution<select id="cmp-grid"><option value="ann025_conus">Common 0.25° grid</option></select></label>
+          <label>Metric<select id="cmp-metric"><option value="bss">Brier Skill Score</option><option value="crps">CRPS</option><option value="roc_auc">ROC AUC</option><option value="reliability">Reliability</option></select></label>
+          <label>Precipitation threshold<select id="cmp-threshold"><option value="12.7">12.7 mm / 0.5 inch</option><option value="25.4">25.4 mm / 1 inch</option><option value="50.8">50.8 mm / 2 inches</option></select></label>
+        </div>
+        <figure class="map-shell">
+          <div class="empty-state compare-empty" id="comparison-empty" role="status"><span class="empty-mark" aria-hidden="true">≈</span><strong id="comparison-empty-title">Matched verification results are not published yet</strong><p id="comparison-empty-text">The three-system comparison will be connected after GNN test inference and common-sample checks.</p></div>
+          <img id="comparison-image" alt="" hidden>
+          <figcaption class="figure-meta"><p id="comparison-caption">Select a duration, metric, and threshold. No scores are currently available.</p><a id="open-comparison" target="_blank" rel="noopener" hidden>Open comparison image ↗</a></figcaption>
+        </figure>
+        <p class="note">Resolution options can be extended after matched outputs and observations exist at those resolutions. This selector does not regrid forecasts or create higher-resolution predictions.</p>
+      </section>
+      <section class="panel"><h2>Comparison requirements</h2><p class="section-intro">Each published comparison must identify its accumulation duration, valid periods, spatial mask, grid, model versions, and scoring reference. The catalog records the shared sample identifier and evaluation period alongside the figure.</p><a href="../index.html#forecast-workspace">← Return to GNN forecasts</a></section>
+    </div>
+  </main>
+  <footer class="footer"><div><span>Nasrin Attar · HRRR GNN-CSGD research dashboard</span><span>Not official forecast guidance · Interface step 02</span></div></footer>
+</body>
+</html>
