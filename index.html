@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Development dashboard for HRRR-based GNN-CSGD precipitation guidance.">
+  <title>HRRR GNN-CSGD CONUS Weather Hub</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: #f3f6fb; color: #172334;
+      font: 16px/1.65 system-ui, sans-serif;
+    }
+    header {
+      padding: 48px 24px; color: white;
+      background: linear-gradient(120deg, #091a43, #145a68);
+    }
+    .wrap { max-width: 1100px; margin: auto; }
+    h1 { line-height: 1.15; font-size: clamp(2rem, 5vw, 3rem); }
+    nav { display: flex; flex-wrap: wrap; gap: 24px; }
+    nav a { color: white; }
+    main { padding: 28px 24px; }
+    section {
+      padding: 24px; margin-bottom: 20px; background: white;
+      border: 1px solid #d8e1ee; border-radius: 16px;
+    }
+    h2 { margin-top: 0; }
+    .status {
+      display: inline-block; padding: 5px 12px;
+      border: 1px solid currentColor; border-radius: 20px;
+    }
+    .models { display: flex; flex-wrap: wrap; gap: 24px; }
+    .raw { color: #1d4ed8; }
+    .ann { color: #b91c1c; }
+    .gnn { color: #15803d; }
+    footer { padding: 12px 24px 32px; color: #526175; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="status">Under development — no forecasts published</span>
+      <h1>HRRR GNN-CSGD CONUS Weather Hub</h1>
+      <p>Planned 6-, 12-, and 24-hour probabilistic precipitation guidance.</p>
+      <nav aria-label="Primary navigation">
+        <a href="#forecasts">Forecasts</a>
+        <a href="#comparison">Model Comparison</a>
+        <a href="#method">Method</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="forecasts">
+      <h2>Forecast workspace</h2>
+      <p>Initialization dates, accumulation durations, forecast windows,
+         maps, animations, and downloads will appear here when verified
+         GNN products are connected.</p>
+    </section>
+
+    <section id="comparison">
+      <h2>Model Comparison</h2>
+      <div class="models">
+        <strong class="raw">Raw HRRR</strong>
+        <strong class="ann">ANN-CSGD</strong>
+        <strong class="gnn">GNN-CSGD</strong>
+      </div>
+      <p>Matched verification results are not published yet.
+         Duration, forecast-window, threshold, and resolution controls
+         will be added as corresponding products become available.</p>
+    </section>
+
+    <section id="method">
+      <h2>Method</h2>
+      <p>Planned workflow: HRRR predictors → spatial graph →
+         GraphSAGE → censored shifted Gamma distributions →
+         precipitation amounts and exceedance probabilities.</p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    Research dashboard under development. Not official forecast guidance.
+  </footer>
+</body>
+</html>
