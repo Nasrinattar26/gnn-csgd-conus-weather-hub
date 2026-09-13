@@ -97,10 +97,58 @@
   function showMapMessage(title, detail) {
     $('map-empty').hidden = false; text('map-empty-title',title); text('map-empty-text',detail);
   }
+  // downloads35-1: presentation only; all catalog URLs are retained.
+  function renderDownloads(files) {
+    const primary = $('download-links');
+    if (!primary) return;
+    let details = $('download-details');
+    // Remain compatible with an older cached homepage.
+    if (!details) {
+      details = document.createElement('details');
+      details.id = 'download-details';
+      details.className = 'download-details';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Technical details';
+      const extra = document.createElement('div');
+      extra.id = 'technical-download-links';
+      extra.className = 'download-technical-links';
+      details.append(summary, extra);
+      ( $('grib2-core-scope') || primary ).after(details);
+    }
+    const technical = $('technical-download-links');
+    primary.replaceChildren();
+    technical.replaceChildren();
+    details.open = false;
+    details.hidden = true;
+    const items = files.map(file => {
+      const href = siteURL(file.href);
+      const path = new URL(href).pathname.toLowerCase();
+      const kind = path.endsWith('.png') ? 0 : path.endsWith('.gif') ? 1 :
+        path.endsWith('.grib2') ? 2 : path.endsWith('.tar.gz') ? 3 : 4;
+      return {file, href, kind};
+    }).sort((a,b) => a.kind - b.kind);
+    const labels = ['Map (PNG)', 'Animation (GIF)', 'Window data (GRIB2)', 'All windows (.tar.gz)'];
+    for (const {file, href, kind} of items) {
+      const link = document.createElement('a');
+      link.textContent = kind < 4 ? labels[kind] : file.label;
+      link.href = href;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      if (kind < 4) {
+        link.className = 'button';
+        if (kind >= 2) link.title = 'Expected precipitation and fixed-threshold probabilities only; ARI excluded.';
+        primary.append(link);
+      } else {
+        technical.append(link);
+      }
+    }
+    details.hidden = technical.children.length === 0;
+    $('downloads-empty').hidden = items.length > 0;
+  }
   function renderForecast() {
     const version = ++mapVersion; const av = ++animationVersion;
     clearMedia('forecast-map','open-map'); clearMedia('forecast-animation');
-    $('download-links').replaceChildren(); $('downloads-empty').hidden = false;
+    renderDownloads([]);
     $('animation-empty').hidden = false;
     text('animation-empty','No matching animation has been published.');
     const d = Number($('map-duration').value);
@@ -126,10 +174,7 @@
     image.onload = () => { if (version !== mapVersion) return; $('map-empty').hidden=true; image.hidden=false; $('open-map').href=src; $('open-map').hidden=false; text('map-status','Published map'); };
     image.onerror = () => { if (version !== mapVersion) return; clearMedia('forecast-map','open-map'); text('map-status','Map file unavailable'); showMapMessage('The catalog entry exists, but its map could not be loaded','The previous map is not displayed as a substitute.'); };
     image.src = src;
-    for (const file of e.downloads || []) {
-      const link=document.createElement('a'); link.textContent=file.label; link.href=siteURL(file.href); link.className='button'; link.target='_blank'; link.rel='noopener'; $('download-links').append(link);
-    }
-    $('downloads-empty').hidden = (e.downloads || []).length>0;
+    renderDownloads(e.downloads || []);
     if (e.animation) {
       text('animation-empty','Loading published animation…');
       const image=$('forecast-animation'); image.alt=`${product.label(d)}; ${d}-hour HRRR GNN-CSGD animation; initialized ${utc(run.init_utc)}.`;
