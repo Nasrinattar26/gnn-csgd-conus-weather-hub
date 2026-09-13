@@ -4,6 +4,9 @@
   const base = new URL(document.body.dataset.siteRoot || './', location.href);
   const $ = id => document.getElementById(id);
   const durations = [6, 12, 24];
+  // ero17-1: exact-cycle WPC comparisons are separate from the core forecast catalog.
+  const eroProduct = 'gnncsgd_wpc_ero_comparison';
+  let eroRuns = [], eroError = null;
   const products = [
     {id:'expected_precip_mm', label:()=>'Expected precipitation', units:'mm', durations:[6,12,24]},
     {id:'prob_gt_6p35_mm', label:()=>'P(precipitation > 6.35 mm / 0.25 inch)', units:'percent', durations:[6]},
@@ -13,7 +16,8 @@
     {id:'prob_gt_76p2_mm', label:()=>'P(precipitation > 76.2 mm / 3 inches)', units:'percent', durations:[12,24]},
     {id:'prob_gt_127_mm', label:()=>'P(precipitation > 127 mm / 5 inches)', units:'percent', durations:[24]},
     {id:'prob_gt_2yr_ari', label:d=>`P(precipitation > local 2-year ${d}-h ARI)`, units:'percent', durations:[6,12,24]},
-    {id:'prob_gt_5yr_ari', label:d=>`P(precipitation > local 5-year ${d}-h ARI)`, units:'percent', durations:[6,12,24]}
+    {id:'prob_gt_5yr_ari', label:d=>`P(precipitation > local 5-year ${d}-h ARI)`, units:'percent', durations:[6,12,24]},
+    {id:eroProduct, label:()=>'GNN-CSGD / WPC ERO comparison', units:'comparison', durations:[24]}
   ];
   let runs = [], comparisons = [], forecastError = null, comparisonError = null;
   let mapVersion = 0, comparisonVersion = 0, animationVersion = 0;
@@ -57,7 +61,7 @@
         need(durations.includes(d) && Number.isInteger(a) && Number.isInteger(b) && a >= 0 && b <= 48 && b-a === d && a%6 === 0, 'Invalid forecast accumulation window.');
         need(e.domain === 'CONUS' && e.grid_id === 'ann025_conus', 'An entry has the wrong grid/domain.');
         const product = products.find(p => p.id === e.product);
-        need(product && product.durations.includes(d) && product.units === e.units, 'Unexpected product, duration or units.');
+        need(product && product.id !== eroProduct && product.durations.includes(d) && product.units === e.units, 'Unexpected product, duration or units.');
         const key = [d,a,b,e.product].join('|');
         need(!seen.has(key), 'Duplicate forecast entry.'); seen.add(key);
         siteURL(e.image);
@@ -69,6 +73,46 @@
       }
     }
     return catalog.runs.filter(r => r.entries.length).sort((a,b) => b.init_utc.localeCompare(a.init_utc));
+  }
+
+  function validateERO(catalog) {
+    need(catalog.schema_version === 1 && catalog.model_id === 'hrrr_gnn_csgd' &&
+      catalog.product === eroProduct && Array.isArray(catalog.runs), 'Unexpected ERO catalog.');
+    const seen = new Set();
+    for (const run of catalog.runs) {
+      const init = dateMS(run.init_utc);
+      need(new Date(init).getUTCHours() === 12 && !seen.has(run.init_utc), 'Invalid or duplicate ERO initialization.');
+      seen.add(run.init_utc);
+      need(Array.isArray(run.entries) && run.entries.length === 2, 'Expected two ERO forecast days.');
+      const days = new Set();
+      for (const e of run.entries) {
+        need([1,2].includes(e.ero_day) && !days.has(e.ero_day), 'Invalid or duplicate ERO day.');
+        days.add(e.ero_day);
+        need(e.duration_hours === 24 && e.lead_start_hours === 24*(e.ero_day-1) &&
+          e.lead_end_hours === 24*e.ero_day && e.product === eroProduct && e.units === 'comparison', 'Invalid ERO window.');
+        const start = init + e.lead_start_hours*3600000, end = init + e.lead_end_hours*3600000;
+        const actual = dateMS(e.wpc_valid_start_utc);
+        need(dateMS(e.wpc_valid_end_utc) === end && actual >= start && actual < end &&
+          e.wpc_temporal_coverage === (actual === start ? 'full' : 'partial'), 'WPC validity differs from the selected day.');
+        need(Array.isArray(e.wpc_issue_times_utc) && e.wpc_issue_times_utc.length > 0 &&
+          e.wpc_issue_times_utc.every(t => dateMS(t) < end), 'Missing or invalid WPC issuance time.');
+        need(typeof e.image_sha256 === 'string' && /^[a-f0-9]{64}$/.test(e.image_sha256), 'Missing ERO image hash.');
+        const stamp = run.init_utc.replace(/[-:T]/g,'').slice(0,10);
+        const window = `f${String(e.lead_start_hours).padStart(2,'0')}_f${String(e.lead_end_hours).padStart(2,'0')}`;
+        const prefix = `products/ero/${stamp}`;
+        const image = `${prefix}/24h/${window}/hrrr_gnncsgd_wpc_ero_${stamp}_${window}_day${e.ero_day}_conus.png`;
+        need(siteURL(e.image) === siteURL(image), 'ERO image path has a different cycle or window.');
+        need(Array.isArray(e.downloads) && e.downloads.length === 3 && !e.animation, 'Unexpected ERO downloads.');
+        const expectedDownloads = new Set([image, image.replace(/\.png$/,'.json'), `${prefix}/source/Day${e.ero_day}.geojson`].map(siteURL));
+        const downloadSeen = new Set();
+        for (const f of e.downloads) {
+          need(typeof f.label === 'string' && f.label.trim() && /\.(png|json|geojson)$/.test(new URL(siteURL(f.href)).pathname), 'Invalid ERO download.');
+          need(expectedDownloads.has(siteURL(f.href)) && !downloadSeen.has(siteURL(f.href)), 'ERO download path differs or is duplicated.');
+          downloadSeen.add(siteURL(f.href));
+        }
+      }
+    }
+    return catalog.runs;
   }
   function replaceOptions(id, values, wanted) {
     const select = $(id); select.replaceChildren();
@@ -155,15 +199,35 @@
     const [a,b] = $('map-window').value.split(':').map(Number);
     const product = products.find(p => p.id === $('map-product').value);
     const run = selectedRun();
+    const isERO = product.id === eroProduct;
+    if ($('ero-context')) $('ero-context').hidden = !isERO;
+    if ($('grib2-core-scope')) $('grib2-core-scope').hidden = isERO;
+    if (isERO) {
+      text('animation-empty','ERO comparisons are available as Day 1 and Day 2 maps.');
+      text('ero-validity','ERO is available for Day 1 (f00–f24) and Day 2 (f24–f48).');
+    }
     text('map-summary',`${d}-hour accumulation · forecast hours ${a}–${b}`);
-    text('map-caption',`${product.label(d)} · ${product.units === 'mm' ? 'millimeters' : 'probability (%)'}`);
+    text('map-caption',`${product.label(d)} · ${isERO ? 'rainfall and excessive-rainfall guidance' : product.units === 'mm' ? 'millimeters' : 'probability (%)'}`);
     text('map-validity',run ? `${utc(dateMS(run.init_utc)+a*3600000)} to ${utc(dateMS(run.init_utc)+b*3600000)}` : 'Select an available initialization to view its valid period.');
     $('previous-window').disabled = $('map-window').selectedIndex <= 0;
     $('next-window').disabled = $('map-window').selectedIndex >= $('map-window').options.length-1;
     if (forecastError) {
       text('map-status','Forecasts unavailable'); showMapMessage('Forecast information could not be loaded','Refresh the page or try again later.'); return;
     }
-    const e = run?.entries.find(e=>e.duration_hours===d && e.lead_start_hours===a && e.lead_end_hours===b && e.product===product.id);
+    const entries = isERO ? eroRuns.find(r=>r.init_utc===run?.init_utc)?.entries : run?.entries;
+    const e = entries?.find(e=>e.duration_hours===d && e.lead_start_hours===a && e.lead_end_hours===b && e.product===product.id);
+    if (isERO && !e) {
+      text('map-status','ERO comparison unavailable');
+      showMapMessage('No ERO comparison is available for this selection',
+        ![0,24].includes(a) ? 'Select f00–f24 for Day 1 or f24–f48 for Day 2. WPC outlooks do not match the intermediate rolling windows.' :
+        eroError ? 'The ERO catalog could not be loaded. Refresh the page or try again later.' :
+        'This initialization does not yet have a published GNN / WPC ERO comparison. Check again later.');
+      return;
+    }
+    if (isERO) {
+      text('map-caption',`GNN-CSGD / WPC ERO comparison · Day ${e.ero_day}`);
+      text('ero-validity',`WPC valid: ${utc(e.wpc_valid_start_utc)} to ${utc(e.wpc_valid_end_utc)}. Issued: ${e.wpc_issue_times_utc.map(utc).join(', ')}. ${e.wpc_temporal_coverage==='partial' ? 'WPC coverage begins after the model window starts.' : 'WPC and model valid periods match.'}`);
+    }
     if (!e) {
       text('map-status',run ? 'Product unavailable' : 'No forecasts available');
       showMapMessage(run ? 'This product is unavailable for the selected window' : 'No GNN forecast cycle is available', 'Choose another published initialization, window, or product, or check again later.'); return;
@@ -239,6 +303,11 @@
     if($('map-init')){
       replaceOptions('map-init',runs.length?runs.map(r=>[r.init_utc,utc(r.init_utc)]):[['','No published initializations']]);
       $('map-init').disabled=!runs.length;windowOptions();
+    }
+    if($('map-init')){
+      try { eroRuns = validateERO(await readCatalog('data/ero_catalog_v1.json')); }
+      catch(error) { eroError = error.message; console.warn('ERO catalog:', error.message); }
+      renderForecast();
     }
     if($('cmp-duration')){
       ['cmp-duration','cmp-grid','cmp-metric','cmp-threshold'].forEach(id=>$(id).addEventListener('change',renderComparison));
