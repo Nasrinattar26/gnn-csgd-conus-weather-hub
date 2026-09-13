@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Matched 2025 verification of raw HRRR, ANN-CSGD and GNN-CSGD, with continuous skill, threshold scores and calibration diagnostics.">
+  <meta name="description" content="Compare raw HRRR, ANN-CSGD and GNN-CSGD by forecast initialization, valid window, accumulation duration and verification metric.">
   <title>Model Comparison | HRRR GNN-CSGD</title>
   <link rel="stylesheet" href="../assets/gnn-style.css?v=downloads35-1">
   <link rel="stylesheet" href="../assets/gnn-comparison-v2.css?v=figures15-1">
-  <script src="../assets/gnn-comparison-v2.js?v=figures15-1" defer></script>
+  <link rel="stylesheet" href="../assets/gnn-comparison-dated-v1.css?v=dated19-1">
+  <script src="../assets/gnn-comparison-dated-v1.js?v=dated19-1" defer></script>
 </head>
 <body data-page="comparison" data-site-root="../">
   <a class="skip" href="#main">Skip to main content</a>
@@ -51,14 +52,14 @@
   <header class="hero comparison-hero">
     <div class="hero-inner">
       <div>
-        <p class="eyebrow">Forecast verification · 2025</p>
+        <p class="eyebrow">Forecast verification</p>
         <h1>Model comparison<span>Raw HRRR · ANN-CSGD · GNN-CSGD</span></h1>
         <p class="hero-description">Compare precipitation forecast skill, discrimination, and calibration on the same CONUS 0.25° verification grid.</p>
         <div class="hero-actions"><a class="button" href="#saved-figures">Explore comparisons</a><a class="comparison-hero-link" href="../index.html#forecast-workspace">Open live forecasts ↗</a></div>
       </div>
       <aside class="run-card" aria-label="Evaluation scope">
-        <span class="small-label">Independent test period</span><strong>2025</strong>
-        <p>Each duration uses its own matched cases. Brier skill uses the shared 2024 validation climatology.</p>
+        <span class="small-label" id="scope-label">Evaluation period</span><strong id="scope-period">Loading…</strong>
+        <p id="scope-note">Select a forecast initialization or the 2025 test period. Every comparison uses matched observations.</p>
         <div class="stats"><div><span class="small-label">Accumulations</span><strong>6 / 12 / 24 h</strong></div><div><span class="small-label">Verification grid</span><strong>0.25° · CONUS</strong></div></div>
       </aside>
     </div>
@@ -68,7 +69,14 @@
     <div class="content">
       <section class="panel comparison-viewer" id="saved-figures" aria-labelledby="viewer-heading">
         <div class="section-head"><h2 id="viewer-heading">Compare forecast skill</h2><span id="comparison-data-status" class="badge" role="status">Loading comparisons…</span></div>
-        <p class="section-intro">Choose a metric, accumulation duration, and precipitation threshold.</p>
+        <p class="section-intro">Choose an evaluation, initialization, forecast window, and metric. All times are UTC.</p>
+        <div class="controls evaluation-controls">
+          <label>Evaluation<select id="evaluation-scope" disabled><option value="daily">Forecast initializations</option><option value="2025">2025 test period</option></select></label>
+        </div>
+        <div id="dated-controls" class="controls dated-controls">
+          <label>Comparison initialization (UTC)<select id="comparison-initialization" disabled></select></label>
+          <label>Forecast window<select id="comparison-window" disabled></select></label>
+        </div>
         <div class="controls figure-controls">
           <label>Metric<select id="figure-metric" disabled>
             <option value="crps">CRPS</option><option value="crpss">CRPSS</option><option value="brier">Brier score</option><option value="bss" selected>Brier Skill Score</option><option value="roc_auc">ROC AUC</option><option value="roc_curve">ROC curves</option><option value="reliability">Reliability</option><option value="ece">Expected calibration error</option><option value="usage">Probability-bin usage</option><option value="reliability_penalty">Reliability penalty</option><option value="resolution">Resolution</option><option value="crps_reduction">CRPS reduction: GNN vs ANN</option><option value="brier_reduction">Brier-score reduction: GNN vs ANN</option>
@@ -80,23 +88,32 @@
         <p id="comparison-data-error" class="pending-box" role="alert" hidden></p>
         <div class="figure-heading"><h3 id="figure-title">Brier Skill Score</h3><div class="figure-navigation" aria-label="Choose another metric"><button id="previous-metric" type="button" disabled>← Previous</button><button id="next-metric" type="button" disabled>Next →</button></div></div>
         <figure class="map-shell comparison-figure">
-          <div class="figure-image-area"><p id="figure-message" class="pending-box" role="status">Loading the figure…</p><img id="comparison-figure" alt="" width="1680" height="1152" hidden></div>
-          <figcaption class="figure-meta"><p id="figure-caption"></p><div class="figure-downloads"><a id="figure-png" class="button" target="_blank" rel="noopener" hidden>Open PNG ↗</a><a id="figure-csv" class="button" hidden>Download values (CSV)</a></div></figcaption>
+          <div class="figure-image-area"><p id="figure-message" class="pending-box" role="status">Loading the figure…</p><div id="dated-plot" hidden></div><img id="comparison-figure" alt="" width="1680" height="1152" hidden></div>
+          <figcaption class="figure-meta"><p id="figure-caption"></p><div class="figure-downloads"><button id="daily-png" type="button" hidden>Download PNG</button><a id="figure-png" class="button" target="_blank" rel="noopener" hidden>Open PNG ↗</a><a id="figure-csv" class="button" hidden>Download values (CSV)</a></div></figcaption>
         </figure>
         <p id="figure-note" class="note metric-note"></p>
         <details class="comparison-details" id="figure-values"><summary>View values and sample counts</summary><div class="comparison-table-wrap" tabindex="0" role="region" aria-label="Selected comparison values"><table><caption id="values-caption"></caption><thead id="values-head"></thead><tbody id="values-body"></tbody></table></div></details>
       </section>
       <section class="panel" id="comparison-downloads" aria-labelledby="downloads-title">
         <h2 id="downloads-title">Comparison downloads</h2>
-        <div class="download-links"><a class="button" href="../data/verification/2025/combined_crps_metrics_2025.csv">Continuous scores (CSV)</a><a class="button" href="../data/verification/2025/combined_probabilistic_metrics_2025.csv">Threshold scores (CSV)</a><a class="button" href="../data/verification/2025/combined_reliability_2025.csv">Reliability bins (CSV)</a><a class="button" href="../data/verification/2025/roc_curve_points_v2.csv">ROC coordinates (CSV)</a><a class="button" href="../data/verification/2025/comparison_figures_v2.json">Comparison data (JSON)</a></div>
+        <div class="download-links" id="benchmark-downloads"><a class="button" href="../data/verification/2025/combined_probabilistic_metrics_2025.csv">Threshold scores (CSV)</a><a class="button" href="../data/verification/2025/combined_reliability_2025.csv">Reliability bins (CSV)</a><a class="button" href="../data/verification/2025/roc_curve_points_v2.csv">ROC coordinates (CSV)</a><a class="button" href="../data/verification/2025/comparison_figures_v2.json">Comparison data (JSON)</a></div>
+        <div class="download-links" id="daily-downloads" hidden><a class="button" id="download-run-json" hidden>Selected initialization (JSON)</a><a class="button" href="../data/verification/dated_v1/catalog.json">Initialization catalog (JSON)</a></div>
         <details class="comparison-details"><summary>Evaluation scope and metric definitions</summary><div class="comparison-methods">
+          <div id="daily-methods" hidden>
+            <p><strong>Matched forecasts.</strong> Select a 12 UTC initialization, accumulation duration, and forecast window. Raw HRRR, ANN-CSGD, and GNN-CSGD use the same valid period and observed grid cells. Counts are gridpoint–forecast cases, not independent storms. Windows from different initializations can verify different weather; compare identical valid periods to examine lead-time changes for one event.</p>
+            <p><strong>Observations and availability.</strong> MRMS MultiSensor QPE 06H Pass2 is regridded to the shared CONUS 0.25° grid. A 12-hour accumulation requires two consecutive 6-hour fields; a 24-hour accumulation requires four. Missing components remain missing. Unfinished windows and unavailable observations remain pending, with retries on the daily schedule.</p>
+            <p><strong>Continuous skill.</strong> CRPS scores the full censored shifted gamma distribution in millimeters. The calculation includes the correction for censoring at zero and has been checked against numerical integration. Lower CRPS is better. CRPSS uses raw HRRR as the reference; raw HRRR CRPS equals its MAE. A zero reference score makes the corresponding skill score undefined.</p>
+            <p><strong>Threshold skill.</strong> Operational events are observed precipitation greater than or equal to the selected threshold, matching the ANN operational event definition. Brier skill uses monthly historical MRMS climatology: 2021–2025 for 6 hours and 2020–2025 for 12 and 24 hours. All three systems use the same threshold-specific samples and reference probabilities.</p>
+            <p><strong>ROC and calibration.</strong> ROC curves and AUC use all saved probabilities, grouping ties. Only collinear ROC vertices are removed, preserving the curve and its area. ROC is undefined when a selection has no observed events or no non-events. Reliability and ECE use ten probability bins. Reliability penalty and resolution are normalized by observed event uncertainty, which must be positive.</p>
+            <p><strong>Historical dates.</strong> Saved operational predictions are reused. Replays use archived HRRR inputs and frozen GNN models and are labeled in the selected figure. Verified results are retained as new dates are added. Score differences are point estimates without confidence intervals.</p>
+          </div><div id="benchmark-methods">
           <p><strong>Matched cases.</strong> The three systems are evaluated on the same 2025 cases within each duration: 38,888,560 cases for 6 hours, 33,987,536 for 12 hours, and 24,238,760 for 24 hours. Counts represent gridpoint–forecast cases, not independent storms. Durations are evaluated separately.</p>
-          <p><strong>Continuous skill.</strong> CRPS measures predictive-distribution error in millimeters; lower is better. CRPSS = 1 − CRPS / CRPS(raw HRRR). Raw HRRR's deterministic CRPS also equals its MAE.</p>
+          <p><strong>CRPS revalidation.</strong> The archived 2025 evaluator omits the zero-censoring correction. Its CRPS, CRPSS, and CRPS-reduction figures are withheld pending recomputation. Dated verification uses the corrected score. The model training loss also requires review; this update evaluates the frozen model predictions.</p>
           <p><strong>Threshold skill.</strong> Events are precipitation strictly greater than the selected amount. Brier score measures probability error. BSS = 1 − BS / BS(shared 2024 validation climatology), evaluated on the matched 2025 cases.</p>
           <p><strong>ROC curves and AUC.</strong> The curves use cumulative event and non-event counts from the ten saved ANN/GNN probability bins; raw HRRR uses its exact 0/1 forecasts. Points correspond to bin cutoffs, and straight segments join consecutive points. They do not resolve rankings within a bin. The separate ROC AUC comparison retains the published 10,001-bin ANN/GNN scores. Areas under the displayed curves can therefore differ from those finer-resolution AUC values. <a href="https://charts.ecmwf.int/products/mofc_multi_verification_probability_family_roc" target="_blank" rel="noopener">ROC interpretation ↗</a></p>
           <p><strong>Calibration.</strong> ECE = Σ(n<sub>b</sub>/N)|p̄<sub>b</sub> − ō<sub>b</sub>|. Reliability penalty = Σ(n<sub>b</sub>/N)(p̄<sub>b</sub> − ō<sub>b</sub>)²; resolution = Σ(n<sub>b</sub>/N)(ō<sub>b</sub> − ō)². The last two are normalized by observed event uncertainty ō(1−ō). These binned diagnostics need not reproduce the exact unbinned Brier score. <a href="https://events.ecmwf.int/event/335/contributions/3923/attachments/2416/4179/3_Leutbecher_verification1.pdf" target="_blank" rel="noopener">Brier components ↗</a></p>
           <p><strong>Score reductions.</strong> A positive reduction favors GNN-CSGD relative to ANN-CSGD. These are common-sample point estimates without confidence intervals.</p>
-        </div></details>
+        </div></div></details>
       </section>
     </div>
   </main>
