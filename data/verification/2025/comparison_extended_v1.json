@@ -1,0 +1,2609 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "matched_ann025_conus_2025_extended_v1",
+  "verification_year": 2025,
+  "validation_climatology_year": 2024,
+  "grid": {
+    "id": "ann025_conus",
+    "resolution_degrees": 0.25,
+    "domain": "CONUS"
+  },
+  "models": [
+    "raw_hrrr",
+    "ann_csgd",
+    "gnn_csgd"
+  ],
+  "thresholds_mm": [
+    12.7,
+    25.4,
+    50.8
+  ],
+  "source_sha256": {
+    "data/verification/2025/combined_crps_metrics_2025.csv": "05ff13de353c51b8e217f5dd8e59a8f0feb1ce44a02eac17eef98b6e6ca39909",
+    "data/verification/2025/combined_probabilistic_metrics_2025.csv": "ea8a73b6b28d32263049380da14b2eb8896353f5be734a447b4893b1e8e66179",
+    "data/verification/2025/combined_reliability_2025.csv": "de823ec550ce53785c408fce2f1ab3a369ef78f67cc6e4824330ae3fc5916e74",
+    "data/verification/2025/dashboard_comparison_summary_2025.json": "0eb38e3fe271f5176bfb49f6004c29bbd339aadb063435bbf9d2a9d5ea7fb705",
+    "data/comparison_catalog.json": "1ea3dbbbd344d9169808f8f4e3884e6c99b2820a945e7d0043b7136cea7ed4e9"
+  },
+  "figure_entries": [
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "crps",
+      "threshold_mm": null,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Raw HRRR, ANN-CSGD, and GNN-CSGD mean CRPS for 6-hour precipitation on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/crps.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 6-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/6h/bss_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 6-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/roc_auc_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 6-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/reliability_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 6-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/6h/bss_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 6-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/roc_auc_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 6-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/reliability_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 6-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/6h/bss_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 6-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/roc_auc_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 6-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/reliability_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "crps",
+      "threshold_mm": null,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Raw HRRR, ANN-CSGD, and GNN-CSGD mean CRPS for 12-hour precipitation on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/crps.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 12-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/12h/bss_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 12-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/roc_auc_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 12-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/reliability_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 12-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/12h/bss_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 12-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/roc_auc_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 12-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/reliability_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 12-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/12h/bss_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 12-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/roc_auc_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 12-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/reliability_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "crps",
+      "threshold_mm": null,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Raw HRRR, ANN-CSGD, and GNN-CSGD mean CRPS for 24-hour precipitation on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/crps.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 24-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/24h/bss_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 24-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/roc_auc_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 24-hour precipitation > 12.7 mm (0.5\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/reliability_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 24-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/24h/bss_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 24-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/roc_auc_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 24-hour precipitation > 25.4 mm (1\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/reliability_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 24-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/24h/bss_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 24-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/roc_auc_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 24-hour precipitation > 50.8 mm (2\") on the matched 0.25° CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/reliability_gt_50p8_mm.png"
+    }
+  ],
+  "method": {
+    "ece": "Sample-weighted absolute calibration error from saved bins",
+    "brier_components": "Binned diagnostics; normalized by 2025 event uncertainty",
+    "differences": "Common-sample point estimates; no confidence intervals",
+    "auc": "Histogram Mann-Whitney using 10001 bins"
+  },
+  "durations": [
+    {
+      "duration_hours": 6,
+      "n_samples": 38888560,
+      "models": {
+        "raw_hrrr": {
+          "crps_mm": 0.5775569745709396,
+          "crpss_vs_raw": 0.0
+        },
+        "ann_csgd": {
+          "crps_mm": 0.33478000734207525,
+          "crpss_vs_raw": 0.4203515461123477
+        },
+        "gnn_csgd": {
+          "crps_mm": 0.3296369742498748,
+          "crpss_vs_raw": 0.42925635259662764
+        }
+      },
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "gnn_crps_reduction_vs_ann_fraction": 0.015362426009344454,
+      "thresholds": [
+        {
+          "threshold_mm": 12.7,
+          "n_events": 392100,
+          "n_samples": 38888560,
+          "event_rate": 0.010082656699039513,
+          "climatology_2024": 0.010640104973178171,
+          "climatology_brier": 0.009981307481507167,
+          "event_uncertainty": 0.009980996732928826,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.0128571230202404,
+              "bss": -0.28812012294595557,
+              "roc_auc": 0.666780035950968,
+              "ece": 0.0128571230202404,
+              "reliability_binned": 0.004038646811142371,
+              "resolution_binned": 0.0011625205238307975,
+              "reliability_normalized": 0.40463361718356855,
+              "resolution_normalized": 0.11647338987653062,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 38514175,
+                  "p": 0.0,
+                  "observed": 0.006721031931749804
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 374385,
+                  "p": 1.0,
+                  "observed": 0.3559036820385432
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.007515542230670845,
+              "bss": 0.24703830188627696,
+              "roc_auc": 0.9586261145862163,
+              "ece": 0.0006629168597201044,
+              "reliability_binned": 3.3212408722578628e-06,
+              "resolution_binned": 0.0023021438436560504,
+              "reliability_normalized": 0.0003327564331626905,
+              "resolution_normalized": 0.23065269985120102,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 37958894,
+                  "p": 0.003519255707486536,
+                  "observed": 0.003937232733914745
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 527508,
+                  "p": 0.1389719589587538,
+                  "observed": 0.14713900073553388
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 170112,
+                  "p": 0.24292714025529538,
+                  "observed": 0.25643693566591425
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 83052,
+                  "p": 0.3450071154038398,
+                  "observed": 0.3604127534556663
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 49477,
+                  "p": 0.44631655019201383,
+                  "observed": 0.4610425045980961
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 33159,
+                  "p": 0.5471449689790479,
+                  "observed": 0.5563798667028559
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 23515,
+                  "p": 0.6470539189439466,
+                  "observed": 0.6443546672336806
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 16925,
+                  "p": 0.7474352679752705,
+                  "observed": 0.7350073855243723
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 13079,
+                  "p": 0.848416840964496,
+                  "observed": 0.8238397430996254
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 12839,
+                  "p": 0.9537374012352698,
+                  "observed": 0.9227354155308046
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.0074507853161314965,
+              "bss": 0.2535261207075413,
+              "roc_auc": 0.9644689850355677,
+              "ece": 0.0003360020346628568,
+              "reliability_binned": 3.1830726139003885e-06,
+              "resolution_binned": 0.0023740071798450833,
+              "reliability_normalized": 0.0003189133008529046,
+              "resolution_normalized": 0.23785271585280382,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 37907034,
+                  "p": 0.003598446522768109,
+                  "observed": 0.0037141919359873947
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 562984,
+                  "p": 0.1392230637823193,
+                  "observed": 0.1428832790985179
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 182310,
+                  "p": 0.24273641372793145,
+                  "observed": 0.25572376720969775
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 87105,
+                  "p": 0.3448556342544269,
+                  "observed": 0.36284943459043684
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 51117,
+                  "p": 0.44622234869565797,
+                  "observed": 0.46982412895905473
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 34070,
+                  "p": 0.5465342564092271,
+                  "observed": 0.5699442324625771
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 23786,
+                  "p": 0.647449782077011,
+                  "observed": 0.659001093079963
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 17211,
+                  "p": 0.7472459711803259,
+                  "observed": 0.7655569112776712
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 12832,
+                  "p": 0.8480329144318726,
+                  "observed": 0.847568578553616
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 10111,
+                  "p": 0.9455499359483995,
+                  "observed": 0.9372960142419148
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.008616399529374763
+        },
+        {
+          "threshold_mm": 25.4,
+          "n_events": 103842,
+          "n_samples": 38888560,
+          "event_rate": 0.002670245439790005,
+          "climatology_2024": 0.002880515461633337,
+          "climatology_brier": 0.002663159442563372,
+          "event_uncertainty": 0.002663115229081286,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.004211521331723263,
+              "bss": -0.5814003714586258,
+              "roc_auc": 0.6080528456424312,
+              "ece": 0.004211521331723263,
+              "reliability_binned": 0.0016711047272455221,
+              "resolution_binned": 0.0001226986246035453,
+              "reliability_normalized": 0.6274999703343723,
+              "resolution_normalized": 0.04607334420368792,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 38783298,
+                  "p": 0.0,
+                  "observed": 0.0020931690749971805
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 105262,
+                  "p": 1.0,
+                  "observed": 0.21529136820505027
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.002299189593486381,
+              "bss": 0.13666844097274888,
+              "roc_auc": 0.9607231369832977,
+              "ece": 0.00011424123436818819,
+              "reliability_binned": 4.843333218326931e-07,
+              "resolution_binned": 0.0003109320256217222,
+              "reliability_normalized": 0.0001818672044467926,
+              "resolution_normalized": 0.11675500264740203,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 38700491,
+                  "p": 0.0015489238609987018,
+                  "observed": 0.0016342169922340262
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 115925,
+                  "p": 0.13746112203196972,
+                  "observed": 0.13476816907483286
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 35258,
+                  "p": 0.24279628294163008,
+                  "observed": 0.23943502183901527
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 16218,
+                  "p": 0.3446745170678409,
+                  "observed": 0.332840054260698
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 8685,
+                  "p": 0.4451099832715423,
+                  "observed": 0.4270581462291307
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 5160,
+                  "p": 0.5453876182436943,
+                  "observed": 0.5162790697674419
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 3247,
+                  "p": 0.6462827769653372,
+                  "observed": 0.6208808130582075
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 1897,
+                  "p": 0.7458787008719376,
+                  "observed": 0.6937269372693727
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 1233,
+                  "p": 0.846645658758725,
+                  "observed": 0.8304947283049473
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 446,
+                  "p": 0.9324244880890098,
+                  "observed": 0.9080717488789237
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.002288573886896118,
+              "bss": 0.14065457354168165,
+              "roc_auc": 0.9658420299009056,
+              "ece": 3.969012958587385e-05,
+              "reliability_binned": 5.387106025309531e-07,
+              "resolution_binned": 0.00031755541054393876,
+              "reliability_normalized": 0.00020228587807550333,
+              "resolution_normalized": 0.11924208426140395,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 38705882,
+                  "p": 0.0016274680741644836,
+                  "observed": 0.0016317674920829862
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 113790,
+                  "p": 0.13709364560728113,
+                  "observed": 0.14052201423675192
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 34801,
+                  "p": 0.24301025779196725,
+                  "observed": 0.2525502140743082
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 16259,
+                  "p": 0.34401641363323054,
+                  "observed": 0.3556184267175103
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 8505,
+                  "p": 0.444772876479358,
+                  "observed": 0.4712522045855379
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 4560,
+                  "p": 0.5443604673209943,
+                  "observed": 0.5668859649122807
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 2439,
+                  "p": 0.6457477248853815,
+                  "observed": 0.6654366543665436
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 1522,
+                  "p": 0.7455966880302705,
+                  "observed": 0.8002628120893561
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 718,
+                  "p": 0.8414953178349975,
+                  "observed": 0.8426183844011143
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 84,
+                  "p": 0.9121958173456646,
+                  "observed": 0.9880952380952381
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.004617151460817759
+        },
+        {
+          "threshold_mm": 50.8,
+          "n_events": 13030,
+          "n_samples": 38888560,
+          "event_rate": 0.0003350599765072299,
+          "climatology_2024": 0.000407948649143236,
+          "climatology_brier": 0.00033495302407797147,
+          "event_uncertainty": 0.0003349477113193729,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.0006736685544540606,
+              "bss": -1.0112329372409001,
+              "roc_auc": 0.5493151987408114,
+              "ece": 0.0006736685544540605,
+              "reliability_binned": 0.0003414170173799136,
+              "resolution_binned": 2.696174245226005e-06,
+              "reliability_normalized": 1.0193143760709926,
+              "resolution_normalized": 0.008049537746072852,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 38872812,
+                  "p": 0.0,
+                  "observed": 0.00030201056717996116
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 15748,
+                  "p": 1.0,
+                  "observed": 0.08191516383032767
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.0003201444308655941,
+              "bss": 0.04421095541125852,
+              "roc_auc": 0.9537414326178578,
+              "ece": 4.254500756959811e-05,
+              "reliability_binned": 1.5384124294413766e-07,
+              "resolution_binned": 1.0382621561468527e-05,
+              "reliability_normalized": 0.0004592992808882038,
+              "resolution_normalized": 0.030997738484526288,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 38876571,
+                  "p": 0.0003218086358876013,
+                  "observed": 0.0002859820121481393
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 8838,
+                  "p": 0.135316445631095,
+                  "observed": 0.11439239646978955
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 2030,
+                  "p": 0.24054510405498186,
+                  "observed": 0.21921182266009853
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 668,
+                  "p": 0.34284546685789874,
+                  "observed": 0.36676646706586824
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 258,
+                  "p": 0.4457757188830265,
+                  "observed": 0.3992248062015504
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 125,
+                  "p": 0.5433504576683045,
+                  "observed": 0.504
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 59,
+                  "p": 0.6357519000263537,
+                  "observed": 0.6271186440677966
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 11,
+                  "p": 0.7230038697069342,
+                  "observed": 0.7272727272727273
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 0,
+                  "p": null,
+                  "observed": null
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 0,
+                  "p": null,
+                  "observed": null
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.0003192448119042536,
+              "bss": 0.04689676176818525,
+              "roc_auc": 0.9588803484586923,
+              "ece": 3.7938123039047926e-05,
+              "reliability_binned": 5.031651627921793e-08,
+              "resolution_binned": 1.0251377282069564e-05,
+              "reliability_normalized": 0.00015022200355099932,
+              "resolution_normalized": 0.03060590335634468,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 38878191,
+                  "p": 0.00032478945173714115,
+                  "observed": 0.00028820785411543453
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 7894,
+                  "p": 0.1343526236424121,
+                  "observed": 0.13377248543197365
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 1610,
+                  "p": 0.2410555195179045,
+                  "observed": 0.25527950310559006
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 562,
+                  "p": 0.3420880692497267,
+                  "observed": 0.3683274021352313
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 243,
+                  "p": 0.44627921362963235,
+                  "observed": 0.4567901234567901
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 60,
+                  "p": 0.5274707684914272,
+                  "observed": 0.6666666666666666
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 0,
+                  "p": null,
+                  "observed": null
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 0,
+                  "p": null,
+                  "observed": null
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 0,
+                  "p": null,
+                  "observed": null
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 0,
+                  "p": null,
+                  "observed": null
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.002810040952166859
+        }
+      ]
+    },
+    {
+      "duration_hours": 12,
+      "n_samples": 33987536,
+      "models": {
+        "raw_hrrr": {
+          "crps_mm": 1.017348455932794,
+          "crpss_vs_raw": 0.0
+        },
+        "ann_csgd": {
+          "crps_mm": 0.589260625026409,
+          "crpss_vs_raw": 0.42078781209126304
+        },
+        "gnn_csgd": {
+          "crps_mm": 0.5813709441063142,
+          "crpss_vs_raw": 0.4285429532860868
+        }
+      },
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "gnn_crps_reduction_vs_ann_fraction": 0.013389119491466484,
+      "thresholds": [
+        {
+          "threshold_mm": 12.7,
+          "n_events": 798054,
+          "n_samples": 33987536,
+          "event_rate": 0.023480784249849708,
+          "climatology_2024": 0.024628850728161535,
+          "climatology_brier": 0.02293075507750034,
+          "event_uncertainty": 0.02292943702086172,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.025075427650889433,
+              "bss": -0.09352821423196156,
+              "roc_auc": 0.7199831878359501,
+              "ece": 0.02507542765088943,
+              "reliability_binned": 0.0067052434521248545,
+              "resolution_binned": 0.004559252822097144,
+              "reliability_normalized": 0.29242948468487356,
+              "resolution_normalized": 0.19883841098885388,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 33211132,
+                  "p": 0.0,
+                  "observed": 0.013156763220235913
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 776404,
+                  "p": 1.0,
+                  "observed": 0.46509677951169753
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.014882723476897734,
+              "bss": 0.35097106804386635,
+              "roc_auc": 0.9628490924318236,
+              "ece": 0.0008783454792007514,
+              "reliability_binned": 1.357984463959136e-05,
+              "resolution_binned": 0.007807362128690558,
+              "reliability_normalized": 0.0005922450092096073,
+              "resolution_normalized": 0.340495151345724,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 31962014,
+                  "p": 0.005343827582899589,
+                  "observed": 0.0056288693196868
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 941410,
+                  "p": 0.14203027332377752,
+                  "observed": 0.14323408504264878
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 403352,
+                  "p": 0.2441771466575882,
+                  "observed": 0.25415270037089194
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 222388,
+                  "p": 0.3458035605179268,
+                  "observed": 0.36200694282065576
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 140255,
+                  "p": 0.4466523203342884,
+                  "observed": 0.4770382517557306
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 95998,
+                  "p": 0.5472705787404254,
+                  "observed": 0.583855913664868
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 71486,
+                  "p": 0.6479013748205366,
+                  "observed": 0.6790560389446885
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 56174,
+                  "p": 0.7479537265643774,
+                  "observed": 0.7688254352547442
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 45186,
+                  "p": 0.8484756889829428,
+                  "observed": 0.8588722170583809
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 49273,
+                  "p": 0.9564197005066808,
+                  "observed": 0.9495464047246971
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.014722740398638695,
+              "bss": 0.35794785872164103,
+              "roc_auc": 0.9669270785791098,
+              "ece": 0.0007901249567366884,
+              "reliability_binned": 1.4505238878123463e-05,
+              "resolution_binned": 0.007965476187628197,
+              "reliability_normalized": 0.000632603358945371,
+              "resolution_normalized": 0.34739083128735465,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 31965747,
+                  "p": 0.005338847467333719,
+                  "observed": 0.005464724475232817
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 934147,
+                  "p": 0.14175058721157915,
+                  "observed": 0.14458859258767626
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 405456,
+                  "p": 0.24450234261339446,
+                  "observed": 0.2546244228720256
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 224309,
+                  "p": 0.34544052864423724,
+                  "observed": 0.36517036766246563
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 135747,
+                  "p": 0.44647183177443883,
+                  "observed": 0.4794065430543585
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 92510,
+                  "p": 0.5474032621553248,
+                  "observed": 0.5817533239649768
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 69793,
+                  "p": 0.6478454077733842,
+                  "observed": 0.6773315375467454
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 55989,
+                  "p": 0.7484684405961928,
+                  "observed": 0.7732233117219454
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 47993,
+                  "p": 0.8489670716531154,
+                  "observed": 0.8499364490654887
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 55845,
+                  "p": 0.9564317888299507,
+                  "observed": 0.9472826573551795
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.010749583468871005
+        },
+        {
+          "threshold_mm": 25.4,
+          "n_events": 249403,
+          "n_samples": 33987536,
+          "event_rate": 0.007338072403954203,
+          "climatology_2024": 0.008014433480096483,
+          "climatology_brier": 0.007284682561653849,
+          "event_uncertainty": 0.007284225097348529,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.00989339150681591,
+              "bss": -0.3581088020079495,
+              "roc_auc": 0.6621648384291979,
+              "ece": 0.00989339150681591,
+              "reliability_binned": 0.003370176871144655,
+              "resolution_binned": 0.0007610104616772738,
+              "reliability_normalized": 0.46266786461217485,
+              "resolution_normalized": 0.10447377058052242,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 33736411,
+                  "p": 0.0,
+                  "observed": 0.004957996272928973
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 251125,
+                  "p": 1.0,
+                  "observed": 0.3270801393728223
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.005575695585985334,
+              "bss": 0.23460006132106892,
+              "roc_auc": 0.9688240188728391,
+              "ece": 0.00015362552941356226,
+              "reliability_binned": 1.8623413802081443e-06,
+              "resolution_binned": 0.0015881064962135346,
+              "reliability_normalized": 0.0002556677416361062,
+              "resolution_normalized": 0.21801996437364468,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 33397391,
+                  "p": 0.002974330379297712,
+                  "observed": 0.0030093069246037813
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 332508,
+                  "p": 0.13917912921735065,
+                  "observed": 0.14102517834157374
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 114822,
+                  "p": 0.2433266246046391,
+                  "observed": 0.2517461810454443
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 55546,
+                  "p": 0.3450535714167039,
+                  "observed": 0.3572714506895186
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 32738,
+                  "p": 0.4461573910968816,
+                  "observed": 0.4605351579204594
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 20454,
+                  "p": 0.5466626876112978,
+                  "observed": 0.5705974381539063
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 13734,
+                  "p": 0.646820858982395,
+                  "observed": 0.6847968545216252
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 9167,
+                  "p": 0.7460764504459518,
+                  "observed": 0.7738627686265954
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 6324,
+                  "p": 0.8480445358532279,
+                  "observed": 0.8545224541429475
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 4852,
+                  "p": 0.9459005475093388,
+                  "observed": 0.9492992580379225
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.005535358260584268,
+              "bss": 0.24013734109402696,
+              "roc_auc": 0.972236066682576,
+              "ece": 0.00016431788487483544,
+              "reliability_binned": 1.68893345890135e-06,
+              "resolution_binned": 0.0016246005421407575,
+              "reliability_normalized": 0.00023186178849911228,
+              "resolution_normalized": 0.2230299751077318,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 33414761,
+                  "p": 0.002989518429215942,
+                  "observed": 0.0030015776560544604
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 318485,
+                  "p": 0.13883802075835172,
+                  "observed": 0.1449675808907798
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 107962,
+                  "p": 0.24346571680900178,
+                  "observed": 0.25762768381467555
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 55012,
+                  "p": 0.34522811134715503,
+                  "observed": 0.35794008579946196
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 32355,
+                  "p": 0.4458962427926863,
+                  "observed": 0.4525730180806676
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 21576,
+                  "p": 0.5474586494993536,
+                  "observed": 0.5562198739340007
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 14771,
+                  "p": 0.6466631196571925,
+                  "observed": 0.6667795003723512
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 10198,
+                  "p": 0.7472831292301095,
+                  "observed": 0.7704451853304569
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 7295,
+                  "p": 0.8479338915483685,
+                  "observed": 0.8541466758053461
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 5121,
+                  "p": 0.9436363495203974,
+                  "observed": 0.9470806483108768
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.0072344920519791245
+        },
+        {
+          "threshold_mm": 50.8,
+          "n_events": 38342,
+          "n_samples": 33987536,
+          "event_rate": 0.0011281194376667964,
+          "climatology_2024": 0.001383537140396098,
+          "climatology_brier": 0.0011269120224040225,
+          "event_uncertainty": 0.0011268467842011547,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.0019431535136880766,
+              "bss": -0.7243169609130444,
+              "roc_auc": 0.6041892133930759,
+              "ece": 0.0019431535136880769,
+              "reliability_binned": 0.0008591840100086065,
+              "resolution_binned": 4.2877280521684545e-05,
+              "reliability_normalized": 0.76246746412619,
+              "resolution_normalized": 0.038050674788126716,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 33943775,
+                  "p": 0.0,
+                  "observed": 0.0008930061550313718
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 43761,
+                  "p": 1.0,
+                  "observed": 0.1834967208244784
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.0009921281619543222,
+              "bss": 0.11960459891284869,
+              "roc_auc": 0.9707951127080725,
+              "ece": 9.24105577863319e-05,
+              "reliability_binned": 1.1430458436666792e-06,
+              "resolution_binned": 0.0001158866719039308,
+              "reliability_normalized": 0.0010143755652433338,
+              "resolution_normalized": 0.10284155177856348,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 33928682,
+                  "p": 0.0008120303627533142,
+                  "observed": 0.0007483049297346711
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 39208,
+                  "p": 0.13722126274370608,
+                  "observed": 0.14076208936951642
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 10500,
+                  "p": 0.24152844567525955,
+                  "observed": 0.27885714285714286
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 4407,
+                  "p": 0.3441204544717232,
+                  "observed": 0.3857499432720672
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 2252,
+                  "p": 0.4455829396393964,
+                  "observed": 0.5079928952042628
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 1322,
+                  "p": 0.5449713046089063,
+                  "observed": 0.5877458396369137
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 674,
+                  "p": 0.6455746595512866,
+                  "observed": 0.7255192878338279
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 321,
+                  "p": 0.744894859389724,
+                  "observed": 0.7632398753894081
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 162,
+                  "p": 0.8396162022779017,
+                  "observed": 0.8827160493827161
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 8,
+                  "p": 0.9253450781106949,
+                  "observed": 1.0
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.0009868160931524545,
+              "bss": 0.12431842634237211,
+              "roc_auc": 0.9731214794733265,
+              "ece": 5.627923670568936e-05,
+              "reliability_binned": 9.196095084355568e-07,
+              "resolution_binned": 0.0001197342200992891,
+              "reliability_normalized": 0.0008160909906553864,
+              "resolution_normalized": 0.10625598952582645,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 33930078,
+                  "p": 0.0007728022280335196,
+                  "observed": 0.0007457984623554358
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 37353,
+                  "p": 0.13785163581848425,
+                  "observed": 0.1439777260193291
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 10525,
+                  "p": 0.24145175840537508,
+                  "observed": 0.2769596199524941
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 4303,
+                  "p": 0.34392899787345654,
+                  "observed": 0.38624215663490585
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 2338,
+                  "p": 0.44454627549729864,
+                  "observed": 0.4798973481608212
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 1439,
+                  "p": 0.5453287254115456,
+                  "observed": 0.5879082696316886
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 864,
+                  "p": 0.645792825423457,
+                  "observed": 0.6851851851851852
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 457,
+                  "p": 0.7416511905793288,
+                  "observed": 0.8052516411378556
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 179,
+                  "p": 0.8329166543550331,
+                  "observed": 0.8603351955307262
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 0,
+                  "p": null,
+                  "observed": null
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.005354216325644812
+        }
+      ]
+    },
+    {
+      "duration_hours": 24,
+      "n_samples": 24238760,
+      "models": {
+        "raw_hrrr": {
+          "crps_mm": 1.8683949396813728,
+          "crpss_vs_raw": 0.0
+        },
+        "ann_csgd": {
+          "crps_mm": 1.072531658820746,
+          "crpss_vs_raw": 0.42596094859706135
+        },
+        "gnn_csgd": {
+          "crps_mm": 1.057315585819811,
+          "crpss_vs_raw": 0.4341048761349564
+        }
+      },
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "gnn_crps_reduction_vs_ann_fraction": 0.014187061869730844,
+      "thresholds": [
+        {
+          "threshold_mm": 12.7,
+          "n_events": 1240965,
+          "n_samples": 24238760,
+          "event_rate": 0.05119754475889031,
+          "climatology_2024": 0.052998619645469,
+          "climatology_brier": 0.04857960004029879,
+          "event_uncertainty": 0.048576356169551735,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.04746699088567237,
+              "bss": 0.022902805986534824,
+              "roc_auc": 0.7552906727703095,
+              "ece": 0.04746699088567237,
+              "reliability_binned": 0.011575413257465346,
+              "resolution_binned": 0.01268477854134471,
+              "reliability_normalized": 0.2382931567996234,
+              "resolution_normalized": 0.261130713408588,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 22999992,
+                  "p": 0.0,
+                  "observed": 0.025059530455488855
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 1238768,
+                  "p": 1.0,
+                  "observed": 0.5364975524069076
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.028004153450436206,
+              "bss": 0.4235408807975858,
+              "roc_auc": 0.9591989746857467,
+              "ece": 0.0019109066668281727,
+              "reliability_binned": 4.656939731575259e-05,
+              "resolution_binned": 0.02021792422887617,
+              "reliability_normalized": 0.0009586844503775866,
+              "resolution_normalized": 0.4162091565350679,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 21218504,
+                  "p": 0.008117465595544588,
+                  "observed": 0.008289981235246368
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 1153439,
+                  "p": 0.14377410258550438,
+                  "observed": 0.14581438636980368
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 610621,
+                  "p": 0.24531987720978307,
+                  "observed": 0.25730526791577757
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 363507,
+                  "p": 0.34630475819223844,
+                  "observed": 0.36641935368507345
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 246401,
+                  "p": 0.447053139881487,
+                  "observed": 0.47651592323083103
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 178596,
+                  "p": 0.5475079057540319,
+                  "observed": 0.5886917960088692
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 135776,
+                  "p": 0.6477944240880102,
+                  "observed": 0.6885679354230497
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 107655,
+                  "p": 0.7482848537931052,
+                  "observed": 0.7808183549301008
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 93900,
+                  "p": 0.8496867652340565,
+                  "observed": 0.8679659211927583
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 130361,
+                  "p": 0.9609009247407546,
+                  "observed": 0.9585688971394819
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.0276284457268645,
+              "bss": 0.43127473869802224,
+              "roc_auc": 0.9617958988372989,
+              "ece": 0.0015337729218383828,
+              "reliability_binned": 2.85766698645423e-05,
+              "resolution_binned": 0.020587558442044553,
+              "reliability_normalized": 0.0005882835214069537,
+              "resolution_normalized": 0.4238185007163854,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 21202179,
+                  "p": 0.007999885182727443,
+                  "observed": 0.007858390404118369
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 1156519,
+                  "p": 0.1433858330775475,
+                  "observed": 0.14563617199544496
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 600333,
+                  "p": 0.24544439586170957,
+                  "observed": 0.25399569905369185
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 364303,
+                  "p": 0.3464353510929427,
+                  "observed": 0.3631976678753675
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 249012,
+                  "p": 0.44729142428723145,
+                  "observed": 0.4693307953030376
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 178778,
+                  "p": 0.54727499493971,
+                  "observed": 0.5781024510845854
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 133768,
+                  "p": 0.6478370169331266,
+                  "observed": 0.6818970157287244
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 108684,
+                  "p": 0.7483511490259992,
+                  "observed": 0.7745666335431158
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 97077,
+                  "p": 0.8497999736193567,
+                  "observed": 0.86278933217961
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 148107,
+                  "p": 0.9615639788073387,
+                  "observed": 0.9570513210044089
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.013416142867402114
+        },
+        {
+          "threshold_mm": 25.4,
+          "n_events": 460544,
+          "n_samples": 24238760,
+          "event_rate": 0.019000311897143254,
+          "climatology_2024": 0.020430275638902547,
+          "climatology_brier": 0.018641344841257276,
+          "event_uncertainty": 0.01863930004495453,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.022246435048657604,
+              "bss": -0.1933921741215523,
+              "roc_auc": 0.7062259453289348,
+              "ece": 0.022246435048657604,
+              "reliability_binned": 0.006720637813985648,
+              "resolution_binned": 0.0031135028102825734,
+              "reliability_normalized": 0.3605627785258415,
+              "resolution_normalized": 0.16703968511550235,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 23769562,
+                  "p": 0.0,
+                  "observed": 0.01116074414833559
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 469198,
+                  "p": 1.0,
+                  "observed": 0.4161526690224596
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.012714538174265775,
+              "bss": 0.31793879237050604,
+              "roc_auc": 0.9666021721175413,
+              "ece": 0.0009531178397392666,
+              "reliability_binned": 2.3046878801057e-05,
+              "resolution_binned": 0.005695062100345971,
+              "reliability_normalized": 0.0012364669674007182,
+              "resolution_normalized": 0.3055405560622201,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 23083775,
+                  "p": 0.0052155264913526156,
+                  "observed": 0.0053515510353051
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 585270,
+                  "p": 0.14041776851896304,
+                  "observed": 0.14616160062876962
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 228318,
+                  "p": 0.24387801560804734,
+                  "observed": 0.26763111099431497
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 118614,
+                  "p": 0.3451859736709097,
+                  "observed": 0.3821302713001838
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 72213,
+                  "p": 0.44645629721621694,
+                  "observed": 0.48182460221843715
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 48007,
+                  "p": 0.5469394211711296,
+                  "observed": 0.5887891349178245
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 34329,
+                  "p": 0.6477589400760738,
+                  "observed": 0.6902327478225407
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 25757,
+                  "p": 0.7474106523326666,
+                  "observed": 0.7672477384788601
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 20230,
+                  "p": 0.8482201437047373,
+                  "observed": 0.8557587740978745
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 22247,
+                  "p": 0.9581834650947393,
+                  "observed": 0.9532071740009889
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.0125713252602827,
+              "bss": 0.32562133433315,
+              "roc_auc": 0.9690367048752809,
+              "ece": 0.0007106535218229619,
+              "reliability_binned": 1.4513101248806275e-05,
+              "resolution_binned": 0.0058294669972919246,
+              "reliability_normalized": 0.0007786290908887871,
+              "resolution_normalized": 0.31275138997882607,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 23080260,
+                  "p": 0.005246166688812236,
+                  "observed": 0.005203624222604078
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 581739,
+                  "p": 0.1405424659050463,
+                  "observed": 0.14590220012754862
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 227550,
+                  "p": 0.24353306757987292,
+                  "observed": 0.2639947264337508
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 115569,
+                  "p": 0.3454182215107102,
+                  "observed": 0.37681385146535834
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 71159,
+                  "p": 0.44660933860902025,
+                  "observed": 0.4760747059402184
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 48425,
+                  "p": 0.5471829917459188,
+                  "observed": 0.5734641197728446
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 36175,
+                  "p": 0.6480873522564058,
+                  "observed": 0.675798203178991
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 28768,
+                  "p": 0.7483838742373053,
+                  "observed": 0.7547274749721913
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 23644,
+                  "p": 0.8483416969815278,
+                  "observed": 0.8427508035865335
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 25471,
+                  "p": 0.9567185033992203,
+                  "observed": 0.950649758548938
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.011263713398016906
+        },
+        {
+          "threshold_mm": 50.8,
+          "n_events": 86106,
+          "n_samples": 24238760,
+          "event_rate": 0.0035524094466878667,
+          "climatology_2024": 0.004263999489824257,
+          "climatology_brier": 0.00354029619420044,
+          "event_uncertainty": 0.0035397898338109493,
+          "models": {
+            "raw_hrrr": {
+              "brier": 0.005361619158735843,
+              "bss": -0.5144549677846206,
+              "roc_auc": 0.6556465321763622,
+              "ece": 0.005361619158735843,
+              "reliability_binned": 0.002123465413509831,
+              "resolution_binned": 0.00030163608858493787,
+              "reliability_normalized": 0.5998846014040617,
+              "resolution_normalized": 0.0852129936370249,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 24140793,
+                  "p": 0.0,
+                  "observed": 0.0024460256960075837
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 97967,
+                  "p": 1.0,
+                  "observed": 0.2761848377514877
+                }
+              ]
+            },
+            "ann_csgd": {
+              "brier": 0.002798375194587725,
+              "bss": 0.20956466886248049,
+              "roc_auc": 0.9740383285274627,
+              "ece": 0.00010383941887994357,
+              "reliability_binned": 2.4479539198933694e-06,
+              "resolution_binned": 0.0006774924436543474,
+              "reliability_normalized": 0.000691553463573258,
+              "resolution_normalized": 0.19139340906150829,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 24075117,
+                  "p": 0.0018646093220687427,
+                  "observed": 0.001829773039109218
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 93556,
+                  "p": 0.13865200224594082,
+                  "observed": 0.13938176065671898
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 31084,
+                  "p": 0.2431970628501212,
+                  "observed": 0.2503538798095483
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 14575,
+                  "p": 0.3447944400813526,
+                  "observed": 0.3681646655231561
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 8485,
+                  "p": 0.446137271653784,
+                  "observed": 0.4862698880377136
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 5517,
+                  "p": 0.5472240408888238,
+                  "observed": 0.6081203552655429
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 3703,
+                  "p": 0.6468097025917376,
+                  "observed": 0.67998919794761
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 2711,
+                  "p": 0.7479101786618741,
+                  "observed": 0.8052379195868683
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 2120,
+                  "p": 0.8483402190905697,
+                  "observed": 0.8816037735849057
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 1892,
+                  "p": 0.9478825456118231,
+                  "observed": 0.9593023255813954
+                }
+              ]
+            },
+            "gnn_csgd": {
+              "brier": 0.0027752381166881194,
+              "bss": 0.21610001975699256,
+              "roc_auc": 0.9759021993469083,
+              "ece": 7.228254696108361e-05,
+              "reliability_binned": 2.1022600093765958e-06,
+              "resolution_binned": 0.0006975437422699476,
+              "reliability_normalized": 0.0005938940185929896,
+              "resolution_normalized": 0.1970579540082383,
+              "bins": [
+                {
+                  "index": 0,
+                  "lower": 0.0,
+                  "upper": 0.1,
+                  "n": 24081497,
+                  "p": 0.0018479270346747712,
+                  "observed": 0.0018331501567365185
+                },
+                {
+                  "index": 1,
+                  "lower": 0.1,
+                  "upper": 0.2,
+                  "n": 85788,
+                  "p": 0.13867256500611325,
+                  "observed": 0.1413367836993519
+                },
+                {
+                  "index": 2,
+                  "lower": 0.2,
+                  "upper": 0.3,
+                  "n": 29082,
+                  "p": 0.24360878731099572,
+                  "observed": 0.24819475964514132
+                },
+                {
+                  "index": 3,
+                  "lower": 0.3,
+                  "upper": 0.4,
+                  "n": 15222,
+                  "p": 0.34564610205433116,
+                  "observed": 0.35080804099329915
+                },
+                {
+                  "index": 4,
+                  "lower": 0.4,
+                  "upper": 0.5,
+                  "n": 9460,
+                  "p": 0.44623671066937437,
+                  "observed": 0.4578224101479915
+                },
+                {
+                  "index": 5,
+                  "lower": 0.5,
+                  "upper": 0.6,
+                  "n": 6331,
+                  "p": 0.5467772444001383,
+                  "observed": 0.5852156057494866
+                },
+                {
+                  "index": 6,
+                  "lower": 0.6,
+                  "upper": 0.7,
+                  "n": 4409,
+                  "p": 0.647421479576649,
+                  "observed": 0.7080970741664777
+                },
+                {
+                  "index": 7,
+                  "lower": 0.7,
+                  "upper": 0.8,
+                  "n": 3022,
+                  "p": 0.7470114568579994,
+                  "observed": 0.828590337524818
+                },
+                {
+                  "index": 8,
+                  "lower": 0.8,
+                  "upper": 0.9,
+                  "n": 2152,
+                  "p": 0.8474670021230404,
+                  "observed": 0.8787174721189591
+                },
+                {
+                  "index": 9,
+                  "lower": 0.9,
+                  "upper": 1.0,
+                  "n": 1797,
+                  "p": 0.9480063311577374,
+                  "observed": 0.9599332220367279
+                }
+              ]
+            }
+          },
+          "gnn_brier_reduction_vs_ann_fraction": 0.008268039948450934
+        }
+      ]
+    }
+  ]
+}
