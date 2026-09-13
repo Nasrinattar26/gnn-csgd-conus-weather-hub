@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HRRR-based GNN-CSGD precipitation research dashboard. Forecast products and matched verification are being connected.">
+  <meta name="description" content="HRRR GNN-CSGD precipitation maps, animations, forecast downloads, and matched 2025 model verification for the contiguous United States.">
   <title>CONUS Weather Hub | HRRR GNN-CSGD</title>
   <link rel="stylesheet" href="assets/gnn-style.css?v=downloads35-1">
-  <script src="assets/gnn-app.js?v=downloads35-1" defer></script>
+  <script src="assets/gnn-app.js?v=copy16-1" defer></script>
 </head>
 <body data-page="forecasts" data-site-root="./">
   <a class="skip" href="#main">Skip to main content</a>
@@ -20,8 +20,8 @@
         <a href="index.html#downloads">Downloads</a>
         <a href="index.html#method">Method</a>
       </div>
-      <div class="related-hubs" aria-label="Previous research weather hubs">
-        <span class="related-hubs__label">Previous work</span>
+      <div class="related-hubs" aria-label="Related weather hubs">
+        <span class="related-hubs__label">Related hubs</span>
 
         <a
           class="related-hub-link related-hub-link--hrrr"
@@ -52,17 +52,17 @@
       <div>
         <p class="eyebrow">HRRR-based probabilistic precipitation research</p>
         <h1>HRRR GNN-CSGD<span>CONUS Weather Hub</span></h1>
-        <p class="hero-description">Separate 6-, 12-, and 24-hour precipitation models combine HRRR predictors,
-        GraphSAGE spatial learning, and censored shifted Gamma distributions.</p>
+        <p class="hero-description">Explore 6-, 12-, and 24-hour precipitation forecasts from HRRR GNN-CSGD,
+        including expected rainfall and threshold-exceedance probabilities through forecast hour 48.</p>
         <div class="hero-actions">
-          <span class="badge" id="status-badge" role="status">Checking published forecast catalog…</span>
+          <span class="badge" id="status-badge" role="status">Loading published forecasts…</span>
           <a class="button" href="model-comparison/">Compare forecast systems</a>
         </div>
       </div>
       <aside class="run-card">
         <span class="small-label">Latest published GNN initialization</span>
-        <strong id="latest-init">Not available yet</strong>
-        <p id="run-note">Training checkpoints are not forecast products. Only published forecast entries appear here.</p>
+        <strong id="latest-init">Loading…</strong>
+        <p id="run-note">Select a published initialization to view its maps, animations, and downloads.</p>
         <div class="stats">
           <div><span class="small-label">Accumulations</span><strong>6 / 12 / 24 h</strong></div>
           <div><span class="small-label">Output grid</span><strong>0.25° · CONUS</strong></div>
@@ -70,7 +70,7 @@
       </aside>
     </div>
   </header>
-  <noscript><p class="noscript">Enable JavaScript to use the catalog and forecast selectors. No forecast is displayed without a matching published entry.</p></noscript>
+  <noscript><p class="noscript">Enable JavaScript to select forecast maps, animations, and downloads.</p></noscript>
   <main id="main" class="layout">
     <aside class="sidebar panel">
       <h2>Forecast workspace</h2>
@@ -82,15 +82,15 @@
         <a href="model-comparison/">05 &nbsp; Model comparison</a>
         <a href="#method">06 &nbsp; Method</a>
       </nav>
-      <div class="side-note"><span class="small-label">Publication status</span>
-      <p>The interface is ready to receive products. Available initializations, maps, and files are read from the GNN catalog.</p>
-      <p>No ANN maps or demonstration forecasts are substituted.</p></div>
+      <div class="side-note"><span class="small-label">Forecast publication</span>
+      <p id="publication-summary" role="status">Loading available GNN forecast cycles…</p>
+      <p>Daily forecasts target the 12 UTC HRRR cycle. A new cycle appears after its inputs and forecast products are complete.</p></div>
     </aside>
     <div class="content">
       <section class="panel" id="forecast-workspace">
-        <div class="section-head"><h2>GNN-CSGD forecast maps</h2><span class="badge" id="map-status">Catalog pending</span></div>
+        <div class="section-head"><h2>GNN-CSGD forecast maps</h2><span class="badge" id="map-status">Loading forecasts…</span></div>
         <p class="section-intro">Choose an initialization, accumulation duration, forecast window, and product. All valid times are UTC.</p>
-        <p class="note">First-cycle forecast archive. Automatic daily updates are not enabled yet; check the initialization and valid times.</p>
+        <p class="note">Forecasts use the 12 UTC HRRR initialization. Check the selected initialization and valid period when viewing a map.</p>
         <div class="controls">
           <label>Initialization (UTC)<select id="map-init" disabled><option>No published initializations</option></select></label>
           <label>Accumulation duration<select id="map-duration"><option value="6">6-hour</option><option value="12" selected>12-hour</option><option value="24">24-hour</option></select></label>
@@ -103,11 +103,11 @@
           <button type="button" id="next-window">Next window →</button>
         </div>
         <figure class="map-shell">
-          <div id="map-empty" class="empty-state" role="status"><span class="empty-mark" aria-hidden="true">G</span><strong id="map-empty-title">GNN forecast data are not published yet</strong><p id="map-empty-text">The controls show the planned forecast schedule. No map is being simulated.</p></div>
+          <div id="map-empty" class="empty-state" role="status"><span class="empty-mark" aria-hidden="true">G</span><strong id="map-empty-title">Loading GNN forecasts…</strong><p id="map-empty-text">Available forecast cycles and products will appear here.</p></div>
           <img id="forecast-map" alt="" hidden>
-          <figcaption class="figure-meta"><div><p id="map-caption">Expected precipitation is in millimeters; exceedance probabilities are in percent.</p><p id="map-validity">No valid period available until an initialization is published.</p></div><a id="open-map" target="_blank" rel="noopener" hidden>Open full-resolution image ↗</a></figcaption>
+          <figcaption class="figure-meta"><div><p id="map-caption">Expected precipitation is in millimeters; exceedance probabilities are in percent.</p><p id="map-validity">Select an available initialization to view its valid period.</p></div><a id="open-map" target="_blank" rel="noopener" hidden>Open full-resolution image ↗</a></figcaption>
         </figure>
-        <p class="note" id="schedule-note">Preview of planned windows only; forecasts are not available yet.</p>
+        <p class="note" id="schedule-note">Loading forecast windows…</p>
       </section>
       <section class="panel" id="animations">
         <h2>Forecast animations</h2>
@@ -127,28 +127,28 @@
         </details>
       </section>
       <section class="panel" id="verification">
-        <div class="section-head"><h2>Held-out verification</h2><span class="badge">2025 results available</span></div>
-        <p class="section-intro">Held-out 2025 results for Raw HRRR, HRRR ANN-CSGD, and HRRR GNN-CSGD are available on the Model Comparison page. These retrospective results are separate from daily operational verification.</p>
+        <div class="section-head"><h2>Model verification</h2><span class="badge">2025 results available</span></div>
+        <p class="section-intro">Explore matched 2025 test-period results for raw HRRR, ANN-CSGD, and GNN-CSGD. Compare precipitation skill, threshold probabilities, and calibration for 6-, 12-, and 24-hour accumulations.</p>
         <div class="metric-grid">
-          <div class="metric-card"><strong>CRPS / CRPSS</strong><span>Full predictive distribution</span></div>
-          <div class="metric-card"><strong>Brier Score / BSS</strong><span>Threshold probabilities</span></div>
-          <div class="metric-card"><strong>ROC / reliability</strong><span>Discrimination and calibration</span></div>
+          <div class="metric-card"><strong>CRPS / CRPSS</strong><span>Precipitation-distribution accuracy and skill</span></div>
+          <div class="metric-card"><strong>Brier score / BSS</strong><span>Threshold-probability accuracy and skill</span></div>
+          <div class="metric-card"><strong>ROC / calibration</strong><span>ROC curves, AUC, reliability, and calibration error</span></div>
         </div>
-        <a class="button" href="model-comparison/">Open Raw HRRR · ANN-CSGD · GNN-CSGD comparison</a>
+        <a class="button" href="model-comparison/">Explore model comparisons</a>
       </section>
       <section class="panel" id="method">
         <h2>How GNN-CSGD works</h2>
-        <p class="section-intro">A shared spatial graph supports three separately trained duration models.</p>
+        <p class="section-intro">Three separately trained models produce 6-, 12-, and 24-hour precipitation guidance using the same CONUS land grid.</p>
         <div class="method-grid">
-          <div><strong>1. HRRR predictors</strong><span>12 duration-specific features per land node.</span></div>
-          <div><strong>2. GraphSAGE</strong><span>Learned aggregation across the 8-neighbor land graph.</span></div>
-          <div><strong>3. CSGD parameters</strong><span>Shape, scale, and nonpositive shift define a marginal distribution at each node.</span></div>
-          <div><strong>4. Forecast products</strong><span>Expected precipitation and exceedance probabilities from each distribution.</span></div>
+          <div><strong>1. Forecast inputs</strong><span>Twelve input features describe each land grid cell for the selected accumulation duration.</span></div>
+          <div><strong>2. Spatial learning</strong><span>GraphSAGE combines information from neighboring land grid cells to learn precipitation patterns.</span></div>
+          <div><strong>3. Precipitation distribution</strong><span>A censored, shifted gamma distribution represents the chance of zero rainfall and the range of positive rainfall amounts.</span></div>
+          <div><strong>4. Maps and probabilities</strong><span>The predicted distributions provide expected rainfall and probabilities of exceeding selected precipitation thresholds.</span></div>
         </div>
-        <p class="note">Current graph: 13,318 land nodes. A finer display image is not a higher-resolution model. Spatial message passing does not by itself produce a joint space-time ensemble.</p>
+        <p class="note">Forecast grid: 0.25° CONUS · 13,318 land grid cells · Forecast horizon: 48 hours.</p>
       </section>
     </div>
   </main>
-  <footer class="footer"><div><span>Nasrin Attar · HRRR GNN-CSGD research dashboard</span><span>Not official forecast guidance · Interface step 02</span></div></footer>
+  <footer class="footer"><div><span>Nasrin Attar · HRRR GNN-CSGD Weather Hub</span><span>Research products · Not official forecast guidance</span></div></footer>
 </body>
 </html>

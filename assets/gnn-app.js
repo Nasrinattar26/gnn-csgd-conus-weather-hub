@@ -1,4 +1,4 @@
-/* GNN dashboard step 02. Reads published catalogs; never fabricates forecasts. */
+/* HRRR GNN-CSGD forecast dashboard. */
 'use strict';
 (() => {
   const base = new URL(document.body.dataset.siteRoot || './', location.href);
@@ -83,11 +83,11 @@
     for (const e of run?.entries || []) if (e.duration_hours === d) pairs.set(`${e.lead_start_hours}:${e.lead_end_hours}`,[e.lead_start_hours,e.lead_end_hours]);
     const planned = pairs.size === 0;
     if (planned) for (let a=0; a+d<=48; a+=6) pairs.set(`${a}:${a+d}`,[a,a+d]);
-    const options = [...pairs].sort((a,b) => a[1][0]-b[1][0]).map(([key,[a,b]]) => [key,`${planned ? 'Planned · ' : ''}f${String(a).padStart(2,'0')}–f${String(b).padStart(2,'0')}`]);
+    const options = [...pairs].sort((a,b) => a[1][0]-b[1][0]).map(([key,[a,b]]) => [key,`${planned ? 'Unavailable · ' : ''}f${String(a).padStart(2,'0')}–f${String(b).padStart(2,'0')}`]);
     const old = $('map-window').value; replaceOptions('map-window',options,old);
     const product = $('map-product').value;
     replaceOptions('map-product',products.filter(p=>p.durations.includes(d)).map(p=>[p.id,p.label(d)]),product);
-    text('schedule-note',planned ? `Planned ${d}-hour schedule: ${options.length} windows through f48. These options are not evidence of published forecasts.` : 'Forecast windows listed here have at least one published product; missing product combinations are shown as unavailable.');
+    text('schedule-note',planned ? `${d}-hour schedule: ${options.length} windows through forecast hour 48. Select an available initialization to view forecasts.` : `${d}-hour accumulations across ${options.length} published windows. All valid times are UTC.`);
     renderForecast();
   }
   function clearMedia(imgId, linkId) {
@@ -157,22 +157,22 @@
     const run = selectedRun();
     text('map-summary',`${d}-hour accumulation · forecast hours ${a}–${b}`);
     text('map-caption',`${product.label(d)} · ${product.units === 'mm' ? 'millimeters' : 'probability (%)'}`);
-    text('map-validity',run ? `${utc(dateMS(run.init_utc)+a*3600000)} to ${utc(dateMS(run.init_utc)+b*3600000)}` : 'No valid period available until an initialization is published.');
+    text('map-validity',run ? `${utc(dateMS(run.init_utc)+a*3600000)} to ${utc(dateMS(run.init_utc)+b*3600000)}` : 'Select an available initialization to view its valid period.');
     $('previous-window').disabled = $('map-window').selectedIndex <= 0;
     $('next-window').disabled = $('map-window').selectedIndex >= $('map-window').options.length-1;
     if (forecastError) {
-      text('map-status','Catalog error'); showMapMessage('Forecast catalog could not be loaded',forecastError); return;
+      text('map-status','Forecasts unavailable'); showMapMessage('Forecast information could not be loaded','Refresh the page or try again later.'); return;
     }
     const e = run?.entries.find(e=>e.duration_hours===d && e.lead_start_hours===a && e.lead_end_hours===b && e.product===product.id);
     if (!e) {
-      text('map-status',run ? 'Product unavailable' : 'No forecasts published');
-      showMapMessage(run ? 'This product is not published for the selected window' : 'GNN forecast data are not published yet', 'The selectors are ready. No ANN forecasts or simulated maps are shown as GNN results.'); return;
+      text('map-status',run ? 'Product unavailable' : 'No forecasts available');
+      showMapMessage(run ? 'This product is unavailable for the selected window' : 'No GNN forecast cycle is available', 'Choose another published initialization, window, or product, or check again later.'); return;
     }
     const image = $('forecast-map'); const src = siteURL(e.image);
     text('map-status','Loading map'); showMapMessage('Loading published forecast…','Checking the selected map file.');
     image.alt = `${product.label(d)}; HRRR GNN-CSGD; ${d}-hour accumulation; initialized ${utc(run.init_utc)}; forecast hours ${a}–${b}; CONUS 0.25-degree grid.`;
     image.onload = () => { if (version !== mapVersion) return; $('map-empty').hidden=true; image.hidden=false; $('open-map').href=src; $('open-map').hidden=false; text('map-status','Published map'); };
-    image.onerror = () => { if (version !== mapVersion) return; clearMedia('forecast-map','open-map'); text('map-status','Map file unavailable'); showMapMessage('The catalog entry exists, but its map could not be loaded','The previous map is not displayed as a substitute.'); };
+    image.onerror = () => { if (version !== mapVersion) return; clearMedia('forecast-map','open-map'); text('map-status','Map file unavailable'); showMapMessage('The selected map could not be loaded','Try another window or refresh the page.'); };
     image.src = src;
     renderDownloads(e.downloads || []);
     if (e.animation) {
@@ -209,14 +209,14 @@
     const e=comparisons.find(e=>e.duration_hours===d && e.grid_id===$('cmp-grid').value && e.metric===metric && e.threshold_mm===threshold);
     $('comparison-empty').hidden=false;
     text('comparison-empty-title',comparisonError?'Comparison catalog could not be loaded':'Matched verification results are not published for this selection');
-    text('comparison-empty-text',comparisonError || 'Raw HRRR, ANN-CSGD, and GNN-CSGD scores must use common verification cases before a comparison is published.');
+    text('comparison-empty-text',comparisonError || 'Choose another duration, metric, or precipitation threshold.');
     text('comparison-status',comparisonError?'Catalog error':e?'Loading figure':'Results pending');
     text('comparison-caption',`${d}-hour accumulation · CONUS · ${$('cmp-grid').selectedOptions[0].textContent} · ${$('cmp-metric').selectedOptions[0].textContent}${threshold===null?'':` · > ${threshold} mm`}`);
     if(!e||comparisonError)return;
     text('comparison-empty-title','Loading comparison figure…');text('comparison-empty-text','Checking the published figure.');
     const image=$('comparison-image'),src=siteURL(e.image); image.alt=e.caption;
     image.onload=()=>{if(v!==comparisonVersion)return;$('comparison-empty').hidden=true;image.hidden=false;$('open-comparison').href=src;$('open-comparison').hidden=false;text('comparison-status','Published comparison');text('comparison-caption',`${e.caption} | ${e.period_label} | Sample: ${e.sample_id}${e.reference?` | Reference: ${e.reference}`:''}`);};
-    image.onerror=()=>{if(v!==comparisonVersion)return;clearMedia('comparison-image','open-comparison');text('comparison-status','Figure unavailable');text('comparison-empty-title','The comparison image could not be loaded');text('comparison-empty-text','No other figure is substituted.');};
+    image.onerror=()=>{if(v!==comparisonVersion)return;clearMedia('comparison-image','open-comparison');text('comparison-status','Figure unavailable');text('comparison-empty-title','The comparison image could not be loaded');text('comparison-empty-text','Try another selection or refresh the page.');};
     image.src=src;
   }
   async function main(){
@@ -231,10 +231,11 @@
     }
     try{
       runs=validateRuns(await readCatalog('data/run_catalog.json'));
-      text('status-badge',runs.length?'Published forecast catalog available':'Under development — no forecasts published');
+      text('status-badge',runs.length?'Published GNN forecasts':'No forecasts available');
       text('latest-init',runs.length?utc(runs[0].init_utc):'No published initialization');
-      text('run-note',runs.length?`${runs.length} initialization(s) with published entries. Availability varies by duration and product.`:'Training checkpoints are not forecasts. Real-time inference and publication are the next data steps.');
-    }catch(error){forecastError=error.message;text('status-badge','Forecast catalog error');$('status-badge').classList.add('error');text('run-note',forecastError);}
+      text('run-note',runs.length?`${runs.length} published ${runs.length===1?'cycle':'cycles'} available. Select an initialization to explore maps, animations, and downloads.`:'Forecast cycles will appear here when their products are published.');
+      text('publication-summary',runs.length?`Latest available cycle: ${utc(runs[0].init_utc)}.`:'No complete GNN forecast cycle is currently available.');
+    }catch(error){forecastError=error.message;text('status-badge','Forecasts unavailable');$('status-badge').classList.add('error');text('run-note','Forecast information could not be loaded. Please refresh the page.');text('publication-summary','Forecast availability could not be checked. Please try again later.');console.error(error);}
     if($('map-init')){
       replaceOptions('map-init',runs.length?runs.map(r=>[r.init_utc,utc(r.init_utc)]):[['','No published initializations']]);
       $('map-init').disabled=!runs.length;windowOptions();
