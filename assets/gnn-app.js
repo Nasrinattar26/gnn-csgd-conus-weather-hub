@@ -5,12 +5,15 @@
   const $ = id => document.getElementById(id);
   const durations = [6, 12, 24];
   const products = [
-    {id:'expected_precip_mm', label:()=>'Expected precipitation', units:'mm'},
-    {id:'prob_gt_12p7_mm', label:()=>'P(precipitation > 12.7 mm / 0.5 inch)', units:'percent'},
-    {id:'prob_gt_25p4_mm', label:()=>'P(precipitation > 25.4 mm / 1 inch)', units:'percent'},
-    {id:'prob_gt_50p8_mm', label:()=>'P(precipitation > 50.8 mm / 2 inches)', units:'percent'},
-    {id:'prob_gt_2yr_ari', label:d=>`P(precipitation > local 2-year ${d}-h ARI)`, units:'percent'},
-    {id:'prob_gt_5yr_ari', label:d=>`P(precipitation > local 5-year ${d}-h ARI)`, units:'percent'}
+    {id:'expected_precip_mm', label:()=>'Expected precipitation', units:'mm', durations:[6,12,24]},
+    {id:'prob_gt_6p35_mm', label:()=>'P(precipitation > 6.35 mm / 0.25 inch)', units:'percent', durations:[6]},
+    {id:'prob_gt_12p7_mm', label:()=>'P(precipitation > 12.7 mm / 0.5 inch)', units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_25p4_mm', label:()=>'P(precipitation > 25.4 mm / 1 inch)', units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_50p8_mm', label:()=>'P(precipitation > 50.8 mm / 2 inches)', units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_76p2_mm', label:()=>'P(precipitation > 76.2 mm / 3 inches)', units:'percent', durations:[12,24]},
+    {id:'prob_gt_127_mm', label:()=>'P(precipitation > 127 mm / 5 inches)', units:'percent', durations:[24]},
+    {id:'prob_gt_2yr_ari', label:d=>`P(precipitation > local 2-year ${d}-h ARI)`, units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_5yr_ari', label:d=>`P(precipitation > local 5-year ${d}-h ARI)`, units:'percent', durations:[6,12,24]}
   ];
   let runs = [], comparisons = [], forecastError = null, comparisonError = null;
   let mapVersion = 0, comparisonVersion = 0, animationVersion = 0;
@@ -54,7 +57,7 @@
         need(durations.includes(d) && Number.isInteger(a) && Number.isInteger(b) && a >= 0 && b <= 48 && b-a === d && a%6 === 0, 'Invalid forecast accumulation window.');
         need(e.domain === 'CONUS' && e.grid_id === 'ann025_conus', 'An entry has the wrong grid/domain.');
         const product = products.find(p => p.id === e.product);
-        need(product && product.units === e.units, 'Unexpected product or units.');
+        need(product && product.durations.includes(d) && product.units === e.units, 'Unexpected product, duration or units.');
         const key = [d,a,b,e.product].join('|');
         need(!seen.has(key), 'Duplicate forecast entry.'); seen.add(key);
         siteURL(e.image);
@@ -83,7 +86,7 @@
     const options = [...pairs].sort((a,b) => a[1][0]-b[1][0]).map(([key,[a,b]]) => [key,`${planned ? 'Planned · ' : ''}f${String(a).padStart(2,'0')}–f${String(b).padStart(2,'0')}`]);
     const old = $('map-window').value; replaceOptions('map-window',options,old);
     const product = $('map-product').value;
-    replaceOptions('map-product',products.map(p=>[p.id,p.label(d)]),product);
+    replaceOptions('map-product',products.filter(p=>p.durations.includes(d)).map(p=>[p.id,p.label(d)]),product);
     text('schedule-note',planned ? `Planned ${d}-hour schedule: ${options.length} windows through f48. These options are not evidence of published forecasts.` : 'Forecast windows listed here have at least one published product; missing product combinations are shown as unavailable.');
     renderForecast();
   }

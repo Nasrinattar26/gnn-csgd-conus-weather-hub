@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "verification_year": 2025,
+  "validation_climatology_year": 2024,
+  "grid": {
+    "id": "ann025_conus",
+    "resolution_degrees": 0.25,
+    "domain": "CONUS"
+  },
+  "models": [
+    "raw_hrrr",
+    "ann_csgd",
+    "gnn_csgd"
+  ],
+  "threshold_definition": "observed precipitation > threshold",
+  "common_thresholds_mm": [
+    12.7,
+    25.4,
+    50.8
+  ],
+  "auc_method": "Histogram Mann-Whitney using 10001 bins",
+  "durations": {
+    "6": {
+      "duration_hours": 6,
+      "n_samples": 38888560,
+      "crps": {
+        "raw_hrrr": 0.5775569745709396,
+        "ann_csgd": 0.33478000734207525,
+        "gnn_csgd": 0.3296369742498748,
+        "crpss_ann_vs_raw": 0.4203515461123477,
+        "crpss_gnn_vs_raw": 0.42925635259662764,
+        "gnn_reduction_vs_ann_fraction": 0.01536242600934448
+      },
+      "thresholds": {
+        "12.7": {
+          "threshold_mm": 12.7,
+          "n_samples": 38888560,
+          "n_events": 392100,
+          "bss": {
+            "raw_hrrr": -0.28812012294595557,
+            "ann_csgd": 0.24703830188627696,
+            "gnn_csgd": 0.2535261207075413
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.666780035950968,
+            "ann_csgd": 0.9586261145862163,
+            "gnn_csgd": 0.9644689850355677
+          }
+        },
+        "25.4": {
+          "threshold_mm": 25.4,
+          "n_samples": 38888560,
+          "n_events": 103842,
+          "bss": {
+            "raw_hrrr": -0.5814003714586258,
+            "ann_csgd": 0.13666844097274888,
+            "gnn_csgd": 0.14065457354168165
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.6080528456424312,
+            "ann_csgd": 0.9607231369832977,
+            "gnn_csgd": 0.9658420299009056
+          }
+        },
+        "50.8": {
+          "threshold_mm": 50.8,
+          "n_samples": 38888560,
+          "n_events": 13030,
+          "bss": {
+            "raw_hrrr": -1.0112329372409001,
+            "ann_csgd": 0.04421095541125852,
+            "gnn_csgd": 0.04689676176818525
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.5493151987408114,
+            "ann_csgd": 0.9537414326178578,
+            "gnn_csgd": 0.9588803484586923
+          }
+        }
+      }
+    },
+    "12": {
+      "duration_hours": 12,
+      "n_samples": 33987536,
+      "crps": {
+        "raw_hrrr": 1.017348455932794,
+        "ann_csgd": 0.589260625026409,
+        "gnn_csgd": 0.5813709441063142,
+        "crpss_ann_vs_raw": 0.42078781209126304,
+        "crpss_gnn_vs_raw": 0.4285429532860868,
+        "gnn_reduction_vs_ann_fraction": 0.013389119491466438
+      },
+      "thresholds": {
+        "12.7": {
+          "threshold_mm": 12.7,
+          "n_samples": 33987536,
+          "n_events": 798054,
+          "bss": {
+            "raw_hrrr": -0.09352821423196156,
+            "ann_csgd": 0.35097106804386635,
+            "gnn_csgd": 0.35794785872164103
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.7199831878359501,
+            "ann_csgd": 0.9628490924318236,
+            "gnn_csgd": 0.9669270785791098
+          }
+        },
+        "25.4": {
+          "threshold_mm": 25.4,
+          "n_samples": 33987536,
+          "n_events": 249403,
+          "bss": {
+            "raw_hrrr": -0.3581088020079495,
+            "ann_csgd": 0.23460006132106892,
+            "gnn_csgd": 0.24013734109402696
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.6621648384291979,
+            "ann_csgd": 0.9688240188728391,
+            "gnn_csgd": 0.972236066682576
+          }
+        },
+        "50.8": {
+          "threshold_mm": 50.8,
+          "n_samples": 33987536,
+          "n_events": 38342,
+          "bss": {
+            "raw_hrrr": -0.7243169609130444,
+            "ann_csgd": 0.11960459891284869,
+            "gnn_csgd": 0.12431842634237211
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.6041892133930759,
+            "ann_csgd": 0.9707951127080725,
+            "gnn_csgd": 0.9731214794733265
+          }
+        }
+      }
+    },
+    "24": {
+      "duration_hours": 24,
+      "n_samples": 24238760,
+      "crps": {
+        "raw_hrrr": 1.8683949396813728,
+        "ann_csgd": 1.072531658820746,
+        "gnn_csgd": 1.057315585819811,
+        "crpss_ann_vs_raw": 0.42596094859706135,
+        "crpss_gnn_vs_raw": 0.4341048761349564,
+        "gnn_reduction_vs_ann_fraction": 0.014187061869730839
+      },
+      "thresholds": {
+        "12.7": {
+          "threshold_mm": 12.7,
+          "n_samples": 24238760,
+          "n_events": 1240965,
+          "bss": {
+            "raw_hrrr": 0.022902805986534824,
+            "ann_csgd": 0.4235408807975858,
+            "gnn_csgd": 0.43127473869802224
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.7552906727703095,
+            "ann_csgd": 0.9591989746857467,
+            "gnn_csgd": 0.9617958988372989
+          }
+        },
+        "25.4": {
+          "threshold_mm": 25.4,
+          "n_samples": 24238760,
+          "n_events": 460544,
+          "bss": {
+            "raw_hrrr": -0.1933921741215523,
+            "ann_csgd": 0.31793879237050604,
+            "gnn_csgd": 0.32562133433315
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.7062259453289348,
+            "ann_csgd": 0.9666021721175413,
+            "gnn_csgd": 0.9690367048752809
+          }
+        },
+        "50.8": {
+          "threshold_mm": 50.8,
+          "n_samples": 24238760,
+          "n_events": 86106,
+          "bss": {
+            "raw_hrrr": -0.5144549677846206,
+            "ann_csgd": 0.20956466886248049,
+            "gnn_csgd": 0.21610001975699256
+          },
+          "roc_auc": {
+            "raw_hrrr": 0.6556465321763622,
+            "ann_csgd": 0.9740383285274627,
+            "gnn_csgd": 0.9759021993469083
+          }
+        }
+      }
+    }
+  }
+}

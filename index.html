@@ -6,7 +6,7 @@
   <meta name="description" content="HRRR-based GNN-CSGD precipitation research dashboard. Forecast products and matched verification are being connected.">
   <title>CONUS Weather Hub | HRRR GNN-CSGD</title>
   <link rel="stylesheet" href="assets/gnn-style.css?v=step02-1">
-  <script src="assets/gnn-app.js?v=step02-1" defer></script>
+  <script src="assets/gnn-app.js?v=forecast26-1" defer></script>
 </head>
 <body data-page="forecasts" data-site-root="./">
   <a class="skip" href="#main">Skip to main content</a>
@@ -90,6 +90,7 @@
       <section class="panel" id="forecast-workspace">
         <div class="section-head"><h2>GNN-CSGD forecast maps</h2><span class="badge" id="map-status">Catalog pending</span></div>
         <p class="section-intro">Choose an initialization, accumulation duration, forecast window, and product. All valid times are UTC.</p>
+        <p class="note">First-cycle forecast archive. Automatic daily updates are not enabled yet; check the initialization and valid times.</p>
         <div class="controls">
           <label>Initialization (UTC)<select id="map-init" disabled><option>No published initializations</option></select></label>
           <label>Accumulation duration<select id="map-duration"><option value="6">6-hour</option><option value="12" selected>12-hour</option><option value="24">24-hour</option></select></label>
@@ -121,8 +122,8 @@
         <div id="download-links" class="download-links"></div>
       </section>
       <section class="panel" id="verification">
-        <div class="section-head"><h2>Held-out verification</h2><span class="badge">Results pending</span></div>
-        <p class="section-intro">GNN test results have not been connected to this dashboard. Training and validation losses are not displayed as test skill.</p>
+        <div class="section-head"><h2>Held-out verification</h2><span class="badge">2025 results available</span></div>
+        <p class="section-intro">Held-out 2025 results for Raw HRRR, HRRR ANN-CSGD, and HRRR GNN-CSGD are available on the Model Comparison page. These retrospective results are separate from daily operational verification.</p>
         <div class="metric-grid">
           <div class="metric-card"><strong>CRPS / CRPSS</strong><span>Full predictive distribution</span></div>
           <div class="metric-card"><strong>Brier Score / BSS</strong><span>Threshold probabilities</span></div>

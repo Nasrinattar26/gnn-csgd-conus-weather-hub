@@ -1,6 +1,505 @@
 {
   "schema_version": 1,
-  "models": ["raw_hrrr", "ann_csgd", "gnn_csgd"],
-  "grids": [{"id": "ann025_conus", "label": "Common 0.25° grid"}],
-  "entries": []
+  "models": [
+    "raw_hrrr",
+    "ann_csgd",
+    "gnn_csgd"
+  ],
+  "grids": [
+    {
+      "id": "ann025_conus",
+      "label": "Common 0.25\u00b0 grid"
+    }
+  ],
+  "entries": [
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "crps",
+      "threshold_mm": null,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Raw HRRR, ANN-CSGD, and GNN-CSGD mean CRPS for 6-hour precipitation on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/crps.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 6-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/6h/bss_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 6-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/roc_auc_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 6-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/reliability_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 6-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/6h/bss_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 6-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/roc_auc_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 6-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/reliability_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 6-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/6h/bss_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 6-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/roc_auc_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 6,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_6h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 6-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/6h/reliability_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "crps",
+      "threshold_mm": null,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Raw HRRR, ANN-CSGD, and GNN-CSGD mean CRPS for 12-hour precipitation on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/crps.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 12-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/12h/bss_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 12-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/roc_auc_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 12-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/reliability_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 12-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/12h/bss_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 12-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/roc_auc_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 12-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/reliability_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 12-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/12h/bss_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 12-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/roc_auc_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 12,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_12h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 12-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/12h/reliability_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "crps",
+      "threshold_mm": null,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Raw HRRR, ANN-CSGD, and GNN-CSGD mean CRPS for 24-hour precipitation on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/crps.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 24-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/24h/bss_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 24-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/roc_auc_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 12.7,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 24-hour precipitation > 12.7 mm (0.5\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/reliability_gt_12p7_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 24-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/24h/bss_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 24-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/roc_auc_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 25.4,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 24-hour precipitation > 25.4 mm (1\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/reliability_gt_25p4_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "bss",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Brier Skill Score for 24-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "reference": "2024 validation event rate applied unchanged as the climatology reference for 2025",
+      "image": "assets/comparison/2025/24h/bss_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "roc_auc",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "ROC AUC for 24-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/roc_auc_gt_50p8_mm.png"
+    },
+    {
+      "duration_hours": 24,
+      "domain": "CONUS",
+      "grid_id": "ann025_conus",
+      "metric": "reliability",
+      "threshold_mm": 50.8,
+      "models": [
+        "raw_hrrr",
+        "ann_csgd",
+        "gnn_csgd"
+      ],
+      "sample_id": "matched_ann025_conus_2025_24h_v1",
+      "period_label": "Held-out 2025 test period",
+      "caption": "Reliability diagram for 24-hour precipitation > 50.8 mm (2\") on the matched 0.25\u00b0 CONUS 2025 verification sample.",
+      "image": "assets/comparison/2025/24h/reliability_gt_50p8_mm.png"
+    }
+  ]
 }
