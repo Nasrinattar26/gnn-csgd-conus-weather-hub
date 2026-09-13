@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HRRR GNN-CSGD precipitation maps, animations, forecast downloads, and matched 2025 model verification for the contiguous United States.">
+  <meta name="description" content="HRRR GNN-CSGD precipitation maps, animations, and forecast downloads for the contiguous United States.">
   <title>CONUS Weather Hub | HRRR GNN-CSGD</title>
   <link rel="stylesheet" href="assets/gnn-style.css?v=downloads35-1">
   <script src="assets/gnn-app.js?v=ero17-1" defer></script>
@@ -15,7 +15,6 @@
       <a class="brand" href="index.html"><span>GNN-CSGD</span> Weather Hub</a>
       <div class="nav-links">
         <a href="index.html#forecast-workspace" aria-current="page">Forecasts</a>
-        <a href="index.html#verification">Verification</a>
         <a href="model-comparison/" >Model Comparison</a>
         <a href="index.html#downloads">Downloads</a>
         <a href="index.html#method">Method</a>
@@ -78,9 +77,8 @@
         <a class="active" href="#forecast-workspace">01 &nbsp; Forecast maps</a>
         <a href="#animations">02 &nbsp; Animations</a>
         <a href="#downloads">03 &nbsp; Downloads</a>
-        <a href="#verification">04 &nbsp; Verification</a>
-        <a href="model-comparison/">05 &nbsp; Model comparison</a>
-        <a href="#method">06 &nbsp; Method</a>
+        <a href="model-comparison/">04 &nbsp; Model comparison</a>
+        <a href="#method">05 &nbsp; Method</a>
       </nav>
       <div class="side-note"><span class="small-label">Forecast publication</span>
       <p id="publication-summary" role="status">Loading available GNN forecast cycles…</p>
@@ -127,16 +125,6 @@
           <div id="technical-download-links" class="download-technical-links"></div>
         </details>
       </section>
-      <section class="panel" id="verification">
-        <div class="section-head"><h2>Model verification</h2><span class="badge">2025 results available</span></div>
-        <p class="section-intro">Explore matched 2025 test-period results for raw HRRR, ANN-CSGD, and GNN-CSGD. Compare precipitation skill, threshold probabilities, and calibration for 6-, 12-, and 24-hour accumulations.</p>
-        <div class="metric-grid">
-          <div class="metric-card"><strong>CRPS / CRPSS</strong><span>Precipitation-distribution accuracy and skill</span></div>
-          <div class="metric-card"><strong>Brier score / BSS</strong><span>Threshold-probability accuracy and skill</span></div>
-          <div class="metric-card"><strong>ROC / calibration</strong><span>ROC curves, AUC, reliability, and calibration error</span></div>
-        </div>
-        <a class="button" href="model-comparison/">Explore model comparisons</a>
-      </section>
       <section class="panel" id="method">
         <h2>How GNN-CSGD works</h2>
         <p class="section-intro">Three separately trained models produce 6-, 12-, and 24-hour precipitation guidance using the same CONUS land grid.</p>
@@ -150,6 +138,6 @@
       </section>
     </div>
   </main>
-  <footer class="footer"><div><span>Nasrin Attar · HRRR GNN-CSGD Weather Hub</span><span>Research products · Not official forecast guidance</span></div></footer>
+  <footer class="footer"><div><span>Research product developed by Nasrin Attar under the supervision of Prof. Yu Zhang at The University of Texas at Arlington.</span></div></footer>
 </body>
 </html>
