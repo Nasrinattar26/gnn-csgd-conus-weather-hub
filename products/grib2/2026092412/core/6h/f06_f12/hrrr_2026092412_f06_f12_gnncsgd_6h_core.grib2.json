@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "status": "CORE_PRODUCTS_ROUNDTRIP_PASS_NOT_PUBLISHED_ARI_NOT_EXPORTED",
+  "producer": "Nasrin Attar HRRR GNN-CSGD research workflow",
+  "model_id": "hrrr_gnn_csgd",
+  "research_product": true,
+  "centre": 65535,
+  "centre_note": "No assigned producer code supplied; not an official NCEP product.",
+  "init_utc": "2026-09-24T12:00:00Z",
+  "valid_start_utc": "2026-09-24T18:00:00Z",
+  "valid_end_utc": "2026-09-25T00:00:00Z",
+  "duration_hours": 6,
+  "start_forecast_hour": 6,
+  "end_forecast_hour": 12,
+  "grib2_name": "hrrr_2026092412_f06_f12_gnncsgd_6h_core.grib2",
+  "grib2_sha256": "c323f0d355781915531dc577492e8b427c530b3d633cde0ce83feadb842b10ea",
+  "source_npz_name": "hrrr_2026092412_f06_f12_gnncsgd_6h.npz",
+  "source_npz_sha256": "9ee209bbc76ba5e7d68b3dfec66e31479683050bc18ab627c29d3f23d4008454",
+  "gnn_checkpoint_sha256": "29a41fb8ac5bbacaaf75ddcc038d0a8b8949c51c772eee1baec0ceafe1d3137f",
+  "grid_template_sha256": "e8b122fd3a08a6f12406e0fdf029abb686b61bfd7e1c27d19ef1a9a858a2f31d",
+  "exporter_sha256": "ca1f3f25a52ccc867d2666e9baf176803170ca4add78579438eba82de82dc0e2",
+  "earth_definition": {
+    "shapeOfTheEarth": 6
+  },
+  "message_count": 5,
+  "records": [
+    {
+      "variable": "expected_precip_mm",
+      "kind": "amount",
+      "threshold_mm": null,
+      "description": "GNN-CSGD expected accumulated precipitation",
+      "units": "mm",
+      "message_number": 1,
+      "product_definition_template": 8,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "valid_cells": 13318,
+      "missing_cells": 16283,
+      "maximum_absolute_error": 9.5367431640625e-07,
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "units_note": "GRIB parameter units are kg m-2, numerically equal to mm water equivalent"
+    },
+    {
+      "variable": "prob_gt_0p25inch_percent",
+      "kind": "probability",
+      "threshold_mm": 6.35,
+      "description": "GNN-CSGD P(precipitation > 6.35 mm)",
+      "units": "percent",
+      "message_number": 2,
+      "product_definition_template": 9,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "valid_cells": 13318,
+      "missing_cells": 16283,
+      "maximum_absolute_error": 3.814697265625e-06,
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9."
+    },
+    {
+      "variable": "prob_gt_0p5inch_percent",
+      "kind": "probability",
+      "threshold_mm": 12.7,
+      "description": "GNN-CSGD P(precipitation > 12.7 mm)",
+      "units": "percent",
+      "message_number": 3,
+      "product_definition_template": 9,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "valid_cells": 13318,
+      "missing_cells": 16283,
+      "maximum_absolute_error": 3.814697265625e-06,
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9."
+    },
+    {
+      "variable": "prob_gt_1inch_percent",
+      "kind": "probability",
+      "threshold_mm": 25.4,
+      "description": "GNN-CSGD P(precipitation > 25.4 mm)",
+      "units": "percent",
+      "message_number": 4,
+      "product_definition_template": 9,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "valid_cells": 13318,
+      "missing_cells": 16283,
+      "maximum_absolute_error": 9.5367431640625e-07,
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9."
+    },
+    {
+      "variable": "prob_gt_2inch_percent",
+      "kind": "probability",
+      "threshold_mm": 50.8,
+      "description": "GNN-CSGD P(precipitation > 50.8 mm)",
+      "units": "percent",
+      "message_number": 5,
+      "product_definition_template": 9,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "valid_cells": 13318,
+      "missing_cells": 16283,
+      "maximum_absolute_error": 5.960464477539063e-08,
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9."
+    }
+  ],
+  "ari_source_checks_not_exports": [
+    {
+      "return_period_years": 2,
+      "valid_land_cells": 13301,
+      "excluded_land_cells": 17,
+      "source_variable": "prob_gt_2yr6h_ari_percent",
+      "exported": false
+    },
+    {
+      "return_period_years": 5,
+      "valid_land_cells": 13301,
+      "excluded_land_cells": 17,
+      "source_variable": "prob_gt_5yr6h_ari_percent",
+      "exported": false
+    }
+  ],
+  "readback_tolerance": {
+    "amount_mm": 0.0001,
+    "probability_percentage_points": 0.0001
+  },
+  "eccodes_version": "2.46.0",
+  "independent_inventory": "wgrib2_inventory.txt",
+  "independent_inventory_sha256": "d134a394077eb4a58e541934817be765aa864b79758c00b1c7884866afb4758b",
+  "created_utc": "2026-09-24T17:00:34Z"
+}
