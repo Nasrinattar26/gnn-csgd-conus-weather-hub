@@ -1,3 +1,4 @@
+// gnn-wpc-qpf-20260927-v1
 /* HRRR GNN-CSGD forecast dashboard. */
 'use strict';
 (() => {
@@ -28,6 +29,7 @@
     const url = new URL(path, base);
     need(url.origin === base.origin && url.pathname.startsWith(base.pathname) &&
       !url.username && !url.password && !url.hash, 'Product paths must stay inside the GNN website.');
+    if (/\.(png|gif)$/i.test(url.pathname)) url.searchParams.set('style', 'gnn-wpc-qpf-20260927-v1');
     return url.href;
   }
   function utc(value) { return new Date(value).toISOString().slice(0,16).replace('T',' ') + ' UTC'; }
@@ -207,7 +209,7 @@
       text('ero-validity','ERO is available for Day 1 (f00–f24) and Day 2 (f24–f48).');
     }
     text('map-summary',`${d}-hour accumulation · forecast hours ${a}–${b}`);
-    text('map-caption',`${product.label(d)} · ${isERO ? 'rainfall and excessive-rainfall guidance' : product.units === 'mm' ? 'millimeters' : 'probability (%)'}`);
+    text('map-caption',`${product.label(d)} · ${isERO ? 'rainfall and excessive-rainfall guidance' : product.units === 'mm' ? 'inches · WPC rainfall scale' : 'probability (%)'}`);
     text('map-validity',run ? `${utc(dateMS(run.init_utc)+a*3600000)} to ${utc(dateMS(run.init_utc)+b*3600000)}` : 'Select an available initialization to view its valid period.');
     $('previous-window').disabled = $('map-window').selectedIndex <= 0;
     $('next-window').disabled = $('map-window').selectedIndex >= $('map-window').options.length-1;
