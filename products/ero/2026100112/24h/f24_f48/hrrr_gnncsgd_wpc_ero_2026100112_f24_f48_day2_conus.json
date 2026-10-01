@@ -1,0 +1,68 @@
+{
+  "comparison_scope": "qualitative_guidance_comparison",
+  "created_utc": "2026-10-01T15:15:21Z",
+  "duration_hours": 24,
+  "ero": {
+    "categories": [
+      "MARGINAL",
+      "SLIGHT"
+    ],
+    "coverage": "full",
+    "day": 2,
+    "feature_count": 2,
+    "issue_times_utc": [
+      "2026-10-01T08:11:00Z"
+    ],
+    "model_valid_end_utc": "2026-10-03T12:00:00Z",
+    "model_valid_start_utc": "2026-10-02T12:00:00Z",
+    "valid_end_utc": "2026-10-03T12:00:00Z",
+    "valid_start_utc": "2026-10-02T12:00:00Z"
+  },
+  "gnn_grib2_sha256": "39b05ea716aa6f81387bee0aa305932bb68879baf87b9ccf95f0ffb611404a7e",
+  "gnn_record": {
+    "decoded_short_name": "unknown",
+    "decoded_units_label": "unknown",
+    "description": "GNN-CSGD P(precipitation > 25.4 mm)",
+    "kind": "probability",
+    "maximum_absolute_error": 1.9073486328125e-06,
+    "message_number": 3,
+    "missing_cells": 16283,
+    "parameter": [
+      0,
+      1,
+      8
+    ],
+    "product_definition_template": 9,
+    "threshold_mm": 25.4,
+    "units": "percent",
+    "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9.",
+    "valid_cells": 13318,
+    "variable": "prob_gt_1inch_percent"
+  },
+  "grid_id": "ann025_conus",
+  "grid_resolution_degrees": 0.25,
+  "image": "products/ero/2026100112/24h/f24_f48/hrrr_gnncsgd_wpc_ero_2026100112_f24_f48_day2_conus.png",
+  "image_sha256": "7d3a13620a1b1b0f96bf3582ef649760119de69f08c7d9b5a2ea7b053691fb8e",
+  "initialization": "2026100112",
+  "land_cells": 13318,
+  "model_id": "hrrr_gnn_csgd",
+  "panels": [
+    "raw_hrrr_24h_precipitation",
+    "raw_hrrr_deterministic_1inch_exceedance",
+    "gnn_csgd_1inch_exceedance_probability",
+    "wpc_ero_categorical_risk"
+  ],
+  "product": "gnncsgd_wpc_ero_comparison",
+  "raw_endpoint_sha256": {
+    "24": "6927f07634c51807a2112f3d815cfdf8770ae093b98eec79bad5c42d7d13d111",
+    "48": "3a984bca26bf6380409bf8cc027051f88d5596b336a9f758982afc9b4a5a837d"
+  },
+  "renderer_sha256": "464236baecbef4745dd068a630a575390294222ce02a4e58b86c6914c6da9606",
+  "schema_version": 1,
+  "science_note": "WPC ERO is excessive-rainfall risk guidance, a different event from GNN precipitation exceeding 1 inch.",
+  "threshold_mm": 25.4,
+  "window": "f24_f48",
+  "wpc_source_sha256": "0770482147822c48e70a54f8530c078cfcabfab6831894a774a751b161a3347f",
+  "wpc_source_snapshot": "products/ero/2026100112/source/Day2.geojson",
+  "wpc_source_url": "https://www.wpc.ncep.noaa.gov/exper/eromap/geojson/Day2_Latest.geojson"
+}
