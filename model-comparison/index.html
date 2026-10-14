@@ -3,20 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Compare raw HRRR, ANN-CSGD and GNN-CSGD by forecast initialization, valid window, accumulation duration and verification metric.">
-  <title>Model Comparison | HRRR GNN-CSGD</title>
+  <meta name="description" content="Compare GNN-CSGD and CNN-CSGD with ANN-CSGD and raw HRRR on shared MRMS observations.">
+  <title>Four-System Model Comparison | HRRR Neural Weather Hub</title>
   <link rel="stylesheet" href="../assets/gnn-style.css?v=downloads35-1">
   <link rel="stylesheet" href="../assets/gnn-comparison-v2.css?v=figures15-1">
   <link rel="stylesheet" href="../assets/gnn-comparison-dated-v1.css?v=dated19-1">
   <script src="../assets/gnn-comparison-dated-v1.js?v=dated19-1" defer></script>
+<link rel="stylesheet" href="../assets/cnn24h-v1.css?v=model-picker-v2">
+  <script src="../assets/cnn24h-v1.js?v=model-picker-v2" defer></script>
 </head>
 <body data-page="comparison" data-site-root="../">
   <a class="skip" href="#main">Skip to main content</a>
   <nav class="topbar" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a class="brand" href="../index.html"><span>GNN-CSGD</span> Weather Hub</a>
+      <a class="brand" href="../index.html"><span>HRRR Neural</span> Weather Hub</a>
       <div class="nav-links">
-        <a href="../index.html#forecast-workspace" >Forecasts</a>
+        <a href="../index.html#model-selector" >Forecasts</a>
         <a href="../model-comparison/" aria-current="page">Model Comparison</a>
         <a href="../index.html#downloads">Downloads</a>
         <a href="../index.html#method">Method</a>
@@ -52,11 +54,12 @@
     <div class="hero-inner">
       <div>
         <p class="eyebrow">Forecast verification</p>
-        <h1>Model comparison<span>Raw HRRR · ANN-CSGD · GNN-CSGD</span></h1>
+        <h1>Model comparison<span>Raw HRRR · ANN-CSGD · GNN-CSGD · CNN-CSGD</span></h1>
         <p class="hero-description">Compare precipitation forecast skill, discrimination, and calibration on the same CONUS 0.25° verification grid.</p>
-        <div class="hero-actions"><a class="button" href="#saved-figures">Explore comparisons</a><a class="comparison-hero-link" href="../index.html#forecast-workspace">Open live forecasts ↗</a></div>
+        <div class="hero-actions"><a class="button" href="#cnn24-comparison">Compare all four systems</a><a class="comparison-hero-link" href="../index.html#model-selector">Open live forecasts ↗</a></div>
       </div>
-      <aside class="run-card" aria-label="Evaluation scope">
+      <aside class="run-card"><span class="small-label">Four-system comparison</span><strong>24-hour rainfall</strong><p>Matched initialization, valid window and MRMS observations for all four systems.</p><p>Existing 6-, 12- and 24-hour three-system results remain available below.</p></aside>
+<aside class="run-card" aria-label="Evaluation scope" hidden>
         <span class="small-label" id="scope-label">Evaluation period</span><strong id="scope-period">Loading…</strong>
         <p id="scope-note">Select a forecast initialization or the 2025 test period. Every comparison uses matched observations.</p>
         <div class="stats"><div><span class="small-label">Accumulations</span><strong>6 / 12 / 24 h</strong></div><div><span class="small-label">Verification grid</span><strong>0.25° · CONUS</strong></div></div>
@@ -66,8 +69,19 @@
   <noscript><p class="noscript">Enable JavaScript to select a figure, or use the <a href="#comparison-downloads">comparison downloads</a>.</p></noscript>
   <main id="main" class="layout compare-layout unified-comparison">
     <div class="content">
+      <!-- CNN24H_V1 comparison BEGIN -->
+<section class="panel cnn24-panel" id="cnn24-comparison" data-cnn24="comparison" data-cnn-root="../">
+<h2>Four-system comparison with CNN</h2><p class="cnn24-intro">Raw HRRR · operational ANN-CSGD · operational GNN-CSGD · CNN-CSGD corrected v1</p>
+<p class="cnn24-note">24-hour research model. CNN predictions are generated after initialization from archived HRRR inputs. These comparisons use different trained model versions; the controlled architecture benchmark is separate.</p>
+<div class="cnn24-controls"></div><p class="cnn24-status" role="status">Loading CNN results…</p>
+<div class="cnn24-output"></div><div class="cnn24-downloads"></div>
+<details><summary>Data and interpretation</summary><p>All four systems use the same HRRR initialization, valid window, CONUS 0.25° land grid and finite MRMS observations. MRMS 24-hour totals require four consecutive 6-hour Pass2 fields; missing components remain pending.</p>
+<p>CRPS includes the zero-censoring correction. Raw HRRR CRPS equals MAE. MAE, RMSE and bias for neural models use their distribution means. Positive thresholds define events as observations ≥ the stored float32 threshold. Raw HRRR threshold forecasts are binary 0/1 indicators.</p>
+<p>BSS versus raw HRRR and BSS versus monthly MRMS climatology are separate selections. The monthly reference uses 2020–2025 observations; unavailable threshold climatology is shown as unavailable. Reliability uses ten probability bins. Counts represent grid-cell/window cases, not independent storms. These are point estimates without confidence intervals.</p>
+<p>The CNN checkpoint was selected on 2024 validation data. Its validation CRPS is 1.049463 mm; that number is not the score for the initialization selected here. CNN 6-hour and 12-hour models are not included.</p></details></section>
+<!-- CNN24H_V1 comparison END -->
       <section class="panel comparison-viewer" id="saved-figures" aria-labelledby="viewer-heading">
-        <div class="section-head"><h2 id="viewer-heading">Compare forecast skill</h2><span id="comparison-data-status" class="badge" role="status">Loading comparisons…</span></div>
+        <div class="section-head"><h2 id="viewer-heading">Existing three-system comparisons</h2><span id="comparison-data-status" class="badge" role="status">Loading comparisons…</span></div>
         <p class="section-intro">Choose an evaluation, initialization, forecast window, and metric. All times are UTC.</p>
         <div class="controls evaluation-controls">
           <label>Evaluation<select id="evaluation-scope" disabled><option value="daily">Forecast initializations</option><option value="2025">2025 test period</option></select></label>

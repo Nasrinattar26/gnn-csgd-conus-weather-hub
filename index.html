@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HRRR GNN-CSGD precipitation maps, animations, and forecast downloads for the contiguous United States.">
-  <title>CONUS Weather Hub | HRRR GNN-CSGD</title>
+  <meta name="description" content="Choose GNN-CSGD or CNN-CSGD precipitation forecasts and compare them with ANN-CSGD and raw HRRR against MRMS observations.">
+  <title>CONUS Weather Hub | GNN-CSGD &amp; CNN-CSGD</title>
   <link rel="stylesheet" href="assets/gnn-style.css?v=downloads35-1">
   <script src="assets/gnn-app.js?v=gnn-wpc-qpf-20260927-v1" defer></script>
+<link rel="stylesheet" href="./assets/cnn24h-v1.css?v=model-picker-v2">
+  <script src="./assets/cnn24h-v1.js?v=model-picker-v2" defer></script>
 </head>
 <body data-page="forecasts" data-site-root="./">
   <a class="skip" href="#main">Skip to main content</a>
   <nav class="topbar" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a class="brand" href="index.html"><span>GNN-CSGD</span> Weather Hub</a>
+      <a class="brand" href="index.html"><span>HRRR Neural</span> Weather Hub</a>
       <div class="nav-links">
-        <a href="index.html#forecast-workspace" aria-current="page">Forecasts</a>
+        <a href="index.html#model-selector" aria-current="page">Forecasts</a>
         <a href="model-comparison/" >Model Comparison</a>
-        <a href="index.html#downloads">Downloads</a>
-        <a href="index.html#method">Method</a>
+        <a href="index.html?model=gnn#downloads" data-weather-only="gnn" hidden>Downloads</a>
+        <a href="index.html?model=gnn#method" data-weather-only="gnn" hidden>Method</a>
       </div>
       <div class="related-hubs" aria-label="Related weather hubs">
         <span class="related-hubs__label">Related hubs</span>
@@ -50,15 +52,14 @@
     <div class="hero-inner">
       <div>
         <p class="eyebrow">HRRR-based probabilistic precipitation research</p>
-        <h1>HRRR GNN-CSGD<span>CONUS Weather Hub</span></h1>
-        <p class="hero-description">Explore 6-, 12-, and 24-hour precipitation forecasts from HRRR GNN-CSGD,
-        including expected rainfall and threshold-exceedance probabilities through forecast hour 48.</p>
+        <h1>HRRR Neural Forecasts<span>CONUS Weather Hub</span></h1>
+        <p class="hero-description">Choose GNN-CSGD or CNN-CSGD to explore rainfall maps and probabilities. Compare both models with ANN-CSGD and raw HRRR using matched MRMS observations.</p>
         <div class="hero-actions">
-          <span class="badge" id="status-badge" role="status">Loading published forecasts…</span>
+          <span class="badge" data-weather-only="gnn" hidden id="status-badge" role="status">Loading published forecasts…</span>
           <a class="button" href="model-comparison/">Compare forecast systems</a>
         </div>
       </div>
-      <aside class="run-card">
+      <aside class="run-card" data-weather-only="gnn" hidden>
         <span class="small-label">Latest published GNN initialization</span>
         <strong id="latest-init">Loading…</strong>
         <p id="run-note">Select a published initialization to view its maps, animations, and downloads.</p>
@@ -74,18 +75,44 @@
     <aside class="sidebar panel">
       <h2>Forecast workspace</h2>
       <nav class="side-links" aria-label="Dashboard sections">
-        <a class="active" href="#forecast-workspace">01 &nbsp; Forecast maps</a>
-        <a href="#animations">02 &nbsp; Animations</a>
-        <a href="#downloads">03 &nbsp; Downloads</a>
-        <a href="model-comparison/">04 &nbsp; Model comparison</a>
-        <a href="#method">05 &nbsp; Method</a>
-      </nav>
-      <div class="side-note"><span class="small-label">Forecast publication</span>
+<a class="active" href="#model-selector">01 &nbsp; Choose model</a>
+<a href="#forecast-workspace" data-weather-only="gnn" hidden>GNN forecast maps</a>
+<a href="#animations" data-weather-only="gnn" hidden>GNN animations</a>
+<a href="#downloads" data-weather-only="gnn" hidden>GNN downloads</a>
+<a href="#method" data-weather-only="gnn" hidden>GNN method</a>
+<a href="#cnn24-forecast" data-weather-only="cnn" hidden>CNN maps &amp; downloads</a>
+<a href="model-comparison/#cnn24-comparison">02 &nbsp; Compare all models</a>
+</nav>
+      <div class="side-note" data-weather-only="gnn" hidden><span class="small-label">Forecast publication</span>
       <p id="publication-summary" role="status">Loading available GNN forecast cycles…</p>
       <p>Daily forecasts target the 12 UTC HRRR cycle. A new cycle appears after its inputs and forecast products are complete.</p></div>
     </aside>
     <div class="content">
-      <section class="panel" id="forecast-workspace">
+      <!-- MODEL_PICKER_V2 BEGIN -->
+<section class="panel weather-model-picker" id="model-selector" aria-labelledby="model-selector-title">
+<p class="weather-step">START HERE</p><h2 id="model-selector-title">Choose your forecast model</h2>
+<p>Select a model, then choose its initialization, forecast window and rainfall product.</p>
+<div class="weather-model-options" role="group" aria-label="Forecast model">
+<button type="button" class="weather-model-choice" data-weather-model="gnn" aria-pressed="false" aria-controls="forecast-workspace animations downloads method">
+<span class="weather-model-tag">Graph neural network</span><strong>GNN-CSGD</strong><span>6-, 12- and 24-hour accumulations</span><small>Maps · animations · downloads</small></button>
+<button type="button" class="weather-model-choice" data-weather-model="cnn" aria-pressed="false" aria-controls="cnn24-forecast">
+<span class="weather-model-tag">Convolutional neural network</span><strong>CNN-CSGD</strong><span>24-hour accumulations</span><small>Research model · maps &amp; probabilities</small></button>
+</div><p id="weather-model-status" class="weather-model-status" role="status">Choose GNN-CSGD or CNN-CSGD above to open its forecasts.</p>
+<a class="weather-compare-link" href="model-comparison/#cnn24-comparison">Compare GNN-CSGD and CNN-CSGD with ANN-CSGD and raw HRRR →</a>
+</section>
+<!-- MODEL_PICKER_V2 END -->
+      <!-- CNN24H_V1 forecast BEGIN -->
+<section class="panel cnn24-panel" id="cnn24-forecast" data-cnn24="forecast" data-cnn-root="./" data-weather-only="cnn" hidden>
+<h2>CNN-CSGD 24-hour forecasts</h2><p class="cnn24-intro">Expected rainfall and exceedance probabilities · 24-hour accumulation · CONUS 0.25°</p>
+<p class="cnn24-note">24-hour research model. CNN predictions are generated after initialization from archived HRRR inputs. These comparisons use different trained model versions; the controlled architecture benchmark is separate.</p>
+<div class="cnn24-controls"></div><p class="cnn24-status" role="status">Loading CNN results…</p>
+<div class="cnn24-output"></div><div class="cnn24-downloads"></div>
+<details><summary>Data and interpretation</summary><p>All four systems use the same HRRR initialization, valid window, CONUS 0.25° land grid and finite MRMS observations. MRMS 24-hour totals require four consecutive 6-hour Pass2 fields; missing components remain pending.</p>
+<p>CRPS includes the zero-censoring correction. Raw HRRR CRPS equals MAE. MAE, RMSE and bias for neural models use their distribution means. Positive thresholds define events as observations ≥ the stored float32 threshold. Raw HRRR threshold forecasts are binary 0/1 indicators.</p>
+<p>BSS versus raw HRRR and BSS versus monthly MRMS climatology are separate selections. The monthly reference uses 2020–2025 observations; unavailable threshold climatology is shown as unavailable. Reliability uses ten probability bins. Counts represent grid-cell/window cases, not independent storms. These are point estimates without confidence intervals.</p>
+<p>The CNN checkpoint was selected on 2024 validation data. Its validation CRPS is 1.049463 mm; that number is not the score for the initialization selected here. CNN 6-hour and 12-hour models are not included.</p></details></section>
+<!-- CNN24H_V1 forecast END -->
+      <section class="panel" id="forecast-workspace" data-weather-only="gnn" hidden>
         <div class="section-head"><h2>GNN-CSGD forecast maps</h2><span class="badge" id="map-status">Loading forecasts…</span></div>
         <p class="section-intro">Choose an initialization, accumulation duration, forecast window, and product. All valid times are UTC.</p>
         <p class="note">Forecasts use the 12 UTC HRRR initialization. Check the selected initialization and valid period when viewing a map.</p>
@@ -108,13 +135,13 @@
         <div class="note" id="ero-context" hidden aria-live="polite"><p id="ero-validity"></p><p><a href="https://www.wpc.ncep.noaa.gov/qpf/excess_rain.shtml" target="_blank" rel="noopener">WPC Excessive Rainfall Outlook</a> describes the risk of rainfall exceeding flash flood guidance within 25 miles of a point. GNN rainfall probabilities describe precipitation exceeding 1 inch (25.4 mm).</p></div>
         <p class="note" id="schedule-note">Loading forecast windows…</p>
       </section>
-      <section class="panel" id="animations">
+      <section class="panel" id="animations" data-weather-only="gnn" hidden>
         <h2>Forecast animations</h2>
         <p class="section-intro">Animations use the selected initialization, duration, and product above.</p>
         <p id="animation-empty" class="pending-box">No matching animation has been published.</p>
         <img id="forecast-animation" alt="" hidden>
       </section>
-      <section class="panel" id="downloads">
+      <section class="panel" id="downloads" data-weather-only="gnn" hidden>
         <h2>Forecast downloads</h2>
         <p class="section-intro">Download the selected map, animation, or forecast data.</p>
         <p class="pending-box" id="downloads-empty">No downloadable file is available for this selection.</p>
@@ -125,7 +152,7 @@
           <div id="technical-download-links" class="download-technical-links"></div>
         </details>
       </section>
-      <section class="panel" id="method">
+      <section class="panel" id="method" data-weather-only="gnn" hidden>
         <h2>How GNN-CSGD works</h2>
         <p class="section-intro">Three separately trained models produce 6-, 12-, and 24-hour precipitation guidance using the same CONUS land grid.</p>
         <div class="method-grid">
