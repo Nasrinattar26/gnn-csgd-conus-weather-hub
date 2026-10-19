@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../assets/cnn-four-system-comparison-v2.css?v=20261014-2">
   <script src="../assets/cnn-four-system-comparison-v2.js?v=20261014-2" defer></script>
   <script src="../assets/cnn24h-v1.js?v=model-picker-v2" defer></script>
+  <link rel="stylesheet" href="../assets/verification-glossary-v1.css?v=1">
+  <script src="../assets/verification-glossary-v1.js?v=1" defer></script>
 </head>
 <body data-page="comparison" data-site-root="../">
   <a class="skip" href="#main">Skip to main content</a>
@@ -109,6 +111,14 @@
         <p id="figure-note" class="note metric-note"></p>
         <details class="comparison-details" id="figure-values"><summary>View values and sample counts</summary><div class="comparison-table-wrap" tabindex="0" role="region" aria-label="Selected comparison values"><table><caption id="values-caption"></caption><thead id="values-head"></thead><tbody id="values-body"></tbody></table></div></details>
       </section>
+      <!-- VERIFICATION_GLOSSARY_V1 BEGIN -->
+<section class="panel" id="verification-glossary" aria-labelledby="vg-heading">
+<div class="section-head"><h2 id="vg-heading">Additional verification metrics</h2><a href="../verification-guide/">Metric definitions and formulas ↗</a></div>
+<p class="section-intro">Explore rainfall errors, categorical events, probability diagnostics and distribution summaries. Existing comparison figures remain above. Choose the same initialization and valid window when comparing models.</p>
+<div class="vg-controls" id="vg-controls"></div><p id="vg-status" role="status" aria-live="polite">Loading verification data…</p>
+<h3 id="vg-title">Critical success index</h3><div id="vg-output"></div><p id="vg-note"></p>
+<details class="comparison-details"><summary>Which calculations need additional data?</summary><p>Published probability-bin counts support exact categorical scores at the listed 10–90% cutoffs, plus discrimination, calibration and event-frequency diagnostics. Amount-distribution statistics and amount-based event decisions require retained paired forecasts and MRMS. The refresh job adds these only after reproducing the existing published scores. Missing or undefined values remain unavailable.</p><p>These added diagnostics cover dated initializations. Existing 2025 benchmark restrictions and model-version distinctions remain in place. <a href="../verification-guide/">Read all definitions and score conventions.</a></p></details></section>
+<!-- VERIFICATION_GLOSSARY_V1 END -->
       <section class="panel" id="comparison-downloads" aria-labelledby="downloads-title">
         <h2 id="downloads-title">Comparison downloads</h2>
         <div class="download-links" id="benchmark-downloads"><a class="button" href="../data/verification/2025/combined_probabilistic_metrics_2025.csv">Threshold scores (CSV)</a><a class="button" href="../data/verification/2025/combined_reliability_2025.csv">Reliability bins (CSV)</a><a class="button" href="../data/verification/2025/roc_curve_points_v2.csv">ROC coordinates (CSV)</a><a class="button" href="../data/verification/2025/comparison_figures_v2.json">Comparison data (JSON)</a></div>
