@@ -1,0 +1,409 @@
+/* Match the GNN forecast workspace while retaining independent model data. */
+'use strict';
+(() => {
+  const host=document.querySelector('[data-cnn24="forecast"]');
+  if(!host)return;
+  // Keep the original bookmark while giving this controller ownership of the
+  // model picker. The legacy 24-hour script then finds no picker to initialize.
+  const picker=document.getElementById('model-selector');
+  if(picker){
+    picker.id='cnn-gnn-model-selector';
+    const anchor=document.createElement('a');anchor.setAttribute('name','model-selector');anchor.setAttribute('aria-hidden','true');picker.before(anchor);
+  }
+  host.removeAttribute('data-cnn24');host.className='cnn-full-workspace';host.replaceChildren();
+  function copy(sectionID){
+    const source=document.getElementById(sectionID);if(!source)throw new Error('Missing GNN forecast template: '+sectionID);
+    const section=source.cloneNode(true);section.id='cnn-'+sectionID;section.dataset.weatherOnly='cnn';section.hidden=true;
+    section.querySelectorAll('[id]').forEach(element=>element.id='cnn-'+element.id);
+    section.querySelectorAll('[aria-labelledby]').forEach(element=>element.setAttribute('aria-labelledby',element.getAttribute('aria-labelledby').split(' ').map(id=>'cnn-'+id).join(' ')));
+    section.querySelectorAll('h2,h3,p,strong,span,a').forEach(element=>{
+      for(const child of element.childNodes)if(child.nodeType===3)child.textContent=child.textContent.replaceAll('GNN-CSGD','CNN-CSGD').replaceAll('GNN forecasts','CNN forecasts');
+    });
+    host.append(section);return section;
+  }
+  const maps=copy('forecast-workspace');copy('animations');copy('downloads');
+  const mark=maps.querySelector('.empty-mark');if(mark)mark.textContent='C';
+  const timing=maps.querySelector('.note');if(timing)timing.textContent='Check the selected initialization and valid period when viewing a map. All valid times are UTC.';
+  const method=copy('method');
+  method.querySelector('.section-intro').textContent='Separate CNN models produce 6-, 12-, and 24-hour precipitation guidance as their completed checkpoints become available.';
+  const learning=method.querySelector('.method-grid').children[1].querySelector('span');
+  learning.textContent='Convolutional filters combine information from neighboring grid cells to learn precipitation patterns.';
+  const note=document.createElement('p');note.id='cnn-availability-note';note.className='note';maps.querySelector('.section-intro').after(note);
+  const stub=document.createElement('div');stub.hidden=true;
+  const hero=Array.from(document.querySelectorAll('aside')).find(element=>element.classList.contains('run-card')&&element.dataset.weatherOnly==='gnn');
+  if(hero){
+    const card=hero.cloneNode(true);card.dataset.weatherOnly='cnn';card.hidden=true;
+    card.querySelectorAll('[id]').forEach(element=>element.id='cnn-'+element.id);
+    card.querySelectorAll('span,p,strong').forEach(element=>{for(const child of element.childNodes)if(child.nodeType===3)child.textContent=child.textContent.replaceAll('GNN','CNN');});
+    hero.after(card);
+  }
+  for(const id of ['status-badge','publication-summary',...(hero?[]:['latest-init','run-note'])]){const element=document.createElement('span');element.id='cnn-'+id;stub.append(element);}
+  maps.append(stub);
+  document.querySelectorAll('[data-weather-model]').forEach(button=>{
+    const model=button.dataset.weatherModel;button.dataset.cnnFullChoice=model;button.removeAttribute('data-weather-model');
+    if(model==='cnn'){
+      button.setAttribute('aria-controls','cnn24-forecast cnn-animations cnn-downloads cnn-method');
+      const spans=button.querySelectorAll('span');if(spans.length>1)spans[1].textContent='6-, 12- and 24-hour accumulations';
+      const small=button.querySelector('small');if(small)small.textContent='Maps · animations · downloads';
+    }
+  });
+  const nav=document.querySelector('.side-links');
+  if(nav){
+    const old=nav.querySelector('[data-weather-only="cnn"]');if(old)old.remove();
+    for(const [id,label] of [['cnn24-forecast','CNN forecast maps'],['cnn-animations','CNN animations'],['cnn-downloads','CNN downloads'],['cnn-method','CNN method']]){
+      const link=document.createElement('a');link.href='#'+id;link.textContent=label;link.dataset.weatherOnly='cnn';link.hidden=true;nav.append(link);
+    }
+  }
+  function choose(model){
+    document.querySelectorAll('[data-weather-only]').forEach(element=>element.hidden=element.dataset.weatherOnly!==model);
+    document.querySelectorAll('[data-cnn-full-choice]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.cnnFullChoice===model)));
+    const status=document.getElementById('weather-model-status');if(status)status.textContent=(model==='cnn'?'CNN':'GNN')+'-CSGD selected · Choose a 6-, 12- or 24-hour forecast below.';
+    const url=new URL(location.href);url.searchParams.set('model',model);history.replaceState(null,'',url);
+  }
+  document.querySelectorAll('[data-cnn-full-choice]').forEach(button=>button.addEventListener('click',()=>choose(button.dataset.cnnFullChoice)));
+  const hashModel=()=>location.hash.startsWith('#cnn')?'cnn':['#forecast-workspace','#animations','#downloads','#method'].includes(location.hash)?'gnn':'';
+  choose(hashModel()||(new URL(location.href).searchParams.get('model')==='cnn'?'cnn':'gnn'));
+  window.addEventListener('hashchange',()=>{if(hashModel())choose(hashModel());});
+  window.addEventListener('popstate',()=>choose(hashModel()||(new URL(location.href).searchParams.get('model')==='cnn'?'cnn':'gnn')));
+  const requested=new URL(location.href).searchParams.get('init');
+  if(/^\d{10}$/.test(requested||'')&&typeof MutationObserver!=='undefined'){
+    const iso=requested.slice(0,4)+'-'+requested.slice(4,6)+'-'+requested.slice(6,8)+'T'+requested.slice(8,10)+':00:00Z';
+    for(const id of ['map-init','cnn-map-init']){
+      const select=document.getElementById(id);if(!select)continue;
+      const apply=()=>{if(Array.from(select.options).some(option=>option.value===iso)){select.value=iso;select.dispatchEvent(new Event('change',{bubbles:true}));return true;}return false;};
+      if(!apply()){
+        const observer=new MutationObserver(()=>{if(apply()||!select.disabled)observer.disconnect();});
+        observer.observe(select,{childList:true,attributes:true,attributeFilter:['disabled']});
+      }
+    }
+  }
+})();
+
+// gnn-wpc-qpf-20260927-v1
+/* HRRR CNN-CSGD forecast dashboard. */
+'use strict';
+(() => {
+  const base = new URL(document.body.dataset.siteRoot || './', location.href);
+  const $ = id => document.getElementById('cnn-'+id);
+  const durations = [6, 12, 24];
+  // ero17-1: exact-cycle WPC comparisons are separate from the core forecast catalog.
+  const eroProduct = 'cnncsgd_wpc_ero_comparison';
+  let eroRuns = [], eroError = null;
+  const products = [
+    {id:'expected_precip_mm', label:()=>'Expected precipitation', units:'mm', durations:[6,12,24]},
+    {id:'prob_gt_6p35_mm', label:()=>'P(precipitation > 6.35 mm / 0.25 inch)', units:'percent', durations:[6]},
+    {id:'prob_gt_12p7_mm', label:()=>'P(precipitation > 12.7 mm / 0.5 inch)', units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_25p4_mm', label:()=>'P(precipitation > 25.4 mm / 1 inch)', units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_50p8_mm', label:()=>'P(precipitation > 50.8 mm / 2 inches)', units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_76p2_mm', label:()=>'P(precipitation > 76.2 mm / 3 inches)', units:'percent', durations:[12,24]},
+    {id:'prob_gt_127_mm', label:()=>'P(precipitation > 127 mm / 5 inches)', units:'percent', durations:[24]},
+    {id:'prob_gt_2yr_ari', label:d=>`P(precipitation > local 2-year ${d}-h ARI)`, units:'percent', durations:[6,12,24]},
+    {id:'prob_gt_5yr_ari', label:d=>`P(precipitation > local 5-year ${d}-h ARI)`, units:'percent', durations:[6,12,24]},
+    {id:eroProduct, label:()=>'CNN-CSGD / WPC ERO comparison', units:'comparison', durations:[24]}
+  ];
+  let modelStates = {}, runs = [], comparisons = [], forecastError = null, comparisonError = null;
+  let mapVersion = 0, comparisonVersion = 0, animationVersion = 0;
+  const text = (id, value) => { if ($(id)) $(id).textContent = value; };
+  const need = (condition, message) => { if (!condition) throw new Error(message); };
+  function siteURL(path) {
+    need(typeof path === 'string' && path.length > 0, 'A product path is missing.');
+    const url = new URL(path, base);
+    need(url.origin === base.origin && url.pathname.startsWith(base.pathname) &&
+      !url.username && !url.password && !url.hash, 'Product paths must stay inside the CNN website.');
+    if (/\.(png|gif)$/i.test(url.pathname)) url.searchParams.set('style', 'gnn-wpc-qpf-20260927-v1');
+    return url.href;
+  }
+  function utc(value) { return new Date(value).toISOString().slice(0,16).replace('T',' ') + ' UTC'; }
+  function dateMS(value) {
+    need(typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(value), 'Initialization must be an ISO UTC time.');
+    const ms = Date.parse(value);
+    need(Number.isFinite(ms) && new Date(ms).toISOString() === value.replace('Z','.000Z'), 'Invalid initialization date.');
+    return ms;
+  }
+  async function readCatalog(path) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 15000);
+    try {
+      const response = await fetch(new URL(path, base), {cache:'no-store', signal:controller.signal});
+      if (!response.ok) throw new Error(`Catalog request failed (HTTP ${response.status}).`);
+      return await response.json();
+    } finally { clearTimeout(timer); }
+  }
+  function validateRuns(catalog) {
+    need(catalog.schema_version === 1 && catalog.model_id === 'hrrr_cnn_csgd', 'Wrong forecast catalog version or model.');
+    need(catalog.domain === 'CONUS' && catalog.grid_id === 'ann025_conus' && catalog.grid_resolution_degrees === 0.25, 'Unexpected forecast grid or domain.');
+    need(Array.isArray(catalog.runs), 'The run list must be an array.');
+    const initSeen = new Set();
+    for (const run of catalog.runs) {
+      dateMS(run.init_utc);
+      need(!initSeen.has(run.init_utc), 'Duplicate initialization in catalog.'); initSeen.add(run.init_utc);
+      need(Array.isArray(run.entries), 'Run entries must be an array.');
+      const seen = new Set();
+      for (const e of run.entries) {
+        const d = e.duration_hours, a = e.lead_start_hours, b = e.lead_end_hours;
+        need(durations.includes(d) && Number.isInteger(a) && Number.isInteger(b) && a >= 0 && b <= 48 && b-a === d && a%6 === 0, 'Invalid forecast accumulation window.');
+        need(e.domain === 'CONUS' && e.grid_id === 'ann025_conus', 'An entry has the wrong grid/domain.');
+        const product = products.find(p => p.id === e.product);
+        need(product && product.id !== eroProduct && product.durations.includes(d) && product.units === e.units, 'Unexpected product, duration or units.');
+        const key = [d,a,b,e.product].join('|');
+        need(!seen.has(key), 'Duplicate forecast entry.'); seen.add(key);
+        siteURL(e.image);
+        if (e.animation != null) siteURL(e.animation);
+        need(e.downloads == null || Array.isArray(e.downloads), 'Downloads must be an array.');
+        for (const link of e.downloads || []) {
+          need(typeof link.label === 'string' && link.label.trim(), 'A download needs a label.'); siteURL(link.href);
+        }
+      }
+    }
+    return catalog.runs.filter(r => r.entries.length).sort((a,b) => b.init_utc.localeCompare(a.init_utc));
+  }
+
+  function validateERO(catalog) {
+    need(catalog.schema_version === 1 && catalog.model_id === 'hrrr_cnn_csgd' &&
+      catalog.product === eroProduct && Array.isArray(catalog.runs), 'Unexpected ERO catalog.');
+    const seen = new Set();
+    for (const run of catalog.runs) {
+      const init = dateMS(run.init_utc);
+      need(new Date(init).getUTCHours() === 12 && !seen.has(run.init_utc), 'Invalid or duplicate ERO initialization.');
+      seen.add(run.init_utc);
+      need(Array.isArray(run.entries) && run.entries.length === 2, 'Expected two ERO forecast days.');
+      const days = new Set();
+      for (const e of run.entries) {
+        need([1,2].includes(e.ero_day) && !days.has(e.ero_day), 'Invalid or duplicate ERO day.');
+        days.add(e.ero_day);
+        need(e.duration_hours === 24 && e.lead_start_hours === 24*(e.ero_day-1) &&
+          e.lead_end_hours === 24*e.ero_day && e.product === eroProduct && e.units === 'comparison', 'Invalid ERO window.');
+        const start = init + e.lead_start_hours*3600000, end = init + e.lead_end_hours*3600000;
+        const actual = dateMS(e.wpc_valid_start_utc);
+        need(dateMS(e.wpc_valid_end_utc) === end && actual >= start && actual < end &&
+          e.wpc_temporal_coverage === (actual === start ? 'full' : 'partial'), 'WPC validity differs from the selected day.');
+        need(Array.isArray(e.wpc_issue_times_utc) && e.wpc_issue_times_utc.length > 0 &&
+          e.wpc_issue_times_utc.every(t => dateMS(t) < end), 'Missing or invalid WPC issuance time.');
+        need(typeof e.image_sha256 === 'string' && /^[a-f0-9]{64}$/.test(e.image_sha256), 'Missing ERO image hash.');
+        const stamp = run.init_utc.replace(/[-:T]/g,'').slice(0,10);
+        const window = `f${String(e.lead_start_hours).padStart(2,'0')}_f${String(e.lead_end_hours).padStart(2,'0')}`;
+        const prefix = `products/cnn_full_v1/${stamp}/ero`;
+        const image = `${prefix}/24h/${window}/hrrr_cnncsgd_wpc_ero_${stamp}_${window}_day${e.ero_day}_conus.png`;
+        need(siteURL(e.image) === siteURL(image), 'ERO image path has a different cycle or window.');
+        need(Array.isArray(e.downloads) && e.downloads.length === 3 && !e.animation, 'Unexpected ERO downloads.');
+        const expectedDownloads = new Set([image, image.replace(/\.png$/,'.json'), `${prefix}/source/Day${e.ero_day}.geojson`].map(siteURL));
+        const downloadSeen = new Set();
+        for (const f of e.downloads) {
+          need(typeof f.label === 'string' && f.label.trim() && /\.(png|json|geojson)$/.test(new URL(siteURL(f.href)).pathname), 'Invalid ERO download.');
+          need(expectedDownloads.has(siteURL(f.href)) && !downloadSeen.has(siteURL(f.href)), 'ERO download path differs or is duplicated.');
+          downloadSeen.add(siteURL(f.href));
+        }
+      }
+    }
+    return catalog.runs;
+  }
+  function replaceOptions(id, values, wanted) {
+    const select = $(id); select.replaceChildren();
+    for (const [value,label] of values) select.add(new Option(label,String(value)));
+    const found = values.some(([value]) => String(value) === String(wanted));
+    if (found) select.value = String(wanted);
+  }
+  function selectedRun() { return runs.find(r => r.init_utc === $('map-init').value); }
+  function windowOptions() {
+    const d = Number($('map-duration').value), run = selectedRun();
+    const pairs = new Map();
+    for (const e of run?.entries || []) if (e.duration_hours === d) pairs.set(`${e.lead_start_hours}:${e.lead_end_hours}`,[e.lead_start_hours,e.lead_end_hours]);
+    const planned = pairs.size === 0;
+    if (planned) for (let a=0; a+d<=48; a+=6) pairs.set(`${a}:${a+d}`,[a,a+d]);
+    const options = [...pairs].sort((a,b) => a[1][0]-b[1][0]).map(([key,[a,b]]) => [key,`${planned ? 'Unavailable · ' : ''}f${String(a).padStart(2,'0')}–f${String(b).padStart(2,'0')}`]);
+    const old = $('map-window').value; replaceOptions('map-window',options,old);
+    const product = $('map-product').value;
+    replaceOptions('map-product',products.filter(p=>p.durations.includes(d)).map(p=>[p.id,p.label(d)]),product);
+    text('schedule-note',planned ? `${d}-hour schedule: ${options.length} windows through forecast hour 48. Select an available initialization to view forecasts.` : `${d}-hour accumulations across ${options.length} published windows. All valid times are UTC.`);
+    renderForecast();
+  }
+  function clearMedia(imgId, linkId) {
+    const img = $(imgId); if (img) { img.hidden = true; img.onload = null; img.onerror = null; img.removeAttribute('src'); }
+    const link = $(linkId); if (link) { link.hidden = true; link.removeAttribute('href'); }
+  }
+  function showMapMessage(title, detail) {
+    $('map-empty').hidden = false; text('map-empty-title',title); text('map-empty-text',detail);
+  }
+  // downloads35-1: presentation only; all catalog URLs are retained.
+  function renderDownloads(files) {
+    const primary = $('download-links');
+    if (!primary) return;
+    let details = $('download-details');
+    // Remain compatible with an older cached homepage.
+    if (!details) {
+      details = document.createElement('details');
+      details.id = 'cnn-download-details';
+      details.className = 'download-details';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Technical details';
+      const extra = document.createElement('div');
+      extra.id = 'cnn-technical-download-links';
+      extra.className = 'download-technical-links';
+      details.append(summary, extra);
+      ( $('grib2-core-scope') || primary ).after(details);
+    }
+    const technical = $('technical-download-links');
+    primary.replaceChildren();
+    technical.replaceChildren();
+    details.open = false;
+    details.hidden = true;
+    const items = files.map(file => {
+      const href = siteURL(file.href);
+      const path = new URL(href).pathname.toLowerCase();
+      const kind = path.endsWith('.png') ? 0 : path.endsWith('.gif') ? 1 :
+        path.endsWith('.grib2') ? 2 : path.endsWith('.tar.gz') ? 3 : 4;
+      return {file, href, kind};
+    }).sort((a,b) => a.kind - b.kind);
+    const labels = ['Map (PNG)', 'Animation (GIF)', 'Window data (GRIB2)', 'All windows (.tar.gz)'];
+    for (const {file, href, kind} of items) {
+      const link = document.createElement('a');
+      link.textContent = kind < 4 ? labels[kind] : file.label;
+      link.href = href;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      if (kind < 4) {
+        link.className = 'button';
+        if (kind >= 2) link.title = 'Expected precipitation and fixed-threshold probabilities only; ARI excluded.';
+        primary.append(link);
+      } else {
+        technical.append(link);
+      }
+    }
+    details.hidden = technical.children.length === 0;
+    $('downloads-empty').hidden = items.length > 0;
+  }
+  function renderForecast() {
+    const version = ++mapVersion; const av = ++animationVersion;
+    clearMedia('forecast-map','open-map'); clearMedia('forecast-animation');
+    renderDownloads([]);
+    $('animation-empty').hidden = false;
+    text('animation-empty','No matching animation has been published.');
+    const d = Number($('map-duration').value);
+    const [a,b] = $('map-window').value.split(':').map(Number);
+    const product = products.find(p => p.id === $('map-product').value);
+    const run = selectedRun();
+    const isERO = product.id === eroProduct;
+    if ($('ero-context')) $('ero-context').hidden = !isERO;
+    if ($('grib2-core-scope')) $('grib2-core-scope').hidden = isERO;
+    if (isERO) {
+      text('animation-empty','ERO comparisons are available as Day 1 and Day 2 maps.');
+      text('ero-validity','ERO is available for Day 1 (f00–f24) and Day 2 (f24–f48).');
+    }
+    text('map-summary',`${d}-hour accumulation · forecast hours ${a}–${b}`);
+    text('map-caption',`${product.label(d)} · ${isERO ? 'rainfall and excessive-rainfall guidance' : product.units === 'mm' ? 'inches · WPC rainfall scale' : 'probability (%)'}`);
+    text('map-validity',run ? `${utc(dateMS(run.init_utc)+a*3600000)} to ${utc(dateMS(run.init_utc)+b*3600000)}` : 'Select an available initialization to view its valid period.');
+    $('previous-window').disabled = $('map-window').selectedIndex <= 0;
+    $('next-window').disabled = $('map-window').selectedIndex >= $('map-window').options.length-1;
+    if (forecastError) {
+      text('map-status','Forecasts unavailable'); showMapMessage('Forecast information could not be loaded','Refresh the page or try again later.'); return;
+    }
+    if(!isERO && modelStates[d] && modelStates[d].status!=='READY'){
+      text('map-status','Awaiting trained model');showMapMessage(d+'-hour CNN forecast is awaiting completed training','This duration will appear after its checkpoint export and matching forecast inputs are ready.');return;
+    }
+    const entries = isERO ? eroRuns.find(r=>r.init_utc===run?.init_utc)?.entries : run?.entries;
+    const e = entries?.find(e=>e.duration_hours===d && e.lead_start_hours===a && e.lead_end_hours===b && e.product===product.id);
+    if (isERO && !e) {
+      text('map-status','ERO comparison unavailable');
+      showMapMessage('No ERO comparison is available for this selection',
+        ![0,24].includes(a) ? 'Select f00–f24 for Day 1 or f24–f48 for Day 2. WPC outlooks do not match the intermediate rolling windows.' :
+        eroError ? 'The ERO catalog could not be loaded. Refresh the page or try again later.' :
+        'This initialization does not yet have a published GNN / WPC ERO comparison. Check again later.');
+      return;
+    }
+    if (isERO) {
+      text('map-caption',`CNN-CSGD / WPC ERO comparison · Day ${e.ero_day}`);
+      text('ero-validity',`WPC valid: ${utc(e.wpc_valid_start_utc)} to ${utc(e.wpc_valid_end_utc)}. Issued: ${e.wpc_issue_times_utc.map(utc).join(', ')}. ${e.wpc_temporal_coverage==='partial' ? 'WPC coverage begins after the model window starts.' : 'WPC and model valid periods match.'}`);
+    }
+    if (!e) {
+      text('map-status',run ? 'Product unavailable' : 'No forecasts available');
+      showMapMessage(run ? 'This product is unavailable for the selected window' : 'No CNN forecast cycle is available', 'Choose another published initialization, window, or product, or check again later.'); return;
+    }
+    const image = $('forecast-map'); const src = siteURL(e.image);
+    text('map-status','Loading map'); showMapMessage('Loading published forecast…','Checking the selected map file.');
+    image.alt = `${product.label(d)}; HRRR CNN-CSGD; ${d}-hour accumulation; initialized ${utc(run.init_utc)}; forecast hours ${a}–${b}; CONUS 0.25-degree grid.`;
+    image.onload = () => { if (version !== mapVersion) return; $('map-empty').hidden=true; image.hidden=false; $('open-map').href=src; $('open-map').hidden=false; text('map-status','Published map'); };
+    image.onerror = () => { if (version !== mapVersion) return; clearMedia('forecast-map','open-map'); text('map-status','Map file unavailable'); showMapMessage('The selected map could not be loaded','Try another window or refresh the page.'); };
+    image.src = src;
+    renderDownloads(e.downloads || []);
+    if (e.animation) {
+      text('animation-empty','Loading published animation…');
+      const image=$('forecast-animation'); image.alt=`${product.label(d)}; ${d}-hour HRRR CNN-CSGD animation; initialized ${utc(run.init_utc)}.`;
+      image.onload=()=>{if(av===animationVersion){image.hidden=false;$('animation-empty').hidden=true;}};
+      image.onerror=()=>{if(av===animationVersion){clearMedia('forecast-animation');text('animation-empty','The animation file could not be loaded.');}};
+      image.src=siteURL(e.animation);
+    }
+  }
+  function validateComparisons(catalog) {
+    need(catalog.schema_version===1 && Array.isArray(catalog.entries) && Array.isArray(catalog.grids), 'Invalid comparison catalog.');
+    const ids=catalog.grids.map(g=>g.id);
+    need(ids.length>0 && new Set(ids).size===ids.length && catalog.grids.every(g=>typeof g.id==='string' && typeof g.label==='string'), 'Invalid comparison grids.');
+    const seen=new Set();
+    for(const e of catalog.entries){
+      need(durations.includes(e.duration_hours) && ids.includes(e.grid_id) && e.domain==='CONUS', 'Invalid comparison duration/grid/domain.');
+      need(['bss','crps','roc_auc','reliability'].includes(e.metric), 'Unknown comparison metric.');
+      need(e.metric==='crps' ? e.threshold_mm===null : [12.7,25.4,50.8].includes(e.threshold_mm),'Invalid comparison threshold.');
+      need(['sample_id','period_label','caption'].every(k=>typeof e[k]==='string' && e[k].trim()),'Comparison sample, period, or caption is missing.');
+      need(Array.isArray(e.models) && e.models.length===3 && ['raw_hrrr','ann_csgd','gnn_csgd'].every(m=>e.models.includes(m)), 'A comparison must include all three systems.');
+      if(e.metric==='bss') need(typeof e.reference==='string' && e.reference.trim(),'BSS reference is missing.');
+      siteURL(e.image);
+      const key=[e.duration_hours,e.grid_id,e.metric,e.threshold_mm].join('|');
+      need(!seen.has(key),'Multiple comparison figures for the same selection.');seen.add(key);
+    }
+    return catalog;
+  }
+  function renderComparison(){
+    const v=++comparisonVersion; clearMedia('comparison-image','open-comparison');
+    const d=Number($('cmp-duration').value),metric=$('cmp-metric').value;
+    $('cmp-threshold').disabled=metric==='crps';
+    const threshold=metric==='crps'?null:Number($('cmp-threshold').value);
+    const e=comparisons.find(e=>e.duration_hours===d && e.grid_id===$('cmp-grid').value && e.metric===metric && e.threshold_mm===threshold);
+    $('comparison-empty').hidden=false;
+    text('comparison-empty-title',comparisonError?'Comparison catalog could not be loaded':'Matched verification results are not published for this selection');
+    text('comparison-empty-text',comparisonError || 'Choose another duration, metric, or precipitation threshold.');
+    text('comparison-status',comparisonError?'Catalog error':e?'Loading figure':'Results pending');
+    text('comparison-caption',`${d}-hour accumulation · CONUS · ${$('cmp-grid').selectedOptions[0].textContent} · ${$('cmp-metric').selectedOptions[0].textContent}${threshold===null?'':` · > ${threshold} mm`}`);
+    if(!e||comparisonError)return;
+    text('comparison-empty-title','Loading comparison figure…');text('comparison-empty-text','Checking the published figure.');
+    const image=$('comparison-image'),src=siteURL(e.image); image.alt=e.caption;
+    image.onload=()=>{if(v!==comparisonVersion)return;$('comparison-empty').hidden=true;image.hidden=false;$('open-comparison').href=src;$('open-comparison').hidden=false;text('comparison-status','Published comparison');text('comparison-caption',`${e.caption} | ${e.period_label} | Sample: ${e.sample_id}${e.reference?` | Reference: ${e.reference}`:''}`);};
+    image.onerror=()=>{if(v!==comparisonVersion)return;clearMedia('comparison-image','open-comparison');text('comparison-status','Figure unavailable');text('comparison-empty-title','The comparison image could not be loaded');text('comparison-empty-text','Try another selection or refresh the page.');};
+    image.src=src;
+  }
+  async function main(){
+    if($('map-duration')){
+      windowOptions();
+      $('map-duration').addEventListener('change',windowOptions);
+      $('map-init').addEventListener('change',windowOptions);
+      ['map-window','map-product'].forEach(id=>$(id).addEventListener('change',renderForecast));
+      [['previous-window',-1],['next-window',1]].forEach(([id,delta])=>$(id).addEventListener('click',()=>{
+        const select=$('map-window');select.selectedIndex=Math.max(0,Math.min(select.options.length-1,select.selectedIndex+delta));renderForecast();
+      }));
+    }
+    try{
+      const catalog=await readCatalog('data/cnn_full_v1/run_catalog.json');
+      runs=validateRuns(catalog);modelStates=catalog.model_states||{};
+      text('availability-note',[6,12,24].map(d=>d+'-hour: '+(modelStates[d]?.status==='READY'?'trained model ready':'awaiting completed training')).join(' · '));
+      if(modelStates[12]?.status!=='READY' && modelStates[24]?.status==='READY')$('map-duration').value='24';
+      text('status-badge',runs.length?'Published CNN forecasts':'No forecasts available');
+      text('latest-init',runs.length?utc(runs[0].init_utc):'No published initialization');
+      text('run-note',runs.length?`${runs.length} published ${runs.length===1?'cycle':'cycles'} available. Select an initialization to explore maps, animations, and downloads.`:'Forecast cycles will appear here when their products are published.');
+      text('publication-summary',runs.length?`Latest available cycle: ${utc(runs[0].init_utc)}.`:'No complete CNN forecast cycle is currently available.');
+    }catch(error){forecastError=error.message;text('status-badge','Forecasts unavailable');$('status-badge').classList.add('error');text('run-note','Forecast information could not be loaded. Please refresh the page.');text('publication-summary','Forecast availability could not be checked. Please try again later.');console.error(error);}
+    if($('map-init')){
+      replaceOptions('map-init',runs.length?runs.map(r=>[r.init_utc,utc(r.init_utc)]):[['','No published initializations']]);
+      $('map-init').disabled=!runs.length;windowOptions();
+    }
+    if($('map-init')){
+      try { eroRuns = validateERO(await readCatalog('data/cnn_full_v1/ero_catalog.json')); }
+      catch(error) { eroError = error.message; console.warn('ERO catalog:', error.message); }
+      renderForecast();
+    }
+    if($('cmp-duration')){
+      ['cmp-duration','cmp-grid','cmp-metric','cmp-threshold'].forEach(id=>$(id).addEventListener('change',renderComparison));
+      try{const c=validateComparisons(await readCatalog('data/comparison_catalog.json'));comparisons=c.entries;replaceOptions('cmp-grid',c.grids.map(g=>[g.id,g.label]),'ann025_conus');}
+      catch(error){comparisonError=error.message;}
+      renderComparison();
+    }
+  }
+  main().catch(error=>{text('status-badge','Dashboard initialization failed');console.error(error);});
+})();
