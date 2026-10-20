@@ -1,0 +1,119 @@
+{
+  "ari_included": false,
+  "cnn_model_id": "cnn_csgd_6h_corrected_initpurged_v2",
+  "duration_hours": 6,
+  "end_forecast_hour": 24,
+  "grib2_sha256": "174bb9e771a44d249a992092604b7264250e1ffecb53d9deb351ac11b5bc804b",
+  "initialization": "2026101018",
+  "message_count": 5,
+  "model_id": "hrrr_cnn_csgd",
+  "normalization_sha256": "2031a084869a4937bb80512ff86ae6633ca49d4486138d113c5e998a5a1815eb",
+  "npz_sha256": "6340c9bb6ae87865e667168bea1c37d8c5fe6ad8a15d07b60fc16243334e3120",
+  "producer_note": "Unassigned originating centre; this is a university research forecast, not an official NCEP product.",
+  "records": [
+    {
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "description": "CNN-CSGD expected accumulated precipitation",
+      "kind": "amount",
+      "maximum_absolute_error": 9.536049390135304e-07,
+      "message_number": 1,
+      "missing_cells": 16283,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "product_definition_template": 8,
+      "threshold_mm": null,
+      "units": "mm",
+      "units_note": "GRIB parameter units are kg m-2, numerically equal to mm water equivalent",
+      "valid_cells": 13318,
+      "variable": "expected_precip_mm"
+    },
+    {
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "description": "CNN-CSGD P(precipitation > 6.35 mm)",
+      "kind": "probability",
+      "maximum_absolute_error": 3.8146941054861827e-06,
+      "message_number": 2,
+      "missing_cells": 16283,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "product_definition_template": 9,
+      "threshold_mm": 6.35,
+      "units": "percent",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9.",
+      "valid_cells": 13318,
+      "variable": "prob_gt_0p25inch_percent"
+    },
+    {
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "description": "CNN-CSGD P(precipitation > 12.7 mm)",
+      "kind": "probability",
+      "maximum_absolute_error": 3.814697265625e-06,
+      "message_number": 3,
+      "missing_cells": 16283,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "product_definition_template": 9,
+      "threshold_mm": 12.7,
+      "units": "percent",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9.",
+      "valid_cells": 13318,
+      "variable": "prob_gt_0p5inch_percent"
+    },
+    {
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "description": "CNN-CSGD P(precipitation > 25.4 mm)",
+      "kind": "probability",
+      "maximum_absolute_error": 1.9073486328125e-06,
+      "message_number": 4,
+      "missing_cells": 16283,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "product_definition_template": 9,
+      "threshold_mm": 25.4,
+      "units": "percent",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9.",
+      "valid_cells": 13318,
+      "variable": "prob_gt_1inch_percent"
+    },
+    {
+      "decoded_short_name": "unknown",
+      "decoded_units_label": "unknown",
+      "description": "CNN-CSGD P(precipitation > 50.8 mm)",
+      "kind": "probability",
+      "maximum_absolute_error": 1.1920928955078125e-07,
+      "message_number": 5,
+      "missing_cells": 16283,
+      "parameter": [
+        0,
+        1,
+        8
+      ],
+      "product_definition_template": 9,
+      "threshold_mm": 50.8,
+      "units": "percent",
+      "units_note": "Probability data are percent; the underlying APCP threshold is in kg m-2. Interpret PDT 4.9.",
+      "valid_cells": 13318,
+      "variable": "prob_gt_2inch_percent"
+    }
+  ],
+  "research_product": true,
+  "schema_version": 1,
+  "start_forecast_hour": 18,
+  "weights_sha256": "e103f70bce2d886eb661a0fe3f6f61b9c973d6a41061d249dff67468adb13a3b"
+}
