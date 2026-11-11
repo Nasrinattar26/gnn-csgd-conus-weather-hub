@@ -1,0 +1,4240 @@
+{
+  "initialization": "2026101812",
+  "model_id": "cnn_csgd_24h_corrected_v1",
+  "models": [
+    "raw_hrrr",
+    "ann_operational",
+    "gnn_operational",
+    "cnn_csgd_24h_corrected_v1"
+  ],
+  "roc_method": "Exact empirical ROC; grouped ties; only collinear vertices removed.",
+  "schema_version": 1,
+  "version": "cnn24h_full_metrics_v2",
+  "windows": [
+    {
+      "id": "f00_f24",
+      "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+      "observation_provenance": [
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261018-180000.npy",
+          "sha256": "e79a317c4716328de4ea9c92beae84ed40ae4c8b8305e754ccb7bf344d864e3c"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261018-180000.source.txt",
+          "sha256": "d81171a8e85a221104e6f6ef1db264b5605ada31fad858ec61af876e65a22483"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-000000.npy",
+          "sha256": "e2c957794beea3d71797305c60f9834d2cd7557ad596687ccfa504a19190d2c1"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-000000.source.txt",
+          "sha256": "9b193632396eb1546935260012438200359f983cbe31e16bf8de5c178d8f945b"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-060000.npy",
+          "sha256": "0db58b6bd291d69e8220eb4b6a8b91ab6c0cef2ecb7b0fac8216760c78ae8dee"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-060000.source.txt",
+          "sha256": "723df5ae5d2cc4a2915b628cd1e2f35191e14cbb21b70c38fee8f6e063360872"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.npy",
+          "sha256": "3bc9b3d61c6302548a4148525d18b08429529decd182f66452e1468a9f34b412"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.source.txt",
+          "sha256": "f4d823519cb20ce5c9af7178aa37183ff55a202fc18d4bc49e2f17319010e313"
+        }
+      ],
+      "source_forecasts": {
+        "ann_operational": {
+          "sha256": "3994b6fc9e92c8e205ebfc7621b20af7ddbd726e31a80d5fa061f6eaf2659b37"
+        },
+        "cnn_csgd_24h_corrected_v1": {
+          "sha256": "8a81bb1889953f14ff95ec5f9b98971f5a9db87a8e0985bdb3814abc5e1016e5"
+        },
+        "gnn_operational": {
+          "sha256": "27846fc637d4097b880c624fbdc759099ed25ae62e12ee4cfddf056c193fd9af"
+        }
+      },
+      "status": "VERIFIED",
+      "thresholds": [
+        {
+          "label": "0p5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": 0.9996245400615754,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0003754599384245701,
+                    0.0,
+                    0,
+                    5,
+                    0.27656554486073853
+                  ],
+                  [
+                    0.0003754599384245701,
+                    1.0,
+                    1,
+                    5,
+                    0.2709411009476663
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    3.457277953105916e-19
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": 0.9998498160246302,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.00015018397536982803,
+                    0.0,
+                    0,
+                    2,
+                    0.28490502611836166
+                  ],
+                  [
+                    0.00015018397536982803,
+                    1.0,
+                    1,
+                    2,
+                    0.2471252779013281
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    3.092667781826509e-15
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": 0.9998498160246302,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.00015018397536982803,
+                    0.0,
+                    0,
+                    2,
+                    0.23717692303155297
+                  ],
+                  [
+                    0.00015018397536982803,
+                    1.0,
+                    1,
+                    2,
+                    0.2323394331042414
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    4.713337686147881e-111
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": 0.9996245400615754,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0007509198768491402,
+                    1.0,
+                    1,
+                    10,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    0.0
+                  ]
+                ],
+                "reason": null
+              }
+            }
+          },
+          "n_events": 1,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 12.7
+        },
+        {
+          "label": "1inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 25.4
+        },
+        {
+          "label": "2inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 50.8
+        },
+        {
+          "label": "3inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 76.2
+        },
+        {
+          "label": "5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 127.0
+        }
+      ],
+      "window_signature": "71c3046a1a472fefd6e2eb6568ce76ce167d48ea162db8d313ae2fbe84788dc9"
+    },
+    {
+      "id": "f06_f30",
+      "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+      "observation_provenance": [
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-000000.npy",
+          "sha256": "e2c957794beea3d71797305c60f9834d2cd7557ad596687ccfa504a19190d2c1"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-000000.source.txt",
+          "sha256": "9b193632396eb1546935260012438200359f983cbe31e16bf8de5c178d8f945b"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-060000.npy",
+          "sha256": "0db58b6bd291d69e8220eb4b6a8b91ab6c0cef2ecb7b0fac8216760c78ae8dee"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-060000.source.txt",
+          "sha256": "723df5ae5d2cc4a2915b628cd1e2f35191e14cbb21b70c38fee8f6e063360872"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.npy",
+          "sha256": "3bc9b3d61c6302548a4148525d18b08429529decd182f66452e1468a9f34b412"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.source.txt",
+          "sha256": "f4d823519cb20ce5c9af7178aa37183ff55a202fc18d4bc49e2f17319010e313"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.npy",
+          "sha256": "a0221f4c2c654cf152694625fb4f43b9f3df4b7fbc2b72fa2d5b8f60432f8625"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.source.txt",
+          "sha256": "68f43f5f50d6e7cabfb5c27d69de01fc532c75ba0b96110f45e5ff338dfbdb60"
+        }
+      ],
+      "source_forecasts": {
+        "ann_operational": {
+          "sha256": "9e47b0f50f313cbdb3df83cfec9687cb03d8e9a0985cb6a30719bd56da22d3d6"
+        },
+        "cnn_csgd_24h_corrected_v1": {
+          "sha256": "98ac43fbed9a52af788dac4ecb65df270961549ad29cc1e613b3023ca18924b9"
+        },
+        "gnn_operational": {
+          "sha256": "23a5d802b8e1bd9b2cc4b28897b351b1223a59dd4f6b507d88cceb1e99b33d77"
+        }
+      },
+      "status": "VERIFIED",
+      "thresholds": [
+        {
+          "label": "0p5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": 0.9977472403694526,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0022527596305474207,
+                    0.0,
+                    0,
+                    30,
+                    0.22405346874424986
+                  ],
+                  [
+                    0.0022527596305474207,
+                    1.0,
+                    1,
+                    30,
+                    0.2225040739429367
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    1.2744355058859883e-18
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": 0.998197792295562,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0018022077044379365,
+                    0.0,
+                    0,
+                    24,
+                    0.18753108749723138
+                  ],
+                  [
+                    0.0018022077044379365,
+                    1.0,
+                    1,
+                    24,
+                    0.18564875728984237
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    1.2134449511361306e-17
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": 0.9978974243448224,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0021025756551775925,
+                    0.0,
+                    0,
+                    28,
+                    0.18043325798848475
+                  ],
+                  [
+                    0.0021025756551775925,
+                    1.0,
+                    1,
+                    28,
+                    0.17869983353108543
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    4.358464383720898e-110
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": 0.9989862581662536,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0020274836674926784,
+                    1.0,
+                    1,
+                    27,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    0.0
+                  ]
+                ],
+                "reason": null
+              }
+            }
+          },
+          "n_events": 1,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 12.7
+        },
+        {
+          "label": "1inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 25.4
+        },
+        {
+          "label": "2inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 50.8
+        },
+        {
+          "label": "3inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 76.2
+        },
+        {
+          "label": "5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 127.0
+        }
+      ],
+      "window_signature": "033b6d9ee5a5cf7d7e749c622a92aacd21b2c6bb3b2500094d4ca8af9ff935a8"
+    },
+    {
+      "id": "f12_f36",
+      "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+      "observation_provenance": [
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-060000.npy",
+          "sha256": "0db58b6bd291d69e8220eb4b6a8b91ab6c0cef2ecb7b0fac8216760c78ae8dee"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-060000.source.txt",
+          "sha256": "723df5ae5d2cc4a2915b628cd1e2f35191e14cbb21b70c38fee8f6e063360872"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.npy",
+          "sha256": "3bc9b3d61c6302548a4148525d18b08429529decd182f66452e1468a9f34b412"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.source.txt",
+          "sha256": "f4d823519cb20ce5c9af7178aa37183ff55a202fc18d4bc49e2f17319010e313"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.npy",
+          "sha256": "a0221f4c2c654cf152694625fb4f43b9f3df4b7fbc2b72fa2d5b8f60432f8625"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.source.txt",
+          "sha256": "68f43f5f50d6e7cabfb5c27d69de01fc532c75ba0b96110f45e5ff338dfbdb60"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-000000.npy",
+          "sha256": "6a772bd0597d9fe3b4ce65ec37b648f4d50a781a05b04e087ac3585b62d49a8c"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-000000.source.txt",
+          "sha256": "449bc4b91d0ca452a8ece3e0d3dc0a33ef75d333f8d552835d583fc7c8b5e123"
+        }
+      ],
+      "source_forecasts": {
+        "ann_operational": {
+          "sha256": "b577332a166b0785db16c349f48b6f79f816e306414b1f477975edf38fcdd442"
+        },
+        "cnn_csgd_24h_corrected_v1": {
+          "sha256": "ae825d6016b374c0df1fc9a7fb5d43bc52dc54f7eeef1ab39f361a8d1565e751"
+        },
+        "gnn_operational": {
+          "sha256": "fe776e614cedcc4ebba04ccc5c9b9eca978b450c497e14c41df664be50322d58"
+        }
+      },
+      "status": "VERIFIED",
+      "thresholds": [
+        {
+          "label": "0p5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": 0.995536519386835,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0006762849413886385,
+                    0.0,
+                    0,
+                    9,
+                    0.512239336706465
+                  ],
+                  [
+                    0.0006762849413886385,
+                    0.1,
+                    1,
+                    9,
+                    0.505209123960847
+                  ],
+                  [
+                    0.0009017132551848512,
+                    0.1,
+                    1,
+                    12,
+                    0.49594361694633904
+                  ],
+                  [
+                    0.0009017132551848512,
+                    0.3,
+                    3,
+                    12,
+                    0.49122906609589134
+                  ],
+                  [
+                    0.0014277126540426812,
+                    0.3,
+                    3,
+                    19,
+                    0.4268047682627446
+                  ],
+                  [
+                    0.0014277126540426812,
+                    0.4,
+                    4,
+                    19,
+                    0.4263802013302155
+                  ],
+                  [
+                    0.0032311391644123835,
+                    0.4,
+                    4,
+                    43,
+                    0.35845436338536196
+                  ],
+                  [
+                    0.0032311391644123835,
+                    0.5,
+                    5,
+                    43,
+                    0.35642046774530395
+                  ],
+                  [
+                    0.003832281334535618,
+                    0.5,
+                    5,
+                    51,
+                    0.33379761851721595
+                  ],
+                  [
+                    0.003832281334535618,
+                    0.6,
+                    6,
+                    51,
+                    0.3329946760631121
+                  ],
+                  [
+                    0.004433423504658852,
+                    0.6,
+                    6,
+                    59,
+                    0.320408474731682
+                  ],
+                  [
+                    0.004433423504658852,
+                    0.7,
+                    7,
+                    59,
+                    0.3174173882740124
+                  ],
+                  [
+                    0.004809137360985873,
+                    0.7,
+                    7,
+                    64,
+                    0.302488739554289
+                  ],
+                  [
+                    0.004809137360985873,
+                    0.9,
+                    9,
+                    64,
+                    0.2984534461283053
+                  ],
+                  [
+                    0.019612263300270515,
+                    0.9,
+                    9,
+                    261,
+                    0.04376484432307571
+                  ],
+                  [
+                    0.019612263300270515,
+                    1.0,
+                    10,
+                    261,
+                    0.04345053393285118
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    10,
+                    13308,
+                    2.3140815148182245e-18
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": 0.9954012623985573,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0008265704839194469,
+                    0.0,
+                    0,
+                    11,
+                    0.4521500757925708
+                  ],
+                  [
+                    0.0008265704839194469,
+                    0.1,
+                    1,
+                    11,
+                    0.4497040846832432
+                  ],
+                  [
+                    0.0009017132551848512,
+                    0.1,
+                    1,
+                    12,
+                    0.4429874290609228
+                  ],
+                  [
+                    0.0009017132551848512,
+                    0.3,
+                    3,
+                    12,
+                    0.43013970421772374
+                  ],
+                  [
+                    0.0021039975954313195,
+                    0.3,
+                    3,
+                    28,
+                    0.34002650717377764
+                  ],
+                  [
+                    0.0021039975954313195,
+                    0.4,
+                    4,
+                    28,
+                    0.3342062032303913
+                  ],
+                  [
+                    0.002629996994289149,
+                    0.4,
+                    4,
+                    35,
+                    0.31378153884626836
+                  ],
+                  [
+                    0.002629996994289149,
+                    0.5,
+                    5,
+                    35,
+                    0.3110387113262567
+                  ],
+                  [
+                    0.003381424706943192,
+                    0.5,
+                    5,
+                    45,
+                    0.29014896622252173
+                  ],
+                  [
+                    0.003381424706943192,
+                    0.6,
+                    6,
+                    45,
+                    0.28945650154386254
+                  ],
+                  [
+                    0.004884280132251277,
+                    0.6,
+                    6,
+                    65,
+                    0.24838165055524034
+                  ],
+                  [
+                    0.004884280132251277,
+                    0.7,
+                    7,
+                    65,
+                    0.24613126987935197
+                  ],
+                  [
+                    0.004959422903516681,
+                    0.7,
+                    7,
+                    66,
+                    0.2450536576518891
+                  ],
+                  [
+                    0.004959422903516681,
+                    0.8,
+                    8,
+                    66,
+                    0.24405814168510698
+                  ],
+                  [
+                    0.005184851217312894,
+                    0.8,
+                    8,
+                    69,
+                    0.23685135793184392
+                  ],
+                  [
+                    0.005184851217312894,
+                    0.9,
+                    9,
+                    69,
+                    0.2355731256311353
+                  ],
+                  [
+                    0.02021340547039375,
+                    0.9,
+                    9,
+                    269,
+                    0.0322339522012003
+                  ],
+                  [
+                    0.02021340547039375,
+                    1.0,
+                    10,
+                    269,
+                    0.03144480331687947
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    10,
+                    13308,
+                    5.907535239230034e-18
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": 0.9950180342651037,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.00030057108506161706,
+                    0.0,
+                    0,
+                    4,
+                    0.4824632456213632
+                  ],
+                  [
+                    0.00030057108506161706,
+                    0.1,
+                    1,
+                    4,
+                    0.4822758291586208
+                  ],
+                  [
+                    0.0006011421701232341,
+                    0.1,
+                    1,
+                    8,
+                    0.46024568257629483
+                  ],
+                  [
+                    0.0006011421701232341,
+                    0.2,
+                    2,
+                    8,
+                    0.45330510875128804
+                  ],
+                  [
+                    0.0010519987977156598,
+                    0.2,
+                    2,
+                    14,
+                    0.4148529149219521
+                  ],
+                  [
+                    0.0010519987977156598,
+                    0.3,
+                    3,
+                    14,
+                    0.4116760673401054
+                  ],
+                  [
+                    0.0016531409678388939,
+                    0.3,
+                    3,
+                    22,
+                    0.37615325525358734
+                  ],
+                  [
+                    0.0016531409678388939,
+                    0.4,
+                    4,
+                    22,
+                    0.3754961032207764
+                  ],
+                  [
+                    0.003381424706943192,
+                    0.4,
+                    4,
+                    45,
+                    0.31212512676855125
+                  ],
+                  [
+                    0.003381424706943192,
+                    0.5,
+                    5,
+                    45,
+                    0.31106561213855993
+                  ],
+                  [
+                    0.00458370904718966,
+                    0.5,
+                    5,
+                    61,
+                    0.27811803846350985
+                  ],
+                  [
+                    0.00458370904718966,
+                    0.6,
+                    6,
+                    61,
+                    0.27770612599371636
+                  ],
+                  [
+                    0.004809137360985873,
+                    0.6,
+                    6,
+                    64,
+                    0.26885720805657054
+                  ],
+                  [
+                    0.004809137360985873,
+                    0.7,
+                    7,
+                    64,
+                    0.26609802775726865
+                  ],
+                  [
+                    0.005034565674782086,
+                    0.7,
+                    7,
+                    67,
+                    0.25375154000478384
+                  ],
+                  [
+                    0.005034565674782086,
+                    0.8,
+                    8,
+                    67,
+                    0.2514414243655309
+                  ],
+                  [
+                    0.00563570784490532,
+                    0.8,
+                    8,
+                    75,
+                    0.24467467534802714
+                  ],
+                  [
+                    0.00563570784490532,
+                    0.9,
+                    9,
+                    75,
+                    0.24352817063128038
+                  ],
+                  [
+                    0.022768259693417493,
+                    0.9,
+                    9,
+                    303,
+                    0.029191087743327362
+                  ],
+                  [
+                    0.022768259693417493,
+                    1.0,
+                    10,
+                    303,
+                    0.029149516393209382
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    10,
+                    13308,
+                    1.0091310668600467e-112
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": 0.7975578599338744,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.004884280132251277,
+                    0.6,
+                    6,
+                    65,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    10,
+                    13308,
+                    0.0
+                  ]
+                ],
+                "reason": null
+              }
+            }
+          },
+          "n_events": 10,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 12.7
+        },
+        {
+          "label": "1inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 25.4
+        },
+        {
+          "label": "2inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 50.8
+        },
+        {
+          "label": "3inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 76.2
+        },
+        {
+          "label": "5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 127.0
+        }
+      ],
+      "window_signature": "f2ffdda8be1a18776866579117c911f4ad5cd84a1914c5711b8a4e8009ee46ea"
+    },
+    {
+      "id": "f18_f42",
+      "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+      "observation_provenance": [
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.npy",
+          "sha256": "3bc9b3d61c6302548a4148525d18b08429529decd182f66452e1468a9f34b412"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-120000.source.txt",
+          "sha256": "f4d823519cb20ce5c9af7178aa37183ff55a202fc18d4bc49e2f17319010e313"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.npy",
+          "sha256": "a0221f4c2c654cf152694625fb4f43b9f3df4b7fbc2b72fa2d5b8f60432f8625"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.source.txt",
+          "sha256": "68f43f5f50d6e7cabfb5c27d69de01fc532c75ba0b96110f45e5ff338dfbdb60"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-000000.npy",
+          "sha256": "6a772bd0597d9fe3b4ce65ec37b648f4d50a781a05b04e087ac3585b62d49a8c"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-000000.source.txt",
+          "sha256": "449bc4b91d0ca452a8ece3e0d3dc0a33ef75d333f8d552835d583fc7c8b5e123"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-060000.npy",
+          "sha256": "943e17949c483f4b0991ad9f993204b2e07960a803eb44d46043feb08007dad4"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-060000.source.txt",
+          "sha256": "9b19c3cb9f9b3696182d4b6e6d554a0d5b24c34961278324319a0e5098ba91d7"
+        }
+      ],
+      "source_forecasts": {
+        "ann_operational": {
+          "sha256": "e372e8c8c89a0918927cb58a41e1a84439fdd3b0e552d4f86fd7d75b48125013"
+        },
+        "cnn_csgd_24h_corrected_v1": {
+          "sha256": "dea44e31603a2aab9e5a5a691aedae4e9a79c4b1c36fadc787306b68a52ecb13"
+        },
+        "gnn_operational": {
+          "sha256": "ac0ef91d3de0a74358e2833710373fe83c35fd26041d30900ff0631de8da4e9e"
+        }
+      },
+      "status": "VERIFIED",
+      "thresholds": [
+        {
+          "label": "0p5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": 0.987939517039043,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0,
+                    0.04,
+                    1,
+                    0,
+                    0.5469631451963768
+                  ],
+                  [
+                    0.000526592943654555,
+                    0.04,
+                    1,
+                    7,
+                    0.5061753159496807
+                  ],
+                  [
+                    0.000526592943654555,
+                    0.08,
+                    2,
+                    7,
+                    0.5044728736770371
+                  ],
+                  [
+                    0.0006018205070337771,
+                    0.08,
+                    2,
+                    8,
+                    0.5017275500138472
+                  ],
+                  [
+                    0.0006018205070337771,
+                    0.12,
+                    3,
+                    8,
+                    0.5017174943454903
+                  ],
+                  [
+                    0.0009027307605506658,
+                    0.12,
+                    3,
+                    12,
+                    0.4778937245304433
+                  ],
+                  [
+                    0.0009027307605506658,
+                    0.16,
+                    4,
+                    12,
+                    0.47562592249673674
+                  ],
+                  [
+                    0.0019559166478597756,
+                    0.16,
+                    4,
+                    26,
+                    0.4428850534586938
+                  ],
+                  [
+                    0.0019559166478597756,
+                    0.2,
+                    5,
+                    26,
+                    0.4428775773934569
+                  ],
+                  [
+                    0.0024072820281351086,
+                    0.2,
+                    5,
+                    32,
+                    0.4345329029248096
+                  ],
+                  [
+                    0.0024072820281351086,
+                    0.24,
+                    6,
+                    32,
+                    0.4340746287438254
+                  ],
+                  [
+                    0.002708192281651997,
+                    0.24,
+                    6,
+                    36,
+                    0.43147693479237503
+                  ],
+                  [
+                    0.002708192281651997,
+                    0.28,
+                    7,
+                    36,
+                    0.4297429219964817
+                  ],
+                  [
+                    0.00421274354923644,
+                    0.28,
+                    7,
+                    56,
+                    0.4030172630727126
+                  ],
+                  [
+                    0.00421274354923644,
+                    0.32,
+                    8,
+                    56,
+                    0.4001226868089969
+                  ],
+                  [
+                    0.006093432633716994,
+                    0.32,
+                    8,
+                    81,
+                    0.34775831813742264
+                  ],
+                  [
+                    0.006093432633716994,
+                    0.36,
+                    9,
+                    81,
+                    0.34749160688229835
+                  ],
+                  [
+                    0.0065447980139923265,
+                    0.36,
+                    9,
+                    87,
+                    0.32598588696575176
+                  ],
+                  [
+                    0.0065447980139923265,
+                    0.44,
+                    11,
+                    87,
+                    0.3245087896597106
+                  ],
+                  [
+                    0.007597983901301437,
+                    0.44,
+                    11,
+                    101,
+                    0.30144878698813166
+                  ],
+                  [
+                    0.007597983901301437,
+                    0.48,
+                    12,
+                    101,
+                    0.2985588215734128
+                  ],
+                  [
+                    0.008124576844955992,
+                    0.48,
+                    12,
+                    108,
+                    0.2792726964290036
+                  ],
+                  [
+                    0.008124576844955992,
+                    0.52,
+                    13,
+                    108,
+                    0.2751200354893789
+                  ],
+                  [
+                    0.010155721056194989,
+                    0.52,
+                    13,
+                    135,
+                    0.2235509343580101
+                  ],
+                  [
+                    0.010155721056194989,
+                    0.56,
+                    14,
+                    135,
+                    0.22256583568916152
+                  ],
+                  [
+                    0.01226209283081321,
+                    0.56,
+                    14,
+                    163,
+                    0.17188318937364902
+                  ],
+                  [
+                    0.01226209283081321,
+                    0.6,
+                    15,
+                    163,
+                    0.1704280065040659
+                  ],
+                  [
+                    0.014518919732189875,
+                    0.6,
+                    15,
+                    193,
+                    0.1253250768206424
+                  ],
+                  [
+                    0.014518919732189875,
+                    0.64,
+                    16,
+                    193,
+                    0.11978673648604748
+                  ],
+                  [
+                    0.01504551267584443,
+                    0.64,
+                    16,
+                    200,
+                    0.10923147612298732
+                  ],
+                  [
+                    0.01504551267584443,
+                    0.72,
+                    18,
+                    200,
+                    0.10520483093059578
+                  ],
+                  [
+                    0.01639960881667043,
+                    0.72,
+                    18,
+                    218,
+                    0.08893074993085293
+                  ],
+                  [
+                    0.01639960881667043,
+                    0.76,
+                    19,
+                    218,
+                    0.0885424446175384
+                  ],
+                  [
+                    0.01715188445046265,
+                    0.76,
+                    19,
+                    228,
+                    0.08078408023366516
+                  ],
+                  [
+                    0.01715188445046265,
+                    0.8,
+                    20,
+                    228,
+                    0.07996460353968585
+                  ],
+                  [
+                    0.01925825622508087,
+                    0.8,
+                    20,
+                    256,
+                    0.06554050796428434
+                  ],
+                  [
+                    0.01925825622508087,
+                    0.84,
+                    21,
+                    256,
+                    0.06536077017075767
+                  ],
+                  [
+                    0.027081922816519974,
+                    0.84,
+                    21,
+                    360,
+                    0.03524500154842617
+                  ],
+                  [
+                    0.027081922816519974,
+                    0.88,
+                    22,
+                    360,
+                    0.03522821785503929
+                  ],
+                  [
+                    0.028812156774242082,
+                    0.88,
+                    22,
+                    383,
+                    0.03223073148008296
+                  ],
+                  [
+                    0.028812156774242082,
+                    0.92,
+                    23,
+                    383,
+                    0.032211504542956626
+                  ],
+                  [
+                    0.03400285864740841,
+                    0.92,
+                    23,
+                    452,
+                    0.025199376639069883
+                  ],
+                  [
+                    0.03400285864740841,
+                    0.96,
+                    24,
+                    452,
+                    0.02516616626155971
+                  ],
+                  [
+                    0.04355675919656962,
+                    0.96,
+                    24,
+                    579,
+                    0.015674611686560307
+                  ],
+                  [
+                    0.04355675919656962,
+                    1.0,
+                    25,
+                    579,
+                    0.01565273090430373
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    25,
+                    13293,
+                    3.370610054625344e-18
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": 0.9889686301060708,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    7.522756337922214e-05,
+                    0.0,
+                    0,
+                    1,
+                    0.4838828380629213
+                  ],
+                  [
+                    7.522756337922214e-05,
+                    0.04,
+                    1,
+                    1,
+                    0.46581670364707084
+                  ],
+                  [
+                    0.0003761378168961107,
+                    0.04,
+                    1,
+                    5,
+                    0.42037627888990003
+                  ],
+                  [
+                    0.0003761378168961107,
+                    0.08,
+                    2,
+                    5,
+                    0.4202263633277693
+                  ],
+                  [
+                    0.00105318588730911,
+                    0.08,
+                    2,
+                    14,
+                    0.3896560785313217
+                  ],
+                  [
+                    0.00105318588730911,
+                    0.12,
+                    3,
+                    14,
+                    0.38809887173284663
+                  ],
+                  [
+                    0.0014293237042052208,
+                    0.12,
+                    3,
+                    19,
+                    0.36937918442757367
+                  ],
+                  [
+                    0.0014293237042052208,
+                    0.16,
+                    4,
+                    19,
+                    0.3683888762640132
+                  ],
+                  [
+                    0.0019559166478597756,
+                    0.16,
+                    4,
+                    26,
+                    0.3534993729261356
+                  ],
+                  [
+                    0.0019559166478597756,
+                    0.2,
+                    5,
+                    26,
+                    0.35211549158533695
+                  ],
+                  [
+                    0.0023320544647558866,
+                    0.2,
+                    5,
+                    31,
+                    0.3433687842451771
+                  ],
+                  [
+                    0.0023320544647558866,
+                    0.24,
+                    6,
+                    31,
+                    0.3345347354337313
+                  ],
+                  [
+                    0.003911833295719551,
+                    0.24,
+                    6,
+                    52,
+                    0.30138832596945514
+                  ],
+                  [
+                    0.003911833295719551,
+                    0.28,
+                    7,
+                    52,
+                    0.3003129358397108
+                  ],
+                  [
+                    0.004438426239374107,
+                    0.28,
+                    7,
+                    59,
+                    0.28948670537699894
+                  ],
+                  [
+                    0.004438426239374107,
+                    0.32,
+                    8,
+                    59,
+                    0.2890697255839323
+                  ],
+                  [
+                    0.004664108929511773,
+                    0.32,
+                    8,
+                    62,
+                    0.28683892943164074
+                  ],
+                  [
+                    0.004664108929511773,
+                    0.36,
+                    9,
+                    62,
+                    0.2862590888313434
+                  ],
+                  [
+                    0.004965019183028662,
+                    0.36,
+                    9,
+                    66,
+                    0.2821149732826783
+                  ],
+                  [
+                    0.004965019183028662,
+                    0.4,
+                    10,
+                    66,
+                    0.27934250009128986
+                  ],
+                  [
+                    0.0065447980139923265,
+                    0.4,
+                    10,
+                    87,
+                    0.2456362480205373
+                  ],
+                  [
+                    0.0065447980139923265,
+                    0.44,
+                    11,
+                    87,
+                    0.24168499791748738
+                  ],
+                  [
+                    0.006695253140750771,
+                    0.44,
+                    11,
+                    89,
+                    0.23901145214599648
+                  ],
+                  [
+                    0.006695253140750771,
+                    0.48,
+                    12,
+                    89,
+                    0.23880940574280426
+                  ],
+                  [
+                    0.007071390957646882,
+                    0.48,
+                    12,
+                    94,
+                    0.2332616944575085
+                  ],
+                  [
+                    0.007071390957646882,
+                    0.52,
+                    13,
+                    94,
+                    0.2312612125645428
+                  ],
+                  [
+                    0.007898894154818325,
+                    0.52,
+                    13,
+                    105,
+                    0.2203039013056869
+                  ],
+                  [
+                    0.007898894154818325,
+                    0.56,
+                    14,
+                    105,
+                    0.22007371569888778
+                  ],
+                  [
+                    0.008275031971714437,
+                    0.56,
+                    14,
+                    110,
+                    0.21051732957478195
+                  ],
+                  [
+                    0.008275031971714437,
+                    0.6,
+                    15,
+                    110,
+                    0.20939624821698213
+                  ],
+                  [
+                    0.014142781915293764,
+                    0.6,
+                    15,
+                    188,
+                    0.10400411530901425
+                  ],
+                  [
+                    0.014142781915293764,
+                    0.64,
+                    16,
+                    188,
+                    0.10146329744550477
+                  ],
+                  [
+                    0.014218009478672985,
+                    0.64,
+                    16,
+                    189,
+                    0.1008500554801969
+                  ],
+                  [
+                    0.014218009478672985,
+                    0.68,
+                    17,
+                    189,
+                    0.10069750448470216
+                  ],
+                  [
+                    0.014518919732189875,
+                    0.68,
+                    17,
+                    193,
+                    0.09623353031101549
+                  ],
+                  [
+                    0.014518919732189875,
+                    0.72,
+                    18,
+                    193,
+                    0.09588125874836673
+                  ],
+                  [
+                    0.016023470999774317,
+                    0.72,
+                    18,
+                    213,
+                    0.08030487472259465
+                  ],
+                  [
+                    0.016023470999774317,
+                    0.76,
+                    19,
+                    213,
+                    0.0799839029280893
+                  ],
+                  [
+                    0.01797938764763409,
+                    0.76,
+                    19,
+                    239,
+                    0.06409292869515
+                  ],
+                  [
+                    0.01797938764763409,
+                    0.8,
+                    20,
+                    239,
+                    0.06346799274420747
+                  ],
+                  [
+                    0.01828029790115098,
+                    0.8,
+                    20,
+                    243,
+                    0.062415139895047045
+                  ],
+                  [
+                    0.01828029790115098,
+                    0.84,
+                    21,
+                    243,
+                    0.062098380536010606
+                  ],
+                  [
+                    0.025050778605280974,
+                    0.84,
+                    21,
+                    333,
+                    0.029483225675825172
+                  ],
+                  [
+                    0.025050778605280974,
+                    0.88,
+                    22,
+                    333,
+                    0.029480278654913122
+                  ],
+                  [
+                    0.028962611901000527,
+                    0.88,
+                    22,
+                    385,
+                    0.01883463701712156
+                  ],
+                  [
+                    0.028962611901000527,
+                    0.92,
+                    23,
+                    385,
+                    0.01847452225231256
+                  ],
+                  [
+                    0.03046716316858497,
+                    0.92,
+                    23,
+                    405,
+                    0.016673957538232833
+                  ],
+                  [
+                    0.03046716316858497,
+                    0.96,
+                    24,
+                    405,
+                    0.016516056340029426
+                  ],
+                  [
+                    0.03445422402768374,
+                    0.96,
+                    24,
+                    458,
+                    0.012187890881021861
+                  ],
+                  [
+                    0.03445422402768374,
+                    1.0,
+                    25,
+                    458,
+                    0.012182245364981104
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    25,
+                    13293,
+                    1.332619791063051e-16
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": 0.9893658316407132,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0,
+                    0.04,
+                    1,
+                    0,
+                    0.48509138939800633
+                  ],
+                  [
+                    0.00022568269013766644,
+                    0.04,
+                    1,
+                    3,
+                    0.4663535320850821
+                  ],
+                  [
+                    0.00022568269013766644,
+                    0.08,
+                    2,
+                    3,
+                    0.4639704442496265
+                  ],
+                  [
+                    0.0008275031971714436,
+                    0.08,
+                    2,
+                    11,
+                    0.43950958138653107
+                  ],
+                  [
+                    0.0008275031971714436,
+                    0.12,
+                    3,
+                    11,
+                    0.43612884108767613
+                  ],
+                  [
+                    0.00105318588730911,
+                    0.12,
+                    3,
+                    14,
+                    0.4321333685146481
+                  ],
+                  [
+                    0.00105318588730911,
+                    0.16,
+                    4,
+                    14,
+                    0.43084676301559854
+                  ],
+                  [
+                    0.0012788685774467764,
+                    0.16,
+                    4,
+                    17,
+                    0.42197650433840406
+                  ],
+                  [
+                    0.0012788685774467764,
+                    0.2,
+                    5,
+                    17,
+                    0.4181290154938423
+                  ],
+                  [
+                    0.002482509591514331,
+                    0.2,
+                    5,
+                    33,
+                    0.37779782580674465
+                  ],
+                  [
+                    0.002482509591514331,
+                    0.24,
+                    6,
+                    33,
+                    0.3774458857396053
+                  ],
+                  [
+                    0.003911833295719551,
+                    0.24,
+                    6,
+                    52,
+                    0.3615522007888984
+                  ],
+                  [
+                    0.003911833295719551,
+                    0.28,
+                    7,
+                    52,
+                    0.3505512694652924
+                  ],
+                  [
+                    0.0045136538027533285,
+                    0.28,
+                    7,
+                    60,
+                    0.3371522143699499
+                  ],
+                  [
+                    0.0045136538027533285,
+                    0.32,
+                    8,
+                    60,
+                    0.3342417807888991
+                  ],
+                  [
+                    0.005867749943579328,
+                    0.32,
+                    8,
+                    78,
+                    0.29389405072270525
+                  ],
+                  [
+                    0.005867749943579328,
+                    0.36,
+                    9,
+                    78,
+                    0.29282519091364057
+                  ],
+                  [
+                    0.00631911532385466,
+                    0.36,
+                    9,
+                    84,
+                    0.2864297057576786
+                  ],
+                  [
+                    0.00631911532385466,
+                    0.4,
+                    10,
+                    84,
+                    0.2862017834645111
+                  ],
+                  [
+                    0.006845708267509215,
+                    0.4,
+                    10,
+                    91,
+                    0.2804956193470197
+                  ],
+                  [
+                    0.006845708267509215,
+                    0.44,
+                    11,
+                    91,
+                    0.27330659306802557
+                  ],
+                  [
+                    0.007146618521026104,
+                    0.44,
+                    11,
+                    95,
+                    0.26623895311408463
+                  ],
+                  [
+                    0.007146618521026104,
+                    0.48,
+                    12,
+                    95,
+                    0.26572172294586865
+                  ],
+                  [
+                    0.007221846084405326,
+                    0.48,
+                    12,
+                    96,
+                    0.26558404733379226
+                  ],
+                  [
+                    0.007221846084405326,
+                    0.52,
+                    13,
+                    96,
+                    0.2639412698156539
+                  ],
+                  [
+                    0.009403445422402769,
+                    0.52,
+                    13,
+                    125,
+                    0.2134241220667296
+                  ],
+                  [
+                    0.009403445422402769,
+                    0.56,
+                    14,
+                    125,
+                    0.20569466584532128
+                  ],
+                  [
+                    0.009553900549161212,
+                    0.56,
+                    14,
+                    127,
+                    0.202133091914586
+                  ],
+                  [
+                    0.009553900549161212,
+                    0.6,
+                    15,
+                    127,
+                    0.19905508981456124
+                  ],
+                  [
+                    0.011284134506883321,
+                    0.6,
+                    15,
+                    150,
+                    0.16145414035342961
+                  ],
+                  [
+                    0.011284134506883321,
+                    0.64,
+                    16,
+                    150,
+                    0.1572374461100014
+                  ],
+                  [
+                    0.012788685774467765,
+                    0.64,
+                    16,
+                    170,
+                    0.13320256263638536
+                  ],
+                  [
+                    0.012788685774467765,
+                    0.68,
+                    17,
+                    170,
+                    0.13218164369386348
+                  ],
+                  [
+                    0.01504551267584443,
+                    0.68,
+                    17,
+                    200,
+                    0.09761741152338745
+                  ],
+                  [
+                    0.01504551267584443,
+                    0.72,
+                    18,
+                    200,
+                    0.0974441991695101
+                  ],
+                  [
+                    0.015346422929361317,
+                    0.72,
+                    18,
+                    204,
+                    0.09579757164061604
+                  ],
+                  [
+                    0.015346422929361317,
+                    0.76,
+                    19,
+                    204,
+                    0.09412653264498096
+                  ],
+                  [
+                    0.01797938764763409,
+                    0.76,
+                    19,
+                    239,
+                    0.06553323007810447
+                  ],
+                  [
+                    0.01797938764763409,
+                    0.8,
+                    20,
+                    239,
+                    0.06521133133577911
+                  ],
+                  [
+                    0.020160986985631537,
+                    0.8,
+                    20,
+                    268,
+                    0.05087201811603759
+                  ],
+                  [
+                    0.020160986985631537,
+                    0.84,
+                    21,
+                    268,
+                    0.05003212348350471
+                  ],
+                  [
+                    0.02279395170390431,
+                    0.84,
+                    21,
+                    303,
+                    0.04385111265002336
+                  ],
+                  [
+                    0.02279395170390431,
+                    0.88,
+                    22,
+                    303,
+                    0.04382904821183018
+                  ],
+                  [
+                    0.025803054239073198,
+                    0.88,
+                    22,
+                    343,
+                    0.033564634940068665
+                  ],
+                  [
+                    0.025803054239073198,
+                    0.92,
+                    23,
+                    343,
+                    0.03350717355631218
+                  ],
+                  [
+                    0.028812156774242082,
+                    0.92,
+                    23,
+                    383,
+                    0.026225092144034567
+                  ],
+                  [
+                    0.028812156774242082,
+                    0.96,
+                    24,
+                    383,
+                    0.026118287727738144
+                  ],
+                  [
+                    0.029188294591138194,
+                    0.96,
+                    24,
+                    388,
+                    0.025430094094991872
+                  ],
+                  [
+                    0.029188294591138194,
+                    1.0,
+                    25,
+                    388,
+                    0.025346747545822952
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    25,
+                    13293,
+                    6.604510118493862e-107
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": 0.6959000977958324,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.008199804408335214,
+                    0.4,
+                    10,
+                    109,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    25,
+                    13293,
+                    0.0
+                  ]
+                ],
+                "reason": null
+              }
+            }
+          },
+          "n_events": 25,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 12.7
+        },
+        {
+          "label": "1inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": 0.9929783718834485,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.006233103033944127,
+                    0.0,
+                    0,
+                    83,
+                    0.09117910228721646
+                  ],
+                  [
+                    0.006233103033944127,
+                    0.5,
+                    1,
+                    83,
+                    0.09095010590925473
+                  ],
+                  [
+                    0.007810153199158907,
+                    0.5,
+                    1,
+                    104,
+                    0.07617296391966534
+                  ],
+                  [
+                    0.007810153199158907,
+                    1.0,
+                    2,
+                    104,
+                    0.07472335726580157
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    2,
+                    13316,
+                    3.395901425663505e-33
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": 0.9929783718834485,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0049564433763893065,
+                    0.0,
+                    0,
+                    66,
+                    0.051981518095881835
+                  ],
+                  [
+                    0.0049564433763893065,
+                    0.5,
+                    1,
+                    66,
+                    0.05159836439102691
+                  ],
+                  [
+                    0.009086812856713727,
+                    0.5,
+                    1,
+                    121,
+                    0.03352678619019803
+                  ],
+                  [
+                    0.009086812856713727,
+                    1.0,
+                    2,
+                    121,
+                    0.03287099758372266
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    2,
+                    13316,
+                    3.354229856424716e-26
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": 0.9930534695103634,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.005707419645539201,
+                    0.0,
+                    0,
+                    76,
+                    0.0662974737971912
+                  ],
+                  [
+                    0.005707419645539201,
+                    0.5,
+                    1,
+                    76,
+                    0.06625670620417942
+                  ],
+                  [
+                    0.008185641333733853,
+                    0.5,
+                    1,
+                    109,
+                    0.052135837682128025
+                  ],
+                  [
+                    0.008185641333733853,
+                    1.0,
+                    2,
+                    109,
+                    0.05154369734255296
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    2,
+                    13316,
+                    7.556081544408346e-210
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": 0.49943676779813756,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0011264644037248424,
+                    0.0,
+                    0,
+                    15,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    2,
+                    13316,
+                    0.0
+                  ]
+                ],
+                "reason": null
+              }
+            }
+          },
+          "n_events": 2,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 25.4
+        },
+        {
+          "label": "2inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 50.8
+        },
+        {
+          "label": "3inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 76.2
+        },
+        {
+          "label": "5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 127.0
+        }
+      ],
+      "window_signature": "36b876dafc9cbfc8af2dba51ec8aa48c78ea0c2d60004cd64cb25f79eee7c18f"
+    },
+    {
+      "id": "f24_f48",
+      "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+      "observation_provenance": [
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.npy",
+          "sha256": "a0221f4c2c654cf152694625fb4f43b9f3df4b7fbc2b72fa2d5b8f60432f8625"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261019-180000.source.txt",
+          "sha256": "68f43f5f50d6e7cabfb5c27d69de01fc532c75ba0b96110f45e5ff338dfbdb60"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-000000.npy",
+          "sha256": "6a772bd0597d9fe3b4ce65ec37b648f4d50a781a05b04e087ac3585b62d49a8c"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-000000.source.txt",
+          "sha256": "449bc4b91d0ca452a8ece3e0d3dc0a33ef75d333f8d552835d583fc7c8b5e123"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-060000.npy",
+          "sha256": "943e17949c483f4b0991ad9f993204b2e07960a803eb44d46043feb08007dad4"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-060000.source.txt",
+          "sha256": "9b19c3cb9f9b3696182d4b6e6d554a0d5b24c34961278324319a0e5098ba91d7"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-120000.npy",
+          "sha256": "4bd5d9f80aa23e781e5cec848d06f9c1912209a3e576c415ba636861f3c875e5"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261020-120000.source.txt",
+          "sha256": "1be40b7c75288e0661986669f9733027b1ce755cbc97e3a9cb9b99519957f8d6"
+        }
+      ],
+      "source_forecasts": {
+        "ann_operational": {
+          "sha256": "fcecfad159760740a643eecfd583a4339af4a02940bef683ee20fc25fd4b6482"
+        },
+        "cnn_csgd_24h_corrected_v1": {
+          "sha256": "1122a8623580e39072a3daa8c3d2d4ca3b13fd6c166312b1f27a27484a5aad55"
+        },
+        "gnn_operational": {
+          "sha256": "0aa1c70debd93828c84c6c03925b1a13cafb3e30d0ec1bb574ba4ea161bf2511"
+        }
+      },
+      "status": "VERIFIED",
+      "thresholds": [
+        {
+          "label": "0p5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": 0.9882246376811594,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0,
+                    0.041666666666666664,
+                    1,
+                    0,
+                    0.5136102993232199
+                  ],
+                  [
+                    0.00015044380923724988,
+                    0.041666666666666664,
+                    1,
+                    2,
+                    0.48229467077753674
+                  ],
+                  [
+                    0.00015044380923724988,
+                    0.08333333333333333,
+                    2,
+                    2,
+                    0.48049053488837734
+                  ],
+                  [
+                    0.0008274409508048744,
+                    0.08333333333333333,
+                    2,
+                    11,
+                    0.44414790166598184
+                  ],
+                  [
+                    0.0008274409508048744,
+                    0.125,
+                    3,
+                    11,
+                    0.4407449286988737
+                  ],
+                  [
+                    0.0010531066646607492,
+                    0.125,
+                    3,
+                    14,
+                    0.43422200277126055
+                  ],
+                  [
+                    0.0010531066646607492,
+                    0.16666666666666666,
+                    4,
+                    14,
+                    0.4336938960392548
+                  ],
+                  [
+                    0.003761095230931247,
+                    0.16666666666666666,
+                    4,
+                    50,
+                    0.36037459546128264
+                  ],
+                  [
+                    0.003761095230931247,
+                    0.20833333333333334,
+                    5,
+                    50,
+                    0.35695721605810565
+                  ],
+                  [
+                    0.004137204754024372,
+                    0.20833333333333334,
+                    5,
+                    55,
+                    0.348735872742333
+                  ],
+                  [
+                    0.004137204754024372,
+                    0.25,
+                    6,
+                    55,
+                    0.3452139128948665
+                  ],
+                  [
+                    0.004287648563261622,
+                    0.25,
+                    6,
+                    57,
+                    0.34425645879738354
+                  ],
+                  [
+                    0.004287648563261622,
+                    0.2916666666666667,
+                    7,
+                    57,
+                    0.34379598818515844
+                  ],
+                  [
+                    0.005792086655634121,
+                    0.2916666666666667,
+                    7,
+                    77,
+                    0.31625285234259776
+                  ],
+                  [
+                    0.005792086655634121,
+                    0.3333333333333333,
+                    8,
+                    77,
+                    0.3151881469648768
+                  ],
+                  [
+                    0.007597412366481119,
+                    0.3333333333333333,
+                    8,
+                    101,
+                    0.2709078239702205
+                  ],
+                  [
+                    0.007597412366481119,
+                    0.375,
+                    9,
+                    101,
+                    0.2669139969046369
+                  ],
+                  [
+                    0.0077478561757183696,
+                    0.375,
+                    9,
+                    103,
+                    0.26526166054289624
+                  ],
+                  [
+                    0.0077478561757183696,
+                    0.4166666666666667,
+                    10,
+                    103,
+                    0.2622864567167847
+                  ],
+                  [
+                    0.009703625695802617,
+                    0.4166666666666667,
+                    10,
+                    129,
+                    0.23484862993991165
+                  ],
+                  [
+                    0.009703625695802617,
+                    0.4583333333333333,
+                    11,
+                    129,
+                    0.2348001672108122
+                  ],
+                  [
+                    0.009778847600421242,
+                    0.4583333333333333,
+                    11,
+                    130,
+                    0.233504035433016
+                  ],
+                  [
+                    0.009778847600421242,
+                    0.5,
+                    12,
+                    130,
+                    0.2318332766098751
+                  ],
+                  [
+                    0.010606288551226117,
+                    0.5,
+                    12,
+                    141,
+                    0.21645419162322893
+                  ],
+                  [
+                    0.010606288551226117,
+                    0.5416666666666666,
+                    13,
+                    141,
+                    0.2162617565602928
+                  ],
+                  [
+                    0.011433729502030992,
+                    0.5416666666666666,
+                    13,
+                    152,
+                    0.20390556895118714
+                  ],
+                  [
+                    0.011433729502030992,
+                    0.5833333333333334,
+                    14,
+                    152,
+                    0.2038609625497602
+                  ],
+                  [
+                    0.011659395215886867,
+                    0.5833333333333334,
+                    14,
+                    155,
+                    0.19342097183520646
+                  ],
+                  [
+                    0.011659395215886867,
+                    0.625,
+                    15,
+                    155,
+                    0.19327472770239867
+                  ],
+                  [
+                    0.015871821874529863,
+                    0.625,
+                    15,
+                    211,
+                    0.13795257857131546
+                  ],
+                  [
+                    0.015871821874529863,
+                    0.6666666666666666,
+                    16,
+                    211,
+                    0.13785132421074214
+                  ],
+                  [
+                    0.015947043779148486,
+                    0.6666666666666666,
+                    16,
+                    212,
+                    0.1371928956605403
+                  ],
+                  [
+                    0.015947043779148486,
+                    0.7083333333333334,
+                    17,
+                    212,
+                    0.1360545459327683
+                  ],
+                  [
+                    0.01692492853919061,
+                    0.7083333333333334,
+                    17,
+                    225,
+                    0.11841067374472702
+                  ],
+                  [
+                    0.01692492853919061,
+                    0.75,
+                    18,
+                    225,
+                    0.11463602576721944
+                  ],
+                  [
+                    0.017150594253046488,
+                    0.75,
+                    18,
+                    228,
+                    0.1136864247127329
+                  ],
+                  [
+                    0.017150594253046488,
+                    0.7916666666666666,
+                    19,
+                    228,
+                    0.11330875409988138
+                  ],
+                  [
+                    0.018655032345418987,
+                    0.7916666666666666,
+                    19,
+                    248,
+                    0.09735666856073237
+                  ],
+                  [
+                    0.018655032345418987,
+                    0.8333333333333334,
+                    20,
+                    248,
+                    0.09686557763935705
+                  ],
+                  [
+                    0.021287799007070857,
+                    0.8333333333333334,
+                    20,
+                    283,
+                    0.08021097976412078
+                  ],
+                  [
+                    0.021287799007070857,
+                    0.875,
+                    21,
+                    283,
+                    0.08009019782944439
+                  ],
+                  [
+                    0.023544456145629607,
+                    0.875,
+                    21,
+                    313,
+                    0.06733120255993466
+                  ],
+                  [
+                    0.023544456145629607,
+                    0.9166666666666666,
+                    22,
+                    313,
+                    0.0666301493027298
+                  ],
+                  [
+                    0.028659545659696105,
+                    0.9166666666666666,
+                    22,
+                    381,
+                    0.047494064793486994
+                  ],
+                  [
+                    0.028659545659696105,
+                    0.9583333333333334,
+                    23,
+                    381,
+                    0.046831917170823766
+                  ],
+                  [
+                    0.03603129231232135,
+                    0.9583333333333334,
+                    23,
+                    479,
+                    0.03008270535069021
+                  ],
+                  [
+                    0.03603129231232135,
+                    1.0,
+                    24,
+                    479,
+                    0.02981155207056119
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    24,
+                    13294,
+                    8.334663189502799e-18
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": 0.9884189609347576,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0,
+                    0.041666666666666664,
+                    1,
+                    0,
+                    0.3891484506523047
+                  ],
+                  [
+                    0.00045133142771174966,
+                    0.041666666666666664,
+                    1,
+                    6,
+                    0.3447754860240719
+                  ],
+                  [
+                    0.00045133142771174966,
+                    0.08333333333333333,
+                    2,
+                    6,
+                    0.3430317629824617
+                  ],
+                  [
+                    0.0021062133293214985,
+                    0.08333333333333333,
+                    2,
+                    28,
+                    0.2982693837208507
+                  ],
+                  [
+                    0.0021062133293214985,
+                    0.125,
+                    3,
+                    28,
+                    0.2946512372920843
+                  ],
+                  [
+                    0.002632766661651873,
+                    0.125,
+                    3,
+                    35,
+                    0.2869314429379346
+                  ],
+                  [
+                    0.002632766661651873,
+                    0.16666666666666666,
+                    4,
+                    35,
+                    0.28372593252659933
+                  ],
+                  [
+                    0.0032345418986008726,
+                    0.16666666666666666,
+                    4,
+                    43,
+                    0.26484098945058876
+                  ],
+                  [
+                    0.0032345418986008726,
+                    0.20833333333333334,
+                    5,
+                    43,
+                    0.2642698906716425
+                  ],
+                  [
+                    0.0036858733263126224,
+                    0.20833333333333334,
+                    5,
+                    49,
+                    0.2543563466744066
+                  ],
+                  [
+                    0.0036858733263126224,
+                    0.25,
+                    6,
+                    49,
+                    0.25414057370542253
+                  ],
+                  [
+                    0.005641642846396871,
+                    0.25,
+                    6,
+                    75,
+                    0.22453401240856616
+                  ],
+                  [
+                    0.005641642846396871,
+                    0.2916666666666667,
+                    7,
+                    75,
+                    0.22295387385990423
+                  ],
+                  [
+                    0.005716864751015496,
+                    0.2916666666666667,
+                    7,
+                    76,
+                    0.2227160560761876
+                  ],
+                  [
+                    0.005716864751015496,
+                    0.375,
+                    9,
+                    76,
+                    0.22053651815369052
+                  ],
+                  [
+                    0.007221302843387995,
+                    0.375,
+                    9,
+                    96,
+                    0.2021683029888964
+                  ],
+                  [
+                    0.007221302843387995,
+                    0.4166666666666667,
+                    10,
+                    96,
+                    0.20200875768026547
+                  ],
+                  [
+                    0.009628403791183992,
+                    0.4166666666666667,
+                    10,
+                    128,
+                    0.17164015002761143
+                  ],
+                  [
+                    0.009628403791183992,
+                    0.4583333333333333,
+                    11,
+                    128,
+                    0.17126973695609962
+                  ],
+                  [
+                    0.010004513314277118,
+                    0.4583333333333333,
+                    11,
+                    133,
+                    0.16677850921598736
+                  ],
+                  [
+                    0.010004513314277118,
+                    0.5,
+                    12,
+                    133,
+                    0.16628780342165814
+                  ],
+                  [
+                    0.010606288551226117,
+                    0.5,
+                    12,
+                    141,
+                    0.15984517142494784
+                  ],
+                  [
+                    0.010606288551226117,
+                    0.5416666666666666,
+                    13,
+                    141,
+                    0.15960252014292006
+                  ],
+                  [
+                    0.010831954265081992,
+                    0.5416666666666666,
+                    13,
+                    144,
+                    0.15832601020834994
+                  ],
+                  [
+                    0.010831954265081992,
+                    0.5833333333333334,
+                    14,
+                    144,
+                    0.15797277688699765
+                  ],
+                  [
+                    0.01293816759440349,
+                    0.5833333333333334,
+                    14,
+                    172,
+                    0.13758363847154578
+                  ],
+                  [
+                    0.01293816759440349,
+                    0.625,
+                    15,
+                    172,
+                    0.13631751451029123
+                  ],
+                  [
+                    0.014818715209869113,
+                    0.625,
+                    15,
+                    197,
+                    0.11425461560831161
+                  ],
+                  [
+                    0.014818715209869113,
+                    0.6666666666666666,
+                    16,
+                    197,
+                    0.11365150495228184
+                  ],
+                  [
+                    0.015871821874529863,
+                    0.6666666666666666,
+                    16,
+                    211,
+                    0.10562600688425132
+                  ],
+                  [
+                    0.015871821874529863,
+                    0.7083333333333334,
+                    17,
+                    211,
+                    0.10529268860471146
+                  ],
+                  [
+                    0.017150594253046488,
+                    0.7083333333333334,
+                    17,
+                    228,
+                    0.09483460407272558
+                  ],
+                  [
+                    0.017150594253046488,
+                    0.75,
+                    18,
+                    228,
+                    0.09479282136574953
+                  ],
+                  [
+                    0.01827892282232586,
+                    0.75,
+                    18,
+                    243,
+                    0.08622176987027313
+                  ],
+                  [
+                    0.01827892282232586,
+                    0.8333333333333334,
+                    20,
+                    243,
+                    0.08570508590338453
+                  ],
+                  [
+                    0.019858582819316985,
+                    0.8333333333333334,
+                    20,
+                    264,
+                    0.07591951289718146
+                  ],
+                  [
+                    0.019858582819316985,
+                    0.875,
+                    21,
+                    264,
+                    0.0751849837354507
+                  ],
+                  [
+                    0.022265683767112982,
+                    0.875,
+                    21,
+                    296,
+                    0.06031185790976283
+                  ],
+                  [
+                    0.022265683767112982,
+                    0.9166666666666666,
+                    22,
+                    296,
+                    0.060107554058168464
+                  ],
+                  [
+                    0.029261320896645102,
+                    0.9166666666666666,
+                    22,
+                    389,
+                    0.029413534667976006
+                  ],
+                  [
+                    0.029261320896645102,
+                    0.9583333333333334,
+                    23,
+                    389,
+                    0.02888086025560818
+                  ],
+                  [
+                    0.031743643749059726,
+                    0.9583333333333334,
+                    23,
+                    422,
+                    0.023034769160030482
+                  ],
+                  [
+                    0.031743643749059726,
+                    1.0,
+                    24,
+                    422,
+                    0.0228577217174155
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    24,
+                    13294,
+                    5.653139768705388e-17
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": 0.9887668622436186,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0,
+                    0.041666666666666664,
+                    1,
+                    0,
+                    0.4302497894532511
+                  ],
+                  [
+                    0.0006017752369489995,
+                    0.041666666666666664,
+                    1,
+                    8,
+                    0.377337277656277
+                  ],
+                  [
+                    0.0006017752369489995,
+                    0.08333333333333333,
+                    2,
+                    8,
+                    0.3751210477669548
+                  ],
+                  [
+                    0.0011283285692793741,
+                    0.08333333333333333,
+                    2,
+                    15,
+                    0.37121013725339214
+                  ],
+                  [
+                    0.0011283285692793741,
+                    0.125,
+                    3,
+                    15,
+                    0.37011473976611675
+                  ],
+                  [
+                    0.0017301038062283738,
+                    0.125,
+                    3,
+                    23,
+                    0.3521759568788747
+                  ],
+                  [
+                    0.0017301038062283738,
+                    0.16666666666666666,
+                    4,
+                    23,
+                    0.350926457975951
+                  ],
+                  [
+                    0.0031593199939822475,
+                    0.16666666666666666,
+                    4,
+                    42,
+                    0.31412127396986744
+                  ],
+                  [
+                    0.0031593199939822475,
+                    0.20833333333333334,
+                    5,
+                    42,
+                    0.30303444131419605
+                  ],
+                  [
+                    0.0033849857078381224,
+                    0.20833333333333334,
+                    5,
+                    45,
+                    0.2951114846732545
+                  ],
+                  [
+                    0.0033849857078381224,
+                    0.25,
+                    6,
+                    45,
+                    0.29428089260401114
+                  ],
+                  [
+                    0.005867308560252746,
+                    0.25,
+                    6,
+                    78,
+                    0.24986139326086013
+                  ],
+                  [
+                    0.005867308560252746,
+                    0.2916666666666667,
+                    7,
+                    78,
+                    0.24922563141296025
+                  ],
+                  [
+                    0.00654430570182037,
+                    0.2916666666666667,
+                    7,
+                    87,
+                    0.24017271962407857
+                  ],
+                  [
+                    0.00654430570182037,
+                    0.3333333333333333,
+                    8,
+                    87,
+                    0.2400666759904127
+                  ],
+                  [
+                    0.00699563712953212,
+                    0.3333333333333333,
+                    8,
+                    93,
+                    0.23463073126550404
+                  ],
+                  [
+                    0.00699563712953212,
+                    0.375,
+                    9,
+                    93,
+                    0.23285556917924072
+                  ],
+                  [
+                    0.007221302843387995,
+                    0.375,
+                    9,
+                    96,
+                    0.2282716863981057
+                  ],
+                  [
+                    0.007221302843387995,
+                    0.4166666666666667,
+                    10,
+                    96,
+                    0.22612117380000973
+                  ],
+                  [
+                    0.009553181886565367,
+                    0.4166666666666667,
+                    10,
+                    127,
+                    0.18655576756873968
+                  ],
+                  [
+                    0.009553181886565367,
+                    0.4583333333333333,
+                    11,
+                    127,
+                    0.1863782973698544
+                  ],
+                  [
+                    0.010079735218895743,
+                    0.4583333333333333,
+                    11,
+                    134,
+                    0.1818161979644654
+                  ],
+                  [
+                    0.010079735218895743,
+                    0.5,
+                    12,
+                    134,
+                    0.18109587303530486
+                  ],
+                  [
+                    0.010230179028132993,
+                    0.5,
+                    12,
+                    136,
+                    0.17677930358707714
+                  ],
+                  [
+                    0.010230179028132993,
+                    0.5833333333333334,
+                    14,
+                    136,
+                    0.17477279909239193
+                  ],
+                  [
+                    0.01188506092974274,
+                    0.5833333333333334,
+                    14,
+                    158,
+                    0.15950731282043998
+                  ],
+                  [
+                    0.01188506092974274,
+                    0.625,
+                    15,
+                    158,
+                    0.15881411951020744
+                  ],
+                  [
+                    0.015871821874529863,
+                    0.625,
+                    15,
+                    211,
+                    0.11257643858135687
+                  ],
+                  [
+                    0.015871821874529863,
+                    0.6666666666666666,
+                    16,
+                    211,
+                    0.11241784973472722
+                  ],
+                  [
+                    0.016097487588385737,
+                    0.6666666666666666,
+                    16,
+                    214,
+                    0.11034408229937466
+                  ],
+                  [
+                    0.016097487588385737,
+                    0.7083333333333334,
+                    17,
+                    214,
+                    0.10901097438305389
+                  ],
+                  [
+                    0.016473597111478864,
+                    0.7083333333333334,
+                    17,
+                    219,
+                    0.10595153121139132
+                  ],
+                  [
+                    0.016473597111478864,
+                    0.75,
+                    18,
+                    219,
+                    0.10592635832423916
+                  ],
+                  [
+                    0.016624040920716114,
+                    0.75,
+                    18,
+                    221,
+                    0.10522175748936032
+                  ],
+                  [
+                    0.016624040920716114,
+                    0.7916666666666666,
+                    19,
+                    221,
+                    0.10495312945047572
+                  ],
+                  [
+                    0.018354144726944487,
+                    0.7916666666666666,
+                    19,
+                    244,
+                    0.08673048789201841
+                  ],
+                  [
+                    0.018354144726944487,
+                    0.8333333333333334,
+                    20,
+                    244,
+                    0.08671816140002081
+                  ],
+                  [
+                    0.01933202948698661,
+                    0.8333333333333334,
+                    20,
+                    257,
+                    0.0787252377475085
+                  ],
+                  [
+                    0.01933202948698661,
+                    0.875,
+                    21,
+                    257,
+                    0.07660165439301318
+                  ],
+                  [
+                    0.01978336091469836,
+                    0.875,
+                    21,
+                    263,
+                    0.07500708812937865
+                  ],
+                  [
+                    0.01978336091469836,
+                    0.9166666666666666,
+                    22,
+                    263,
+                    0.0748800725176693
+                  ],
+                  [
+                    0.028734767564314728,
+                    0.9166666666666666,
+                    22,
+                    382,
+                    0.041875514995261015
+                  ],
+                  [
+                    0.028734767564314728,
+                    0.9583333333333334,
+                    23,
+                    382,
+                    0.04178333808352333
+                  ],
+                  [
+                    0.029712652324356853,
+                    0.9583333333333334,
+                    23,
+                    395,
+                    0.039475446772386694
+                  ],
+                  [
+                    0.029712652324356853,
+                    1.0,
+                    24,
+                    395,
+                    0.03942471808289577
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    24,
+                    13294,
+                    3.95995083714515e-99
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": 0.6832499623890477,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.008500075221904619,
+                    0.375,
+                    9,
+                    113,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    24,
+                    13294,
+                    0.0
+                  ]
+                ],
+                "reason": null
+              }
+            }
+          },
+          "n_events": 24,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 12.7
+        },
+        {
+          "label": "1inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": 0.9882105579334685,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.011789442066531501,
+                    0.0,
+                    0,
+                    157,
+                    0.048870982452860354
+                  ],
+                  [
+                    0.011789442066531501,
+                    1.0,
+                    1,
+                    157,
+                    0.048849748805181205
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    2.026998244660459e-32
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": 0.9861830742659758,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.013816925734024179,
+                    0.0,
+                    0,
+                    184,
+                    0.02044578116602151
+                  ],
+                  [
+                    0.013816925734024179,
+                    1.0,
+                    1,
+                    184,
+                    0.0204413342649329
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    1.539927416324152e-26
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": 0.9874596380566194,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.01254036194338064,
+                    0.0,
+                    0,
+                    167,
+                    0.03243601060096311
+                  ],
+                  [
+                    0.01254036194338064,
+                    1.0,
+                    1,
+                    167,
+                    0.0323879009346292
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    2.5367371706208277e-194
+                  ]
+                ],
+                "reason": null
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": 0.4993617181046782,
+                "points": [
+                  [
+                    0.0,
+                    0.0,
+                    0,
+                    0,
+                    null
+                  ],
+                  [
+                    0.0012765637906435384,
+                    0.0,
+                    0,
+                    17,
+                    1.0
+                  ],
+                  [
+                    1.0,
+                    1.0,
+                    1,
+                    13317,
+                    0.0
+                  ]
+                ],
+                "reason": null
+              }
+            }
+          },
+          "n_events": 1,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 25.4
+        },
+        {
+          "label": "2inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 50.8
+        },
+        {
+          "label": "3inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 76.2
+        },
+        {
+          "label": "5inch",
+          "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+          "models": {
+            "ann_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "cnn_csgd_24h_corrected_v1": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "gnn_operational": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            },
+            "raw_hrrr": {
+              "roc": {
+                "auc": null,
+                "points": [],
+                "reason": "Both observed events and non-events are required."
+              }
+            }
+          },
+          "n_events": 0,
+          "n_samples": 13318,
+          "status": "VERIFIED",
+          "threshold_mm": 127.0
+        }
+      ],
+      "window_signature": "7ee526f0b6b58d3a491b8ef7c0b4177acc4c9f60bcb177ebd9453889d4d27d5b"
+    }
+  ]
+}
