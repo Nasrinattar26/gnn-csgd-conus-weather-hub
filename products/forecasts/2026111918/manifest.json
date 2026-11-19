@@ -1,0 +1,682 @@
+{
+  "schema_version": 1,
+  "model_id": "hrrr_gnn_csgd",
+  "init_utc": "2026-11-19T18:00:00Z",
+  "domain": "CONUS",
+  "grid_id": "ann025_conus",
+  "grid_resolution_degrees": 0.25,
+  "map_count": 145,
+  "animation_count": 22,
+  "generated_utc": "2026-11-19T20:21:45Z",
+  "note": "Validated forecast cycle. ARI missing cells remain missing, not zero probability.",
+  "files": [
+    {
+      "path": "gifs/12h/expected_precip_mm.gif",
+      "sha256": "71a4a0f1584d71a783f13b1538f8e0d998ddb779aa406835dac642072366d697"
+    },
+    {
+      "path": "gifs/12h/prob_gt_0p5inch_percent.gif",
+      "sha256": "7d4710acffe46c358b653258496ca9e00c5620b00a0dccab54c713abbc466561"
+    },
+    {
+      "path": "gifs/12h/prob_gt_1inch_percent.gif",
+      "sha256": "3f35f9b5ae2e740a5c821775551e483221ed6dd02b2ab9d30fe93747ba186312"
+    },
+    {
+      "path": "gifs/12h/prob_gt_2inch_percent.gif",
+      "sha256": "fcdd7b2880fb2a8e0af788a83e90f0b8a21ad253725f909abeae516de48fe295"
+    },
+    {
+      "path": "gifs/12h/prob_gt_2yr12h_ari_percent.gif",
+      "sha256": "5743f2ca448624b318faec032676ad7085ea20f65ccb30d2af76be19bd82cfce"
+    },
+    {
+      "path": "gifs/12h/prob_gt_3inch_percent.gif",
+      "sha256": "31af194647e38a2299cc8fc1c2392b506cafc169dbbd06d7212a9072dfed867a"
+    },
+    {
+      "path": "gifs/12h/prob_gt_5yr12h_ari_percent.gif",
+      "sha256": "6359e42966f520042d101366fcc5f397fd3fd9f5498307e9e89ed5c79e4ad9ba"
+    },
+    {
+      "path": "gifs/24h/expected_precip_mm.gif",
+      "sha256": "090be99b4effc6cc036d4825a73225e8212668d5923170934170ff66c83ae4ec"
+    },
+    {
+      "path": "gifs/24h/prob_gt_0p5inch_percent.gif",
+      "sha256": "c26c5b7bb3f14593ae173ebe4ef7b67f9259eac4e11a1bfdf9a4766e93acb264"
+    },
+    {
+      "path": "gifs/24h/prob_gt_1inch_percent.gif",
+      "sha256": "157159385ce213a975a88361fc119d2ffdf93cb814748168ca60951e0d3bb763"
+    },
+    {
+      "path": "gifs/24h/prob_gt_2inch_percent.gif",
+      "sha256": "a5d1e2900ba21c937e857269dd6fcffe4a05e8826a0a9e6234c148777af6b2e4"
+    },
+    {
+      "path": "gifs/24h/prob_gt_2yr24h_ari_percent.gif",
+      "sha256": "e678304ac5051e43ecb671e82d76b4a7c990f5fce30dffd0822c398f3b50109a"
+    },
+    {
+      "path": "gifs/24h/prob_gt_3inch_percent.gif",
+      "sha256": "552036d156edf76748231f320686ceb849c669eb976a48e3e5e1282122b7d153"
+    },
+    {
+      "path": "gifs/24h/prob_gt_5inch_percent.gif",
+      "sha256": "8fbfab58969b32ef9f0a3bb2453e5613150c807a94ab22bcc429b06c510a55de"
+    },
+    {
+      "path": "gifs/24h/prob_gt_5yr24h_ari_percent.gif",
+      "sha256": "fcc9964f5d249fda1ed891e7af6fec1471289d62de415ad0b9f6e731bb458a64"
+    },
+    {
+      "path": "gifs/6h/expected_precip_mm.gif",
+      "sha256": "3ddd48c73ca46b44c89868f98c56f4a9c6fba578e8069a583ac81643fcca26d5"
+    },
+    {
+      "path": "gifs/6h/prob_gt_0p25inch_percent.gif",
+      "sha256": "527d02b1257d395ba592e15858cbcf4d26be6d3c0789ff184757baaba5a4ca7f"
+    },
+    {
+      "path": "gifs/6h/prob_gt_0p5inch_percent.gif",
+      "sha256": "bc91ffde887ee1407cd1436a61371fbfe1c75e70c577348d5d2842fb77961bfc"
+    },
+    {
+      "path": "gifs/6h/prob_gt_1inch_percent.gif",
+      "sha256": "b96518f01986f3dd1729327530d170ca267d58b7e5b357002bb42f5a2df0e541"
+    },
+    {
+      "path": "gifs/6h/prob_gt_2inch_percent.gif",
+      "sha256": "15594d3f7a8ad205a06587d0ea5308626600ca65bd3b2001e2371ffa44e2669a"
+    },
+    {
+      "path": "gifs/6h/prob_gt_2yr6h_ari_percent.gif",
+      "sha256": "4b9cc490ccb3431e817e83850b287432c834ccdebf30a3d3cb88a5369303dc2d"
+    },
+    {
+      "path": "gifs/6h/prob_gt_5yr6h_ari_percent.gif",
+      "sha256": "524b75add19954d1916948f392fc3b27b7cfb902b9f9dff8448cbdb13bf212bb"
+    },
+    {
+      "path": "maps/12h/f00_f12/expected_precip_mm.png",
+      "sha256": "cd592b59a11d9270e31506f0d6d431c4b2a0ca3df335b0dac129e7d0eb8db716"
+    },
+    {
+      "path": "maps/12h/f00_f12/prob_gt_0p5inch_percent.png",
+      "sha256": "4ca30a1495c8de5dddd8d6b09f34b13444fc9bcfb549b2d2959463e03d4f8594"
+    },
+    {
+      "path": "maps/12h/f00_f12/prob_gt_1inch_percent.png",
+      "sha256": "5b7ce5cb6e26460fe7b11aa5d1eed32056314a569cca790962c7d23d0fc2db1d"
+    },
+    {
+      "path": "maps/12h/f00_f12/prob_gt_2inch_percent.png",
+      "sha256": "4bb2c20b60a5ebd50db237d9f18e5c6c2fe8c7a20f6996dda5d137bf3a48e25f"
+    },
+    {
+      "path": "maps/12h/f00_f12/prob_gt_2yr12h_ari_percent.png",
+      "sha256": "8985f1cf81ae48b1b8102cadb7dcc522fd0ff744c9895c3f21d839d006ce71a9"
+    },
+    {
+      "path": "maps/12h/f00_f12/prob_gt_3inch_percent.png",
+      "sha256": "d1a21c6ad606e9789ed2f2f721e779c0ef8b26c5dea64dba6bfa445a43dc8c0b"
+    },
+    {
+      "path": "maps/12h/f00_f12/prob_gt_5yr12h_ari_percent.png",
+      "sha256": "6b286709cac2ee159401ae290e5ee8a686e5e283969a57f38899cb341816866e"
+    },
+    {
+      "path": "maps/12h/f06_f18/expected_precip_mm.png",
+      "sha256": "094eeba6445e0dde9878837756cd7b68d6f51a739118faeb68f1c0dddec803bb"
+    },
+    {
+      "path": "maps/12h/f06_f18/prob_gt_0p5inch_percent.png",
+      "sha256": "1ff7222c913e6557e95ff49fec5b932dcde7561aafefe8dda38476f616d58714"
+    },
+    {
+      "path": "maps/12h/f06_f18/prob_gt_1inch_percent.png",
+      "sha256": "54edbe8f4244e8acdba93fa3708e61930309d5c7171666dfebac5accb74ef5f0"
+    },
+    {
+      "path": "maps/12h/f06_f18/prob_gt_2inch_percent.png",
+      "sha256": "cd8fa7e8719e0189ab0a9cbc599ea95a547880236ec4ec9feccfb63c91d261af"
+    },
+    {
+      "path": "maps/12h/f06_f18/prob_gt_2yr12h_ari_percent.png",
+      "sha256": "56a8a581ec9ff0786a99a847c39f8eb519f3d38f92475ad0ca74df78b494506f"
+    },
+    {
+      "path": "maps/12h/f06_f18/prob_gt_3inch_percent.png",
+      "sha256": "4185704bf8e90e3084e2276256cc6138609e49bedceb3773d335fc4bdbf27369"
+    },
+    {
+      "path": "maps/12h/f06_f18/prob_gt_5yr12h_ari_percent.png",
+      "sha256": "0f33dada61bd2cff5761844b661a4d375bcbdf4abcc90fea5ee5891e65e7af11"
+    },
+    {
+      "path": "maps/12h/f12_f24/expected_precip_mm.png",
+      "sha256": "7969ccc019c667c7b5836cecdf4bbcc86910d882f3a9ad0432f820ad8c0cddec"
+    },
+    {
+      "path": "maps/12h/f12_f24/prob_gt_0p5inch_percent.png",
+      "sha256": "f0147749bbeea2fed18d381615f563e57db1685c30bf2f5dbe5ce0844d9e8e41"
+    },
+    {
+      "path": "maps/12h/f12_f24/prob_gt_1inch_percent.png",
+      "sha256": "30204fcd26cd2ffc7ee1e3e10b8335289fd6c274d7458b3be1e307a053dd3c93"
+    },
+    {
+      "path": "maps/12h/f12_f24/prob_gt_2inch_percent.png",
+      "sha256": "127b88e5e78147eebd166944a2305c2c1f12f26121d8c14a45018c1d89298932"
+    },
+    {
+      "path": "maps/12h/f12_f24/prob_gt_2yr12h_ari_percent.png",
+      "sha256": "bfa32633d8e219b2ff6a1352fe04c3b967c839a858ec3d7e8f28596ba345772f"
+    },
+    {
+      "path": "maps/12h/f12_f24/prob_gt_3inch_percent.png",
+      "sha256": "d6f999f439d75e740982ce2c474029e7f3e2435e9b472685b15deaa4578603b0"
+    },
+    {
+      "path": "maps/12h/f12_f24/prob_gt_5yr12h_ari_percent.png",
+      "sha256": "c67b71c8d3a9cd5f1eb8ed6b4f3d27664b368baa86be2d0eaec84fe23f36a0b7"
+    },
+    {
+      "path": "maps/12h/f18_f30/expected_precip_mm.png",
+      "sha256": "3d253c08d4bba6294117c41adc12d36e181a87a9d2c0c030d3d5d018baa5b037"
+    },
+    {
+      "path": "maps/12h/f18_f30/prob_gt_0p5inch_percent.png",
+      "sha256": "7af841fbd85465d52ed74229d4c00f289843137d6ebf305833a8b1cbc0b8fa62"
+    },
+    {
+      "path": "maps/12h/f18_f30/prob_gt_1inch_percent.png",
+      "sha256": "1cbc37ab1fa26d6d467fc1bc3c5f1c9354ca876817471e58fe86af785dda87d1"
+    },
+    {
+      "path": "maps/12h/f18_f30/prob_gt_2inch_percent.png",
+      "sha256": "de7230fcfa35243563c1f98043e34c284d7fbfa36d1ee73b366a02b5022e74c6"
+    },
+    {
+      "path": "maps/12h/f18_f30/prob_gt_2yr12h_ari_percent.png",
+      "sha256": "3ff39322f7d6d481e509ac2f11443359f5b592ccd50920101ab64362e7fd9e4f"
+    },
+    {
+      "path": "maps/12h/f18_f30/prob_gt_3inch_percent.png",
+      "sha256": "4057841c735726daccc7be5f3713a4a3691429ff546a7863b0afc6368627910b"
+    },
+    {
+      "path": "maps/12h/f18_f30/prob_gt_5yr12h_ari_percent.png",
+      "sha256": "ecfeac6941cca19e0cad32248ccffccc912c9f1e0b9ac8952e78a988aad3506a"
+    },
+    {
+      "path": "maps/12h/f24_f36/expected_precip_mm.png",
+      "sha256": "6619ddfcf81fa9e470597445a290922be788d84ab414c140965d5e6dca440d2e"
+    },
+    {
+      "path": "maps/12h/f24_f36/prob_gt_0p5inch_percent.png",
+      "sha256": "6084b87201c6fd5417bd2c9f8774708ae9d4d4074862afe8cab41d063d0df725"
+    },
+    {
+      "path": "maps/12h/f24_f36/prob_gt_1inch_percent.png",
+      "sha256": "6c733770809afb8a88f62c02ac0c726a1a41c4a04197fa9ecc827c5a42107c4c"
+    },
+    {
+      "path": "maps/12h/f24_f36/prob_gt_2inch_percent.png",
+      "sha256": "34e0466b8a97fe6764273da9f3f32f04ec40c1d4f2dfab47d2bfd7c9806152b7"
+    },
+    {
+      "path": "maps/12h/f24_f36/prob_gt_2yr12h_ari_percent.png",
+      "sha256": "8ef87a041bfcab2ca6cc97834e36d2ca816ec0ee35d59d3f08ca220670f550a1"
+    },
+    {
+      "path": "maps/12h/f24_f36/prob_gt_3inch_percent.png",
+      "sha256": "713fb6fe4704ae471ebc0c111990fb9b15d7250bf5c98905b62a85163c0b165f"
+    },
+    {
+      "path": "maps/12h/f24_f36/prob_gt_5yr12h_ari_percent.png",
+      "sha256": "57602c02f94e83d40cfe8285ff8401f969307f9ab03908b1e3a485bde6aac498"
+    },
+    {
+      "path": "maps/12h/f30_f42/expected_precip_mm.png",
+      "sha256": "05a22f2acf8255f1d6f960b9fb354365ab8808fd27a990ac7d50cf617eb1f705"
+    },
+    {
+      "path": "maps/12h/f30_f42/prob_gt_0p5inch_percent.png",
+      "sha256": "80d93b6e1106d61b3d99db58585e255160cce0a33f58123ef18bc100ec680544"
+    },
+    {
+      "path": "maps/12h/f30_f42/prob_gt_1inch_percent.png",
+      "sha256": "91f7d542b7a75b68b38798f522c142dccc1b67a910eb7eae6a234a073ae1477d"
+    },
+    {
+      "path": "maps/12h/f30_f42/prob_gt_2inch_percent.png",
+      "sha256": "50be50e85a74e2ccdeaef9f7a3986960d9deffcc872952a484c07c18f287314a"
+    },
+    {
+      "path": "maps/12h/f30_f42/prob_gt_2yr12h_ari_percent.png",
+      "sha256": "810366aa0a56d69f1a15b0ab835bd4854e7de9048fbdddc18f89f0b4fc08ad9a"
+    },
+    {
+      "path": "maps/12h/f30_f42/prob_gt_3inch_percent.png",
+      "sha256": "5004225b09e38e0c04da90b07fd1a5fa09382f23a916df4312d4fe16db4e62cc"
+    },
+    {
+      "path": "maps/12h/f30_f42/prob_gt_5yr12h_ari_percent.png",
+      "sha256": "0090d818d9252efb767e5181b9cb467afda0218ab794372c74adab440147a6a6"
+    },
+    {
+      "path": "maps/12h/f36_f48/expected_precip_mm.png",
+      "sha256": "4230698ae1545f2a75ec1728e4e903b122ebd454178edc1be5b532f53fe84473"
+    },
+    {
+      "path": "maps/12h/f36_f48/prob_gt_0p5inch_percent.png",
+      "sha256": "3276fdf980490e425089de9d7f06a98972c04652d4e3e20f0bd127781fc4fd48"
+    },
+    {
+      "path": "maps/12h/f36_f48/prob_gt_1inch_percent.png",
+      "sha256": "5eac28e3891744e5c7f66a5c02d87afea8acd6e247bb8a044fd867ada753635e"
+    },
+    {
+      "path": "maps/12h/f36_f48/prob_gt_2inch_percent.png",
+      "sha256": "85d887715022304a1edc4b4827ca201ea3a77cd699aecf464908d94f803effd6"
+    },
+    {
+      "path": "maps/12h/f36_f48/prob_gt_2yr12h_ari_percent.png",
+      "sha256": "84fda0a2a5a6b35c41638b6cc43d3005d20ac62ed1ca422e20a7cd9bbb939ebb"
+    },
+    {
+      "path": "maps/12h/f36_f48/prob_gt_3inch_percent.png",
+      "sha256": "c6d5abc038506dfb2b781a8eda888a43d0d8cb64d9c56ffea45c45120f597f69"
+    },
+    {
+      "path": "maps/12h/f36_f48/prob_gt_5yr12h_ari_percent.png",
+      "sha256": "070bf487afffe9a8d4234df84c527f4e34315fa64e618856e032ac6dae5b5983"
+    },
+    {
+      "path": "maps/24h/f00_f24/expected_precip_mm.png",
+      "sha256": "4ee3693c4737e03e216b9403fa99c23f45bcc7bbd9530bbc57dea885ea6bc896"
+    },
+    {
+      "path": "maps/24h/f00_f24/prob_gt_0p5inch_percent.png",
+      "sha256": "da99f8f29ee8615bf56bc17dc88ea370d5f6c75c3a9a244ab55bd284d09c99db"
+    },
+    {
+      "path": "maps/24h/f00_f24/prob_gt_1inch_percent.png",
+      "sha256": "a424cdc4cd5d19e3f206e6c7244bcfe21ac449fd88a278a5bb9a8f1e27a4c576"
+    },
+    {
+      "path": "maps/24h/f00_f24/prob_gt_2inch_percent.png",
+      "sha256": "9880cf026c5dddfe19843ca2f6d7184668c05fae9a8efd5e0640f02f8f890d3c"
+    },
+    {
+      "path": "maps/24h/f00_f24/prob_gt_2yr24h_ari_percent.png",
+      "sha256": "f5873ec6bfdd1f0759f569e314eec600eb41aa5a6196436a86610a0ccd8f8268"
+    },
+    {
+      "path": "maps/24h/f00_f24/prob_gt_3inch_percent.png",
+      "sha256": "78b13a83d4978dccd8326b4fb8de8c1724dbed9fed461b6543240825da9db3d4"
+    },
+    {
+      "path": "maps/24h/f00_f24/prob_gt_5inch_percent.png",
+      "sha256": "723c83c96cceb3d63282a23a703eb4ad8be5d85038029aa86e73d4dc25fa9619"
+    },
+    {
+      "path": "maps/24h/f00_f24/prob_gt_5yr24h_ari_percent.png",
+      "sha256": "e2eb9ad28a9d7bd146e301ee2c558c26129470a697fc5aaea61dffd6f577451b"
+    },
+    {
+      "path": "maps/24h/f06_f30/expected_precip_mm.png",
+      "sha256": "75331641cafe0c0129cbf6932e61d258e8dff093072a8e1d9408844568efa7ad"
+    },
+    {
+      "path": "maps/24h/f06_f30/prob_gt_0p5inch_percent.png",
+      "sha256": "e4fc17414ee32041b7099634ded90e7181fe7741ca3f7c632fdefcbb37c7ff35"
+    },
+    {
+      "path": "maps/24h/f06_f30/prob_gt_1inch_percent.png",
+      "sha256": "1a6a18b43b8600ddb896366b2e8a2019149254f5f483a0cdf0d71f5bda47dd5a"
+    },
+    {
+      "path": "maps/24h/f06_f30/prob_gt_2inch_percent.png",
+      "sha256": "b8d5696d08b3b8585e306decde4708e2d1ba21093ffb772618c57086b117ad69"
+    },
+    {
+      "path": "maps/24h/f06_f30/prob_gt_2yr24h_ari_percent.png",
+      "sha256": "ce919db741926842e5d6784bbf97d4e53e87cd3989db334d7d724e58145ba573"
+    },
+    {
+      "path": "maps/24h/f06_f30/prob_gt_3inch_percent.png",
+      "sha256": "b71aa7e25592a1d8b0c3685bcb85e4cb9babed0f11fc195f488d6f5a33a9e508"
+    },
+    {
+      "path": "maps/24h/f06_f30/prob_gt_5inch_percent.png",
+      "sha256": "7b212bd3e2875350168a7607c601021f8340595ee9ed2b5ad15dc0db71d58307"
+    },
+    {
+      "path": "maps/24h/f06_f30/prob_gt_5yr24h_ari_percent.png",
+      "sha256": "8b4797025872d8bda2ffbef82291ffb172ca4a91190fac903b85363faa668041"
+    },
+    {
+      "path": "maps/24h/f12_f36/expected_precip_mm.png",
+      "sha256": "1dc2a5be0289389106387264b7644dfad3d1f7096cb08d9134dade106181e3c4"
+    },
+    {
+      "path": "maps/24h/f12_f36/prob_gt_0p5inch_percent.png",
+      "sha256": "bc119e6748efdcb7ba2c321d218b20f78a042e6d77c9647948a21aa8dd43cc00"
+    },
+    {
+      "path": "maps/24h/f12_f36/prob_gt_1inch_percent.png",
+      "sha256": "9073ee3d58ef92178cb33938a9d20ab1bd488f8968b2810bbc383e6f08ab2bb4"
+    },
+    {
+      "path": "maps/24h/f12_f36/prob_gt_2inch_percent.png",
+      "sha256": "8cfdb10692d8d0eea428a3f6dc6af6f68bf04f3c1f3273dd2d8f2ea65e6e4980"
+    },
+    {
+      "path": "maps/24h/f12_f36/prob_gt_2yr24h_ari_percent.png",
+      "sha256": "f9f03fd04c9fe6ef2c8e79aadc16e85a97702b3e06c806a470f720a03eac2bae"
+    },
+    {
+      "path": "maps/24h/f12_f36/prob_gt_3inch_percent.png",
+      "sha256": "f96aa4ef7c068e885103b58f17156d995c16f2f0ed685fe7d4b07bd0e90df97d"
+    },
+    {
+      "path": "maps/24h/f12_f36/prob_gt_5inch_percent.png",
+      "sha256": "8e362eec7303defe718c28ad017c40ecaf76bf8492ab914d06db8133d451ff47"
+    },
+    {
+      "path": "maps/24h/f12_f36/prob_gt_5yr24h_ari_percent.png",
+      "sha256": "b6057ce0d8496dd05472b0688eac6d94e9e322e9d926e5d8859aaaef6ebb89b4"
+    },
+    {
+      "path": "maps/24h/f18_f42/expected_precip_mm.png",
+      "sha256": "950bef6555198298b7a1b8a705d23cb460afe81dc5dac2ad3143364a75e8c224"
+    },
+    {
+      "path": "maps/24h/f18_f42/prob_gt_0p5inch_percent.png",
+      "sha256": "6c49aed2e96ac363821f2731e881610b288fb704c9117d133a87312901ad080c"
+    },
+    {
+      "path": "maps/24h/f18_f42/prob_gt_1inch_percent.png",
+      "sha256": "89c79bd0c6cd4688dea9ce7feb325bfd1dc3ab8f2133d3956ee38b9d5eec4a92"
+    },
+    {
+      "path": "maps/24h/f18_f42/prob_gt_2inch_percent.png",
+      "sha256": "a4b020edc634c32a75b4286b8ef2633ab94d17efbd91540588efb393d7d1e805"
+    },
+    {
+      "path": "maps/24h/f18_f42/prob_gt_2yr24h_ari_percent.png",
+      "sha256": "e33a62c10f3620a93e8213fbbc6dd7dcdaf17276c62395ba3bf0294de89d5990"
+    },
+    {
+      "path": "maps/24h/f18_f42/prob_gt_3inch_percent.png",
+      "sha256": "6f7b07cebdb697321b391676c440d99b06125b3a198ab5be8265cde3605d9c36"
+    },
+    {
+      "path": "maps/24h/f18_f42/prob_gt_5inch_percent.png",
+      "sha256": "725d1ce488d53df7148e0dc6a3712af0aaf4c8fe4ffab5dfa68230f47ffe1fd1"
+    },
+    {
+      "path": "maps/24h/f18_f42/prob_gt_5yr24h_ari_percent.png",
+      "sha256": "788097d62469f52cafb32f9719e2cafccab5c4cc5048987385f8bd9fdf587265"
+    },
+    {
+      "path": "maps/24h/f24_f48/expected_precip_mm.png",
+      "sha256": "216b849bb2a25e25e75a2ed6c1e82c2dba70369b106e2da30e0eb0ccf87f0488"
+    },
+    {
+      "path": "maps/24h/f24_f48/prob_gt_0p5inch_percent.png",
+      "sha256": "42a6b382d4be409d1ccb778541a4d6af0600ac20b9e89755691810822ca99265"
+    },
+    {
+      "path": "maps/24h/f24_f48/prob_gt_1inch_percent.png",
+      "sha256": "8450b209bd2a32243d5c9c824d3cdb558da11ed28f03e0a6a5e07fc23c990820"
+    },
+    {
+      "path": "maps/24h/f24_f48/prob_gt_2inch_percent.png",
+      "sha256": "d948a239d5893b5182b987e33939ceed4cc655b42bab51361ad8337901c557d3"
+    },
+    {
+      "path": "maps/24h/f24_f48/prob_gt_2yr24h_ari_percent.png",
+      "sha256": "c2576cec629a8576d69a9eacb079efb542de75be9b6b31e9edb289577b840566"
+    },
+    {
+      "path": "maps/24h/f24_f48/prob_gt_3inch_percent.png",
+      "sha256": "64ddda98055ca7cd87ee197ff3c65fe01cd5e594f8e083ed117de0d721a53fe0"
+    },
+    {
+      "path": "maps/24h/f24_f48/prob_gt_5inch_percent.png",
+      "sha256": "fc5165082c5f9f0b31777dd2a2ea10b029790806571370865b3bde2165c9af4b"
+    },
+    {
+      "path": "maps/24h/f24_f48/prob_gt_5yr24h_ari_percent.png",
+      "sha256": "784631c79837d71f13af8fac7a2ac5aeec8b55ec9244bd68a2310a5d42f35011"
+    },
+    {
+      "path": "maps/6h/f00_f06/expected_precip_mm.png",
+      "sha256": "17bf3671abfa9286d5f3562d575df35a2e4631a8b7413e97b583c605156aac0e"
+    },
+    {
+      "path": "maps/6h/f00_f06/prob_gt_0p25inch_percent.png",
+      "sha256": "922ba3b0a032b05120f61618ea2f283be1b95fc33a31bd9fe54bd8263e5bd111"
+    },
+    {
+      "path": "maps/6h/f00_f06/prob_gt_0p5inch_percent.png",
+      "sha256": "415884046325322ecedac493b65719cf53e373303388a243be6adff97ecc7e5c"
+    },
+    {
+      "path": "maps/6h/f00_f06/prob_gt_1inch_percent.png",
+      "sha256": "eea59dc517bd43caed0b36e30266d9240fcdf2c76db286a90a62253ecceea147"
+    },
+    {
+      "path": "maps/6h/f00_f06/prob_gt_2inch_percent.png",
+      "sha256": "baac9da5de878cf2ce3d6fb6fdda67d85bdd2a6efd9b5811c0046d5729aac0c4"
+    },
+    {
+      "path": "maps/6h/f00_f06/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "83c2fbb4a2617dacb35a63e2e6c9da9bf33a82a35f2f4f4a61ef7792316067c7"
+    },
+    {
+      "path": "maps/6h/f00_f06/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "3dcaaa6b7d9091733d882cbf04c4ad7d19add2e257042fc40f60324c945abf2d"
+    },
+    {
+      "path": "maps/6h/f06_f12/expected_precip_mm.png",
+      "sha256": "de05b34fd355ed4ec33292da1cadc585660e23424ef8dcb3191c9004e405d760"
+    },
+    {
+      "path": "maps/6h/f06_f12/prob_gt_0p25inch_percent.png",
+      "sha256": "39db865cf3225662b4324667dee20918cc140a96536a85945d8e25b7e52a2afa"
+    },
+    {
+      "path": "maps/6h/f06_f12/prob_gt_0p5inch_percent.png",
+      "sha256": "543c46f4c776192d19e909cfd0311d797c9c7bb8e5d56bda3ebc406c54fe7c1a"
+    },
+    {
+      "path": "maps/6h/f06_f12/prob_gt_1inch_percent.png",
+      "sha256": "0a2c132a4d0329defa0bb150027af0aa00781f5d538da096650f931aa7b6b3d8"
+    },
+    {
+      "path": "maps/6h/f06_f12/prob_gt_2inch_percent.png",
+      "sha256": "d636c281edfb5b2cb3faf7e63601d3ddb73645c756b7b0e1eb6fd6ab52d5d011"
+    },
+    {
+      "path": "maps/6h/f06_f12/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "bfc6250bb1a36220abbf33315f94d4ee29a87977bfacc728413ffbb82ea699a8"
+    },
+    {
+      "path": "maps/6h/f06_f12/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "00b132746b0cfe6974eabe9da29acc452b84d943f20ae51f40cda8acef00a410"
+    },
+    {
+      "path": "maps/6h/f12_f18/expected_precip_mm.png",
+      "sha256": "7fd7e1805f328282e7108c1e9a84269ae44d52870086077ddbf2443e40afa945"
+    },
+    {
+      "path": "maps/6h/f12_f18/prob_gt_0p25inch_percent.png",
+      "sha256": "2ba95620c417640ae7e6eafb0730d98904e35ee460baf78af5b12e445fc4ae21"
+    },
+    {
+      "path": "maps/6h/f12_f18/prob_gt_0p5inch_percent.png",
+      "sha256": "38b82e616f16b90ce92ec5b9da35c4f067c81ab19df7e80160dc94a883f35349"
+    },
+    {
+      "path": "maps/6h/f12_f18/prob_gt_1inch_percent.png",
+      "sha256": "c6a83ddcd7c780f5f0f71098aa7d30e129f7cacde2ab7dcd3ec1190f83f786da"
+    },
+    {
+      "path": "maps/6h/f12_f18/prob_gt_2inch_percent.png",
+      "sha256": "88c2f3fc7fe69b8910f8c70c324b0d5204d1e2ebc17dee665b20f1519c5c900c"
+    },
+    {
+      "path": "maps/6h/f12_f18/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "0bf4e94ae3f3da4b0ce063bedac55279a5a22ac0372c2549238dcd53dc195800"
+    },
+    {
+      "path": "maps/6h/f12_f18/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "c2f0d3071eb042f407a272451d30de12708cbde9f443338dcf53b1373a15d4f1"
+    },
+    {
+      "path": "maps/6h/f18_f24/expected_precip_mm.png",
+      "sha256": "4837754acc0e9f192e12b70cf4ef08870f79fc3b2c53c4422e4530515399af91"
+    },
+    {
+      "path": "maps/6h/f18_f24/prob_gt_0p25inch_percent.png",
+      "sha256": "894884b20dfee48c9318507e7b3762f7520e26ba29da51db070f0e69cc0197ef"
+    },
+    {
+      "path": "maps/6h/f18_f24/prob_gt_0p5inch_percent.png",
+      "sha256": "23fb611d7f1cb575c8f5682d9d6aba8ceaf190d19d09f860e171301388b997d0"
+    },
+    {
+      "path": "maps/6h/f18_f24/prob_gt_1inch_percent.png",
+      "sha256": "15367643e7c77c81bba1b481797202e44b5fa43b9d4ea527a17dd046dd5417ef"
+    },
+    {
+      "path": "maps/6h/f18_f24/prob_gt_2inch_percent.png",
+      "sha256": "7f98e3a46eb131d7b296c26c08d09a19445afbebcd4f143724d102396f0f9b61"
+    },
+    {
+      "path": "maps/6h/f18_f24/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "42a14ad050e582f6e7b192a7118885d5b3460bd5d0a1a0e44a1cadcab1c94ea7"
+    },
+    {
+      "path": "maps/6h/f18_f24/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "13825eb38296b39a804faa03a2192c92b9a2b31545f4b699f38182b001fae9fa"
+    },
+    {
+      "path": "maps/6h/f24_f30/expected_precip_mm.png",
+      "sha256": "e81bb78ac3676168f44b1f11e7770bd4a4f8a13cb71279beba207aba2094a186"
+    },
+    {
+      "path": "maps/6h/f24_f30/prob_gt_0p25inch_percent.png",
+      "sha256": "86ed649f6d24ba9ae3592a03bf4aa9118d990ff99d1b607cd6d801b2635aa9ac"
+    },
+    {
+      "path": "maps/6h/f24_f30/prob_gt_0p5inch_percent.png",
+      "sha256": "d67d18475d4bf67c116fa0bd82a30ef712da6aea967d6756d4d515ea8675684a"
+    },
+    {
+      "path": "maps/6h/f24_f30/prob_gt_1inch_percent.png",
+      "sha256": "aff4085fa72424d1d66cbcc9ede93fe132df5654414e9d94f5b6806494aa0df5"
+    },
+    {
+      "path": "maps/6h/f24_f30/prob_gt_2inch_percent.png",
+      "sha256": "113327801ff9bc20b0f1a90a51a93418bbbc468c237a07a32b97faa9b392c316"
+    },
+    {
+      "path": "maps/6h/f24_f30/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "55c6bce85fc8a91f430132a836b88e93177239b01e5cecd1af012d352af53caf"
+    },
+    {
+      "path": "maps/6h/f24_f30/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "35fae38c5c9e53864c917b5e5f2080b93eedaebe29a0ea8653176b2c68819275"
+    },
+    {
+      "path": "maps/6h/f30_f36/expected_precip_mm.png",
+      "sha256": "ac2db0ffcc84413d098b6d578f743f0a5d49396484fb79f52685344fd6573019"
+    },
+    {
+      "path": "maps/6h/f30_f36/prob_gt_0p25inch_percent.png",
+      "sha256": "fa86bf22ceeb6b4546dba5f697644c1dc7e76fec592609fe2259b197cbeb2c0a"
+    },
+    {
+      "path": "maps/6h/f30_f36/prob_gt_0p5inch_percent.png",
+      "sha256": "74d1eb88fdfa7859c0ac8186cc08b7d7dc6fd03eb8b7a8fdcad3239c08500498"
+    },
+    {
+      "path": "maps/6h/f30_f36/prob_gt_1inch_percent.png",
+      "sha256": "dc1084b0e20a080b31a6ca4caab02f4c7a5da8c8d456c308631de363a73e8b38"
+    },
+    {
+      "path": "maps/6h/f30_f36/prob_gt_2inch_percent.png",
+      "sha256": "f013c7c11a135c41ed109b5c850e4a166514dc9941f77df6766b442db6a20288"
+    },
+    {
+      "path": "maps/6h/f30_f36/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "6a062858700d43fda14cbb53c12352f8357fe455ea0cc1bc5e6bbd499feb8783"
+    },
+    {
+      "path": "maps/6h/f30_f36/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "24cf5c7d1debe87b6fe5b79a41e9cac398e41b9d25ff1efa350e72630d88dab7"
+    },
+    {
+      "path": "maps/6h/f36_f42/expected_precip_mm.png",
+      "sha256": "629f557b23378778c1ed1feb6f469dfe43c81768512c1d9057dc6df7a9314755"
+    },
+    {
+      "path": "maps/6h/f36_f42/prob_gt_0p25inch_percent.png",
+      "sha256": "5d7915887a47db8433253bf2e41da744457baf303cec6f4b4a09681beb35ed1f"
+    },
+    {
+      "path": "maps/6h/f36_f42/prob_gt_0p5inch_percent.png",
+      "sha256": "de8b1d109051997303198a7303baef15199f2137bbe5136ecda8d08b837660dd"
+    },
+    {
+      "path": "maps/6h/f36_f42/prob_gt_1inch_percent.png",
+      "sha256": "d823711d14f2a0054f4ba6a930790bdf8b888345bfd3e5410e320f6dabdcfabc"
+    },
+    {
+      "path": "maps/6h/f36_f42/prob_gt_2inch_percent.png",
+      "sha256": "a7a883bb3ef5308c75717ab9791532e44d13d9b62e10148a97cd04986409f7bc"
+    },
+    {
+      "path": "maps/6h/f36_f42/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "9b7309c924e4bb4062aa0f90af696a8ec3c35b25971d54d0e6df2e4c2cbfcba0"
+    },
+    {
+      "path": "maps/6h/f36_f42/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "a118136d678ff8433f8174166326fc514f40f8304afd2a0cf1ca691f95852dff"
+    },
+    {
+      "path": "maps/6h/f42_f48/expected_precip_mm.png",
+      "sha256": "1b34f871ebc8761ce7a62e840a301871872585ab57f0835a1bc679d4d360e980"
+    },
+    {
+      "path": "maps/6h/f42_f48/prob_gt_0p25inch_percent.png",
+      "sha256": "f3c5e951ca70e130eed07eef5c6fe1a2afa60c58e33621b4960b10d441289858"
+    },
+    {
+      "path": "maps/6h/f42_f48/prob_gt_0p5inch_percent.png",
+      "sha256": "310e6dfab9a5484d53cc9305c6a8cca7cb440b4b6e2a057f04c6bd1a3aa648b4"
+    },
+    {
+      "path": "maps/6h/f42_f48/prob_gt_1inch_percent.png",
+      "sha256": "ccb4f3f84a0d76dd8b795ab74e1bc9528a36500fd118f9626ec3295f27d5e900"
+    },
+    {
+      "path": "maps/6h/f42_f48/prob_gt_2inch_percent.png",
+      "sha256": "059f727dc327c7750d3b6a0d8655723db9669b842fae3922e05a17ea21c6ce4c"
+    },
+    {
+      "path": "maps/6h/f42_f48/prob_gt_2yr6h_ari_percent.png",
+      "sha256": "31d205d46d4f4b5ecb33418020a2444683f19fcddfe20f8b2eeb56724d3b5b75"
+    },
+    {
+      "path": "maps/6h/f42_f48/prob_gt_5yr6h_ari_percent.png",
+      "sha256": "791e8fc7b1878b9d4ed0539df7c00e363c16c546d56fc162770f6f64d8e34572"
+    }
+  ]
+}
