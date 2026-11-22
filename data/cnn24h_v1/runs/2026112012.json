@@ -1,7 +1,7 @@
 {
   "duration_hours": 24,
   "forecast_origin": "CNN retrospective research trial; ANN/GNN stored operational forecasts",
-  "generated_utc": "2026-11-22T00:11:25.194218+00:00",
+  "generated_utc": "2026-11-22T02:31:17.663544+00:00",
   "initialization": "2026112012",
   "labels": [
     "Raw HRRR",
@@ -27,7 +27,7 @@
     76.2,
     127.0
   ],
-  "verified_windows": 2,
+  "verified_windows": 3,
   "version": "cnn24h_operational_comparison_v1",
   "weights_sha256": "a1c167cecd780894324c521ddb78077a8df062122be5591ffa86d28a0cc68b38",
   "windows": [
@@ -4020,9 +4020,1968 @@
         "prob_gt_3inch_percent": "products/cnn24h_corrected_v1/2026112012/maps/24h/f12_f36/prob_gt_3inch_percent.png",
         "prob_gt_5inch_percent": "products/cnn24h_corrected_v1/2026112012/maps/24h/f12_f36/prob_gt_5inch_percent.png"
       },
-      "observation_provenance": [],
-      "reason": "Awaiting MRMS availability",
-      "scores": null,
+      "observation_provenance": [
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261121-060000.npy",
+          "sha256": "a4dd06bc7af0ec836be86a5fa841930b5b37a5a3b4340c2ce7eb9814468f4a9f"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261121-060000.source.txt",
+          "sha256": "1d5bf9e28877ed5f7fabce7a936f04171134c095a5ce00f1b3a0d29acd1a7262"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261121-120000.npy",
+          "sha256": "b60686590a293883f518634b4cce94efc675257a477bffe9ad2d2d1a37a7b691"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261121-120000.source.txt",
+          "sha256": "8ee885ede487a5d007fa88f99e1b24c089aed2220d1c4c4dbe21afe63804a921"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261121-180000.npy",
+          "sha256": "d04f973029bcb45617194eecb2b64140338a0209fb4155d397ea90c99e9c3923"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261121-180000.source.txt",
+          "sha256": "b4745c5bc3136eb17793a19675bf7449af9ddcb652b35870016204a9ebde6d0a"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261122-000000.npy",
+          "sha256": "19263eef88988c9e34ea0ade48ea8842ac994b37c38160e17a5bd0b49bf5fcd5"
+        },
+        {
+          "file": "MRMS_MultiSensor_QPE_06H_Pass2_ann025_20261122-000000.source.txt",
+          "sha256": "bc017c7aa20a8f07aed295e6fd002c9d50bea3d1a6e18bdf404231ac719a9e59"
+        }
+      ],
+      "reason": null,
+      "scores": {
+        "excluded_land_cells": 0,
+        "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+        "models": {
+          "ann_operational": {
+            "bias": -0.07595671018181929,
+            "crps": 0.7201438860349527,
+            "crpss": 0.4437940424057939,
+            "mae": 1.0283923442641232,
+            "rmse": 4.580789294035998
+          },
+          "cnn_csgd_24h_corrected_v1": {
+            "bias": -0.1351869867652952,
+            "crps": 0.6837061802519809,
+            "crpss": 0.471936847518174,
+            "mae": 0.9558673886714283,
+            "rmse": 4.367435177848622
+          },
+          "gnn_operational": {
+            "bias": -0.08205497525496717,
+            "crps": 0.690828219470898,
+            "crpss": 0.46643611256700757,
+            "mae": 0.9848136988015045,
+            "rmse": 4.312319976330329
+          },
+          "raw_hrrr": {
+            "bias": 0.18158056946936504,
+            "crps": 1.2947432083428916,
+            "crpss": 0.0,
+            "mae": 1.2947432083428916,
+            "rmse": 6.7606150832726
+          }
+        },
+        "n_samples": 13318,
+        "thresholds": [
+          {
+            "climatology_brier": 0.01868276443391554,
+            "climatology_note": null,
+            "event_rate": 0.01772037843520048,
+            "label": "0p5inch",
+            "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+            "models": {
+              "ann_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.005723567174568799,
+                    "events": 74,
+                    "lower": 0.0,
+                    "mean_probability": 0.003044960815739824,
+                    "n": 12929,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.15079365079365079,
+                    "events": 19,
+                    "lower": 0.1,
+                    "mean_probability": 0.13365757540714213,
+                    "n": 126,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.3,
+                    "events": 21,
+                    "lower": 0.2,
+                    "mean_probability": 0.24549181742108983,
+                    "n": 70,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.4,
+                    "events": 20,
+                    "lower": 0.3,
+                    "mean_probability": 0.3499882983583315,
+                    "n": 50,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.36363636363636365,
+                    "events": 12,
+                    "lower": 0.4,
+                    "mean_probability": 0.4395714319273475,
+                    "n": 33,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.47619047619047616,
+                    "events": 10,
+                    "lower": 0.5,
+                    "mean_probability": 0.555734663900454,
+                    "n": 21,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.8076923076923077,
+                    "events": 21,
+                    "lower": 0.6,
+                    "mean_probability": 0.6386016413952279,
+                    "n": 26,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.8125,
+                    "events": 13,
+                    "lower": 0.7,
+                    "mean_probability": 0.7618306675035528,
+                    "n": 16,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.9166666666666666,
+                    "events": 11,
+                    "lower": 0.8,
+                    "mean_probability": 0.8428929198637424,
+                    "n": 12,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 1.0,
+                    "events": 35,
+                    "lower": 0.9,
+                    "mean_probability": 0.9647990001294529,
+                    "n": 35,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.010177967577182914,
+                "bss_monthly": 0.4552215431937654,
+                "bss_raw": 0.35758212230842623,
+                "ece": 0.0041002910925732475,
+                "reliability_penalty": 0.007243175738994484,
+                "resolution": 0.41040614088153,
+                "roc_auc": 0.9651238342761046
+              },
+              "cnn_csgd_24h_corrected_v1": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0049382716049382715,
+                    "events": 64,
+                    "lower": 0.0,
+                    "mean_probability": 0.002494632896636425,
+                    "n": 12960,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.25925925925925924,
+                    "events": 28,
+                    "lower": 0.1,
+                    "mean_probability": 0.14733604241037593,
+                    "n": 108,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.39655172413793105,
+                    "events": 23,
+                    "lower": 0.2,
+                    "mean_probability": 0.2511786320594087,
+                    "n": 58,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.2982456140350877,
+                    "events": 17,
+                    "lower": 0.3,
+                    "mean_probability": 0.34716819030711465,
+                    "n": 57,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.4166666666666667,
+                    "events": 15,
+                    "lower": 0.4,
+                    "mean_probability": 0.4415886870789646,
+                    "n": 36,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.7142857142857143,
+                    "events": 15,
+                    "lower": 0.5,
+                    "mean_probability": 0.5461920498157502,
+                    "n": 21,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.8235294117647058,
+                    "events": 14,
+                    "lower": 0.6,
+                    "mean_probability": 0.6472410202398362,
+                    "n": 17,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 1.0,
+                    "events": 16,
+                    "lower": 0.7,
+                    "mean_probability": 0.7529489769588741,
+                    "n": 16,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.9166666666666666,
+                    "events": 11,
+                    "lower": 0.8,
+                    "mean_probability": 0.8473526183237511,
+                    "n": 12,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 1.0,
+                    "events": 33,
+                    "lower": 0.9,
+                    "mean_probability": 0.9680344165197337,
+                    "n": 33,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.00966531254347622,
+                "bss_monthly": 0.4826615419969431,
+                "bss_raw": 0.3899401305496858,
+                "ece": 0.005123967774109304,
+                "reliability_penalty": 0.021587653260611295,
+                "resolution": 0.453636902488341,
+                "roc_auc": 0.9745322204918649
+              },
+              "gnn_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.004792455747082013,
+                    "events": 62,
+                    "lower": 0.0,
+                    "mean_probability": 0.0032444754028787505,
+                    "n": 12937,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.2033898305084746,
+                    "events": 24,
+                    "lower": 0.1,
+                    "mean_probability": 0.1440623608751017,
+                    "n": 118,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.36764705882352944,
+                    "events": 25,
+                    "lower": 0.2,
+                    "mean_probability": 0.24835406239442256,
+                    "n": 68,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.3157894736842105,
+                    "events": 18,
+                    "lower": 0.3,
+                    "mean_probability": 0.3546599418013722,
+                    "n": 57,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.45454545454545453,
+                    "events": 10,
+                    "lower": 0.4,
+                    "mean_probability": 0.4443861781825808,
+                    "n": 22,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.6153846153846154,
+                    "events": 16,
+                    "lower": 0.5,
+                    "mean_probability": 0.5491907092270765,
+                    "n": 26,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.7619047619047619,
+                    "events": 16,
+                    "lower": 0.6,
+                    "mean_probability": 0.6518794297744863,
+                    "n": 21,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.8947368421052632,
+                    "events": 17,
+                    "lower": 0.7,
+                    "mean_probability": 0.7451999278333076,
+                    "n": 19,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.8666666666666667,
+                    "events": 13,
+                    "lower": 0.8,
+                    "mean_probability": 0.8584898212201809,
+                    "n": 15,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 1.0,
+                    "events": 35,
+                    "lower": 0.9,
+                    "mean_probability": 0.971368643813352,
+                    "n": 35,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.009576302709685304,
+                "bss_monthly": 0.48742581733241397,
+                "bss_raw": 0.3955582962673513,
+                "ece": 0.0034220928595708995,
+                "reliability_penalty": 0.010029925803864779,
+                "resolution": 0.44833079231783846,
+                "roc_auc": 0.9723643432948365
+              },
+              "raw_hrrr": {
+                "bins": [
+                  {
+                    "event_frequency": 0.010571146094760057,
+                    "events": 139,
+                    "lower": 0.0,
+                    "mean_probability": 0.0,
+                    "n": 13149,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.5739644970414202,
+                    "events": 97,
+                    "lower": 0.9,
+                    "mean_probability": 1.0,
+                    "n": 169,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.015843219702658055,
+                "bss_monthly": 0.15198739679566642,
+                "bss_raw": 0.0,
+                "ece": 0.015843219702658055,
+                "reliability_penalty": 0.13866027146819745,
+                "resolution": 0.22846344259996348,
+                "roc_auc": 0.7027566017739474
+              }
+            },
+            "n_events": 236,
+            "n_samples": 13318,
+            "raw_hrrr_brier": 0.015843219702658055,
+            "status": "VERIFIED",
+            "threshold_mm": 12.7
+          },
+          {
+            "climatology_brier": 0.008108431556340744,
+            "climatology_note": null,
+            "event_rate": 0.007884066676678179,
+            "label": "1inch",
+            "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+            "models": {
+              "ann_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.004110527517698105,
+                    "events": 54,
+                    "lower": 0.0,
+                    "mean_probability": 0.0008691526761341964,
+                    "n": 13137,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.18292682926829268,
+                    "events": 15,
+                    "lower": 0.1,
+                    "mean_probability": 0.14505115851060257,
+                    "n": 82,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.4090909090909091,
+                    "events": 9,
+                    "lower": 0.2,
+                    "mean_probability": 0.24244316208095043,
+                    "n": 22,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.16666666666666666,
+                    "events": 3,
+                    "lower": 0.3,
+                    "mean_probability": 0.3442552412600605,
+                    "n": 18,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.25,
+                    "events": 2,
+                    "lower": 0.4,
+                    "mean_probability": 0.4292315259990122,
+                    "n": 8,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.14285714285714285,
+                    "events": 2,
+                    "lower": 0.5,
+                    "mean_probability": 0.5557136366336862,
+                    "n": 14,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.4,
+                    "events": 2,
+                    "lower": 0.6,
+                    "mean_probability": 0.6680478312440952,
+                    "n": 5,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.2857142857142857,
+                    "events": 2,
+                    "lower": 0.7,
+                    "mean_probability": 0.7513960126944317,
+                    "n": 7,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.6666666666666666,
+                    "events": 6,
+                    "lower": 0.8,
+                    "mean_probability": 0.8419295692701109,
+                    "n": 9,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.625,
+                    "events": 10,
+                    "lower": 0.9,
+                    "mean_probability": 0.9496823532141296,
+                    "n": 16,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.00682003119348463,
+                "bss_monthly": 0.1588963727329723,
+                "bss_raw": 0.3066475157646694,
+                "ece": 0.0053413972979019465,
+                "reliability_penalty": 0.07600901383230675,
+                "resolution": 0.17976974487302763,
+                "roc_auc": 0.9774673571843026
+              },
+              "cnn_csgd_24h_corrected_v1": {
+                "bins": [
+                  {
+                    "event_frequency": 0.00418346390811592,
+                    "events": 55,
+                    "lower": 0.0,
+                    "mean_probability": 0.0007878223537864938,
+                    "n": 13147,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.15789473684210525,
+                    "events": 12,
+                    "lower": 0.1,
+                    "mean_probability": 0.13777504873946253,
+                    "n": 76,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.2962962962962963,
+                    "events": 8,
+                    "lower": 0.2,
+                    "mean_probability": 0.25360494351144824,
+                    "n": 27,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.375,
+                    "events": 3,
+                    "lower": 0.3,
+                    "mean_probability": 0.35506673671845623,
+                    "n": 8,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.3076923076923077,
+                    "events": 4,
+                    "lower": 0.4,
+                    "mean_probability": 0.4405616710722722,
+                    "n": 13,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.125,
+                    "events": 1,
+                    "lower": 0.5,
+                    "mean_probability": 0.5465521608718865,
+                    "n": 8,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.4444444444444444,
+                    "events": 4,
+                    "lower": 0.6,
+                    "mean_probability": 0.6368279639467598,
+                    "n": 9,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.3333333333333333,
+                    "events": 3,
+                    "lower": 0.7,
+                    "mean_probability": 0.7578184146507974,
+                    "n": 9,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.5,
+                    "events": 3,
+                    "lower": 0.8,
+                    "mean_probability": 0.8746793703051398,
+                    "n": 6,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.8,
+                    "events": 12,
+                    "lower": 0.9,
+                    "mean_probability": 0.9478110122893445,
+                    "n": 15,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.006417291476213649,
+                "bss_monthly": 0.20856562312653837,
+                "bss_raw": 0.3475916955708903,
+                "ece": 0.004700443479987739,
+                "reliability_penalty": 0.048100349738719336,
+                "resolution": 0.19223864836840732,
+                "roc_auc": 0.9882741744241783
+              },
+              "gnn_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0037304910544347166,
+                    "events": 49,
+                    "lower": 0.0,
+                    "mean_probability": 0.000935817499229077,
+                    "n": 13135,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.2073170731707317,
+                    "events": 17,
+                    "lower": 0.1,
+                    "mean_probability": 0.14216117604065587,
+                    "n": 82,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.42857142857142855,
+                    "events": 9,
+                    "lower": 0.2,
+                    "mean_probability": 0.24012364648703816,
+                    "n": 21,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.25,
+                    "events": 6,
+                    "lower": 0.3,
+                    "mean_probability": 0.34888673635849915,
+                    "n": 24,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.16666666666666666,
+                    "events": 1,
+                    "lower": 0.4,
+                    "mean_probability": 0.47399827235018077,
+                    "n": 6,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.2,
+                    "events": 2,
+                    "lower": 0.5,
+                    "mean_probability": 0.545974731810148,
+                    "n": 10,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.2857142857142857,
+                    "events": 2,
+                    "lower": 0.6,
+                    "mean_probability": 0.6661975114278149,
+                    "n": 7,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.375,
+                    "events": 3,
+                    "lower": 0.7,
+                    "mean_probability": 0.7502610178405065,
+                    "n": 8,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.5,
+                    "events": 4,
+                    "lower": 0.8,
+                    "mean_probability": 0.8557673139056263,
+                    "n": 8,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.7058823529411765,
+                    "events": 12,
+                    "lower": 0.9,
+                    "mean_probability": 0.9447691773911624,
+                    "n": 17,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.006528098553914397,
+                "bss_monthly": 0.19489996202663085,
+                "bss_raw": 0.33632659128983255,
+                "ece": 0.004975065926601935,
+                "reliability_penalty": 0.07024420920546182,
+                "resolution": 0.2013031218544549,
+                "roc_auc": 0.9869854003812983
+              },
+              "raw_hrrr": {
+                "bins": [
+                  {
+                    "event_frequency": 0.005817467512843759,
+                    "events": 77,
+                    "lower": 0.0,
+                    "mean_probability": 0.0,
+                    "n": 13236,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.34146341463414637,
+                    "events": 28,
+                    "lower": 0.9,
+                    "mean_probability": 1.0,
+                    "n": 82,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.009836311758522301,
+                "bss_monthly": -0.21309672409214153,
+                "bss_raw": 0.0,
+                "ece": 0.009836311758522301,
+                "reliability_penalty": 0.345667365589162,
+                "resolution": 0.08813383980467134,
+                "roc_auc": 0.6312898912686999
+              }
+            },
+            "n_events": 105,
+            "n_samples": 13318,
+            "raw_hrrr_brier": 0.009836311758522301,
+            "status": "VERIFIED",
+            "threshold_mm": 25.4
+          },
+          {
+            "climatology_brier": 0.0014543901120274041,
+            "climatology_note": null,
+            "event_rate": 0.001426640636732242,
+            "label": "2inch",
+            "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+            "models": {
+              "ann_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0013578756789378395,
+                    "events": 18,
+                    "lower": 0.0,
+                    "mean_probability": 0.0003196059854918184,
+                    "n": 13256,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.133575084168391,
+                    "n": 16,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.2375766884856505,
+                    "n": 11,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.33832544997115205,
+                    "n": 8,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.4384368782306287,
+                    "n": 4,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": 0.5436319727266626,
+                    "n": 6,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.25,
+                    "events": 1,
+                    "lower": 0.6,
+                    "mean_probability": 0.6336986823834283,
+                    "n": 4,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": 0.7528808512913074,
+                    "n": 8,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": 0.8762272736525579,
+                    "n": 5,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.002389264410399187,
+                "bss_monthly": -0.6427947293099912,
+                "bss_raw": 0.41073660337599305,
+                "ece": 0.002866419044416244,
+                "reliability_penalty": 0.7031546057380078,
+                "resolution": 0.013036260697312797,
+                "roc_auc": 0.9819020820718614
+              },
+              "cnn_csgd_24h_corrected_v1": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0013576708402473978,
+                    "events": 18,
+                    "lower": 0.0,
+                    "mean_probability": 0.0002748813981286617,
+                    "n": 13258,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.13904575774385522,
+                    "n": 16,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.2506303928696131,
+                    "n": 14,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.3627053113472161,
+                    "n": 6,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.4432784261508716,
+                    "n": 6,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": 0.5705792028004356,
+                    "n": 3,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.14285714285714285,
+                    "events": 1,
+                    "lower": 0.6,
+                    "mean_probability": 0.6583740351431233,
+                    "n": 7,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": 0.7533835056932437,
+                    "n": 3,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": 0.8821565336193299,
+                    "n": 3,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": 0.9455852156869479,
+                    "n": 2,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.0022615085179010876,
+                "bss_monthly": -0.5549531719165564,
+                "bss_raw": 0.4422449918258021,
+                "ece": 0.0027814408226753094,
+                "reliability_penalty": 0.623796056120451,
+                "resolution": 0.007388912158329657,
+                "roc_auc": 0.9871933386364625
+              },
+              "gnn_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0013576708402473978,
+                    "events": 18,
+                    "lower": 0.0,
+                    "mean_probability": 0.00034932750935468253,
+                    "n": 13258,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.14798626600968884,
+                    "n": 17,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.24259852539343207,
+                    "n": 8,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.3520905770145896,
+                    "n": 9,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.4592315947032072,
+                    "n": 5,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": 0.5585454278116498,
+                    "n": 7,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.3333333333333333,
+                    "events": 1,
+                    "lower": 0.6,
+                    "mean_probability": 0.6761638839766352,
+                    "n": 3,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": 0.7279059016316363,
+                    "n": 5,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": 0.8436899111256215,
+                    "n": 6,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.0023108627979592142,
+                "bss_monthly": -0.5888878636130828,
+                "bss_raw": 0.4300727640144294,
+                "ece": 0.0027729480698647315,
+                "reliability_penalty": 0.657954980634578,
+                "resolution": 0.017428297409939016,
+                "roc_auc": 0.9863147605083089
+              },
+              "raw_hrrr": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0013553196295459679,
+                    "events": 18,
+                    "lower": 0.0,
+                    "mean_probability": 0.0,
+                    "n": 13281,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.02702702702702703,
+                    "events": 1,
+                    "lower": 0.9,
+                    "mean_probability": 1.0,
+                    "n": 37,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.004054662862291635,
+                "bss_monthly": -1.7878784576164914,
+                "bss_raw": 0.0,
+                "ece": 0.004054662862291636,
+                "reliability_penalty": 1.8474473687725603,
+                "resolution": 0.0012816499413063254,
+                "roc_auc": 0.5249623042492313
+              }
+            },
+            "n_events": 19,
+            "n_samples": 13318,
+            "raw_hrrr_brier": 0.004054662862291635,
+            "status": "VERIFIED",
+            "threshold_mm": 50.8
+          },
+          {
+            "climatology_brier": 0.0006070538359263868,
+            "climatology_note": null,
+            "event_rate": 0.0006006907944135756,
+            "label": "3inch",
+            "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+            "models": {
+              "ann_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0006023642797982079,
+                    "events": 8,
+                    "lower": 0.0,
+                    "mean_probability": 0.00015159193582099347,
+                    "n": 13281,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.14087294896064725,
+                    "n": 11,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.2598631135502384,
+                    "n": 7,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.3447773534989781,
+                    "n": 5,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.4717819270115603,
+                    "n": 5,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": 0.5491955137942196,
+                    "n": 4,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": 0.6691704380954232,
+                    "n": 2,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": 0.7329989573639284,
+                    "n": 3,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.0010674589290808026,
+                "bss_monthly": -0.7584254738326799,
+                "bss_raw": 0.5097786890517886,
+                "ece": 0.0014395756074329761,
+                "reliability_penalty": 0.7648155472860695,
+                "resolution": 1.6744912361032074e-06,
+                "roc_auc": 0.9772821187077385
+              },
+              "cnn_csgd_24h_corrected_v1": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0006023189278723084,
+                    "events": 8,
+                    "lower": 0.0,
+                    "mean_probability": 0.00013714749488964473,
+                    "n": 13282,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.1420467676287164,
+                    "n": 14,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.25325351987720685,
+                    "n": 7,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.35523290111861444,
+                    "n": 3,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.4265906375708126,
+                    "n": 4,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": 0.5140038236917737,
+                    "n": 2,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": 0.6370052856183022,
+                    "n": 2,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": 0.7191565935747402,
+                    "n": 2,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": 0.8192122511819024,
+                    "n": 2,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.0010253711879390224,
+                "bss_monthly": -0.6890943228688569,
+                "bss_raw": 0.5291071213457965,
+                "ece": 0.0013583611293430504,
+                "reliability_penalty": 0.6950860457015877,
+                "resolution": 1.629112051345087e-06,
+                "roc_auc": 0.9865232907588279
+              },
+              "gnn_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0006024096385542169,
+                    "events": 8,
+                    "lower": 0.0,
+                    "mean_probability": 0.000141145938293481,
+                    "n": 13280,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.1349969539408418,
+                    "n": 13,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.25332279388054474,
+                    "n": 9,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.3460691766926211,
+                    "n": 4,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.46651790216478756,
+                    "n": 5,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": 0.5669419923747688,
+                    "n": 3,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": 0.6386005940907795,
+                    "n": 2,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": 0.7181561041005842,
+                    "n": 2,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.0009944377417220914,
+                "bss_monthly": -0.638137645905066,
+                "bss_raw": 0.5433130398532823,
+                "ece": 0.001373453452224048,
+                "reliability_penalty": 0.6498815664971165,
+                "resolution": 1.7198772550759012e-06,
+                "roc_auc": 0.9867111194590533
+              },
+              "raw_hrrr": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0006016394675490712,
+                    "events": 8,
+                    "lower": 0.0,
+                    "mean_probability": 0.0,
+                    "n": 13297,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": 1.0,
+                    "n": 21,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.0021775041297492116,
+                "bss_monthly": -2.5870033280100424,
+                "bss_raw": 0.0,
+                "ece": 0.0021775041297492116,
+                "reliability_penalty": 2.6271797621659516,
+                "resolution": 9.492433372299396e-07,
+                "roc_auc": 0.49921111945905333
+              }
+            },
+            "n_events": 8,
+            "n_samples": 13318,
+            "raw_hrrr_brier": 0.0021775041297492116,
+            "status": "VERIFIED",
+            "threshold_mm": 76.2
+          },
+          {
+            "climatology_brier": 7.189984845303639e-07,
+            "climatology_note": null,
+            "event_rate": 0.0,
+            "label": "5inch",
+            "mask_sha256": "ac6f826698a1a804528ce7083d1e8685e64a007755dfbe62eba960143e9ace54",
+            "models": {
+              "ann_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.0,
+                    "mean_probability": 9.239957125737937e-05,
+                    "n": 13304,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.1554825038888996,
+                    "n": 6,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.26303332120690903,
+                    "n": 4,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.36127031632701545,
+                    "n": 2,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.4123435439681784,
+                    "n": 2,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 8.265032890238358e-05,
+                "bss_monthly": -113.95202101346457,
+                "bss_raw": 0.8999329926980051,
+                "ece": 0.0003575266500044749,
+                "reliability_penalty": null,
+                "resolution": null,
+                "roc_auc": null
+              },
+              "cnn_csgd_24h_corrected_v1": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.0,
+                    "mean_probability": 9.297182838283734e-05,
+                    "n": 13307,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.16909576220017017,
+                    "n": 4,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.2534487297242538,
+                    "n": 2,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.3380750288769215,
+                    "n": 3,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": 0.4624486316858204,
+                    "n": 2,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 8.17850274903048e-05,
+                "bss_monthly": -112.74853946142211,
+                "bss_raw": 0.9009806367167382,
+                "ece": 0.00032734486999114057,
+                "reliability_penalty": null,
+                "resolution": null,
+                "roc_auc": null
+              },
+              "gnn_operational": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.0,
+                    "mean_probability": 9.279604391754747e-05,
+                    "n": 13307,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": 0.16702915988092445,
+                    "n": 4,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": 0.24690590138198595,
+                    "n": 5,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": 0.3617188041799337,
+                    "n": 2,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 5.64292812258277e-05,
+                "bss_monthly": -77.48317129998713,
+                "bss_raw": 0.9316795302394933,
+                "ece": 0.0002899024411476422,
+                "reliability_penalty": null,
+                "resolution": null,
+                "roc_auc": null
+              },
+              "raw_hrrr": {
+                "bins": [
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.0,
+                    "mean_probability": 0.0,
+                    "n": 13307,
+                    "upper": 0.1
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.1,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.2
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.2,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.3
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.3,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.4
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.4,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.5
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.5,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.6
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.6,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.7
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.7,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.8
+                  },
+                  {
+                    "event_frequency": null,
+                    "events": 0,
+                    "lower": 0.8,
+                    "mean_probability": null,
+                    "n": 0,
+                    "upper": 0.9
+                  },
+                  {
+                    "event_frequency": 0.0,
+                    "events": 0,
+                    "lower": 0.9,
+                    "mean_probability": 1.0,
+                    "n": 11,
+                    "upper": 1.0
+                  }
+                ],
+                "brier": 0.0008259498423186665,
+                "bss_monthly": -1147.7504634424386,
+                "bss_raw": 0.0,
+                "ece": 0.0008259498423186665,
+                "reliability_penalty": null,
+                "resolution": null,
+                "roc_auc": null
+              }
+            },
+            "n_events": 0,
+            "n_samples": 13318,
+            "raw_hrrr_brier": 0.0008259498423186665,
+            "status": "VERIFIED",
+            "threshold_mm": 127.0
+          }
+        ]
+      },
       "source_forecasts": {
         "ann_operational": {
           "sha256": "77b50fd3b682599253fae2b22c3a253fc56ffff90e0fc077b6ed3c101bb6c291"
@@ -4035,7 +5994,7 @@
         }
       },
       "start_hour": 12,
-      "status": "WAITING",
+      "status": "VERIFIED",
       "valid_end_utc": "2026-11-22T00:00:00Z",
       "valid_start_utc": "2026-11-21T00:00:00Z"
     },
